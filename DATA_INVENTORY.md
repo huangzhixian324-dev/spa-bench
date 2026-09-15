@@ -1,6 +1,6 @@
 # SPATBench Data Inventory
 
-**Date:** 2026-09-14 | **Manuscript:** v34 (NAR) / v35 (Cell Systems submission) | **Status:** Pre-submission
+**Date:** 2026-09-14 | **Manuscript:** v34 (source) / v35 (Cell Systems submission) | **Status:** Pre-submission
 
 ## Scope
 
@@ -103,8 +103,8 @@ clinical and sample JSON; `expression_compact.json` is 60.7 MB),
   policy, git commit, split-file digests)
 - `results/figures/v33/` — every main and supplementary figure at 300 dpi
   (plus TIFF for submission and the graphical abstract)
-- `docs/` — manuscript source (v34 NAR / v35 Cell Systems), supplementary
-  material, submission PDF and Word file, cover letter, highlights/eTOC
+- `docs/` — manuscript source (v34; typeset v35 Cell Systems), supplementary
+  material, submission PDF and Word file, highlights/eTOC
 
 ## Not included in this repository
 

@@ -93,7 +93,7 @@ Mean null CDS = 0.50 (SD = 0.09), 95th percentile = 0.65, 99th percentile = 0.71
 | 4 | ~80% circular, 20% biological | 0.832 | 0.788 | HIGH |
 | 5 | 100% circular endpoint | 0.845 | 0.845 | HIGH |
 
-CDS ranks all five scenarios monotonically (0.697 < 0.820 < 0.830 < 0.832 < 0.845). Endpoints with CDS ≥ 0.80 show inflated AUROC (0.691–0.845); the pure-random scenario sits at CDS 0.697 — above the manuscript's earlier '0.51' description, which came from the alternative v2 calibration (endpoint-weight parameterization, `cds_synthetic_calibration_v2.json`, scenario 1: CDS 0.513). The two calibrations parameterize circularity differently and are not interchangeable.
+CDS ranks all five scenarios monotonically (0.697 < 0.820 < 0.830 < 0.832 < 0.845). Endpoints with CDS ≥ 0.80 show inflated AUROC (0.691–0.845); the pure-random scenario sits at CDS 0.697 — above the 0.51 obtained under the alternative v2 calibration (endpoint-weight parameterization, `cds_synthetic_calibration_v2.json`, scenario 1: CDS 0.513). The two calibrations parameterize circularity differently and are not interchangeable.
 
 **Threshold disclosure:** one threshold set is shipped everywhere (HIGH > 0.70, MODERATE 0.30–0.70, LOW ≤ 0.30); the conservative 0.80 boundary (0/30 false positives on the synthetic null) is the candidate for CDS v2.0. Continuous CDS values should be reported; categorical labels are advisory.
 

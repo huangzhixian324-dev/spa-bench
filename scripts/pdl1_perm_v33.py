@@ -3,8 +3,8 @@
 PD-L1 (CD274 expression) is a fixed scorer: its score is label-independent,
 so the full-pipeline label-shuffle null is mathematically identical to
 shuffling labels against the fixed score (the same equivalence used for
-IMPRES/GEP/TIDE, verified on Hugo IMPRES). The v33 protocol described in the
-handover (fixed scorers = IMPRES/GEP/TIDE/PD-L1, 50,000 prediction shuffles)
+IMPRES/GEP/TIDE, verified on Hugo IMPRES). The v33 protocol
+(fixed scorers = IMPRES/GEP/TIDE/PD-L1, 50,000 prediction shuffles)
 therefore extends to PD-L1 exactly; these cells were simply missing from
 permutation_v33.json.
 

@@ -212,10 +212,12 @@ except Exception as e:
 
 # ---------- 6. 无法验证的项（诚实披露） ----------
 unverifiable = [
-    'Zenodo 网页端字段（Title/Creators/Description/Keywords/License）——由你操作，我按你的截图核对过，但无法读取线上状态',
-    'Zenodo 发布后的最终 DOI 值——需你在页面确认（预留为 10.5281/zenodo.22746254）',
-    'Editorial Manager 侧的文件类型选择与审稿人名单——投稿时填写',
-    '稿件里 DOI 占位 [ZENODO DOI — to be inserted at acceptance] ——等你的 DOI，工具已就绪（scripts/apply_doi.py）',
+    'Zenodo web-form metadata (Title/Creators/Description/Keywords/License) — '
+    'entered in the Zenodo web interface, not readable from here',
+    'The final published Zenodo DOI — assigned by Zenodo at publish time',
+    'Editorial Manager file-type designations — selected during submission',
+    'The in-manuscript citation placeholder [ZENODO DOI — to be inserted at '
+    'acceptance] — filled by scripts/apply_doi.py once the DOI is issued',
 ]
 
 print('\n' + '=' * 66)
