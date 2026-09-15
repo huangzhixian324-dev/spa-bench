@@ -70,7 +70,8 @@ with zipfile.ZipFile(ZIP) as z:
                 'run_gide_extend', 'push_to_github', 'prepare_github_repos',
                 'normalise_repos', 'rewrite_github_history',
                 'sync_github_deterministic', 'README_v33_summary',
-                'run_all_checks_report'))],
+                'run_all_checks_report', 'cover_letter',
+                'di_form_filled'))],
     }
     print('\n[3] 禁止内容检查:')
     for label, hits in forbid.items():
