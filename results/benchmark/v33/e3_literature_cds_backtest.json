@@ -1,0 +1,99 @@
+{
+ "blca_iatlas_imvigor210_2017": {
+  "declared_genes_missing": [],
+  "clinical_endpoint": {
+   "CDS": 0.434,
+   "C1": 0.0003,
+   "C2": 0.1074,
+   "C3": 1.0,
+   "risk": "MODERATE"
+  },
+  "cytolytic_surrogate_positive_control": {
+   "CDS": 0.953,
+   "C1": 0.5481,
+   "C2": 0.8436,
+   "C3": 1.0,
+   "risk": "HIGH"
+  },
+  "random_null": {
+   "n": 10,
+   "mean": 0.449,
+   "max": 0.496,
+   "values": [
+    0.432,
+    0.473,
+    0.496,
+    0.493,
+    0.408,
+    0.444,
+    0.426,
+    0.481,
+    0.428,
+    0.413
+   ]
+  },
+  "n": 297,
+  "n_responders": 68,
+  "endpoint_attr": "RESPONSE",
+  "endpoint_values": {
+   "Progressive Disease": 167,
+   "Stable Disease": 62,
+   "Partial Response": 43,
+   "Complete Response": 25
+  },
+  "profile": "cached",
+  "note": "expression values are cBioPortal z-scores/published values; CDS statistics (rank MI, Spearman) are invariant to per-gene affine transforms"
+ },
+ "mel_iatlas_liu_2019": {
+  "declared_genes_missing": [],
+  "clinical_endpoint": {
+   "CDS": 0.721,
+   "C1": 0.1045,
+   "C2": 0.0708,
+   "C3": 1.0,
+   "risk": "HIGH"
+  },
+  "cytolytic_surrogate_positive_control": {
+   "CDS": 0.949,
+   "C1": 0.525,
+   "C2": 0.8316,
+   "C3": 1.0,
+   "risk": "HIGH"
+  },
+  "random_null": {
+   "n": 10,
+   "mean": 0.623,
+   "max": 0.728,
+   "values": [
+    0.709,
+    0.728,
+    0.703,
+    0.704,
+    0.667,
+    0.41,
+    0.591,
+    0.7,
+    0.442,
+    0.572
+   ]
+  },
+  "n": 122,
+  "n_responders": 48,
+  "endpoint_attr": "RESPONSE",
+  "endpoint_values": {
+   "Progressive Disease": 56,
+   "Partial Response": 32,
+   "Stable Disease": 18,
+   "Complete Response": 16
+  },
+  "profile": "cached",
+  "note": "expression values are cBioPortal z-scores/published values; CDS statistics (rank MI, Spearman) are invariant to per-gene affine transforms"
+ },
+ "skcm_vanderbilt_mskcc_2015": {
+  "expression_accessible": false,
+  "reason": "no mRNA molecular profile in the iAtlas harmonization"
+ },
+ "mel_iatlas_hugo_ucla_2016": {
+  "expression_accessible": true
+ }
+}

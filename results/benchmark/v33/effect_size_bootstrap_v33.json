@@ -1,0 +1,27 @@
+{
+ "n_patients": 42,
+ "bootstrap_replicates": 1000,
+ "delta_collapse_ENVar": {
+  "point": 0.3428,
+  "ci95": [
+   0.0967,
+   0.5837
+  ]
+ },
+ "gap_max_method_RECIST": {
+  "point": 0.0286,
+  "ci95": [
+   0.0234,
+   0.3001
+  ]
+ },
+ "ratio_delta_over_gap": {
+  "point": 11.98,
+  "ci95": [
+   0.46,
+   14.32
+  ],
+  "n_valid": 1000
+ },
+ "seed": 42
+}

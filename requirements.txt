@@ -1,0 +1,46 @@
+# SPATBench — core dependencies (benchmark, CDS, manuscript tooling)
+# ============================================================================
+# Install:  pip install -r requirements.txt
+#
+# Covers everything needed to reproduce the reported results:
+#   python scripts/validate.py              # end-to-end self-test (synthetic data)
+#   python scripts/power_table_v33.py       # power analysis
+#   python scripts/bh_sensitivity_v33.py    # FDR sensitivity
+#   python scripts/mi_var_overlap_v33.py    # feature-selection overlap
+#   python scripts/hugo_envar_clinical_v33.py
+#   python scripts/make_figures_v33.py      # all figures at 300 dpi
+#   python scripts/make_graphical_abstract.py
+#   python scripts/synthesize_v33_supplementary.py
+#   python scripts/build_submission.py      # assemble the submission PDF
+#   python scripts/md_to_docx_cellpress.py  # Word main text
+#   python scripts/audit_archive.py         # archive integrity audit
+#
+# The heavy permutation runs (rerun_v33.py, fill_nc_cells.py, run_null_200.py)
+# use the same dependencies and additionally need the cohort h5ad files,
+# which are archived with the paper (Zenodo record).
+
+# --- core analysis ---
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+anndata>=0.10.0
+h5py>=3.8.0
+
+# --- cohort-specific scoring ---
+tidepy==1.3.9
+
+# --- survival analysis (TCGA section) ---
+lifelines>=0.27
+
+# --- figures ---
+matplotlib>=3.7.0
+
+# --- document / archive tooling (submission assembly and audits) ---
+Pillow>=10.0.0
+Markdown>=3.4
+python-docx>=1.0
+pypdf>=4.0
+
+# --- optional, used only by our own PDF render checks ---
+# pymupdf>=1.24

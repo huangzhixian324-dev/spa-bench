@@ -1,0 +1,30 @@
+{
+  "skcm": {
+    "n": 426,
+    "med_OS_high": 49.5,
+    "med_OS_low": 28.8,
+    "p_value": 0.9997,
+    "direction": "BETTER"
+  },
+  "brca": {
+    "n": 1082,
+    "med_OS_high": 26.7,
+    "med_OS_low": 28.0,
+    "p_value": 0.638,
+    "direction": "WORSE"
+  },
+  "luad": {
+    "n": 501,
+    "med_OS_high": 21.5,
+    "med_OS_low": 21.4,
+    "p_value": 0.6052,
+    "direction": "BETTER"
+  },
+  "coad": {
+    "n": 588,
+    "med_OS_high": 20.5,
+    "med_OS_low": 21.7,
+    "p_value": 0.1865,
+    "direction": "WORSE"
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "cohort": "Riaz_2017_RECIST_v33",
+ "method": "ElasticNet",
+ "obs_auroc_this_run": 0.6162,
+ "benchmark_auroc": 0.569,
+ "obs_deviation": 0.0472,
+ "params_frozen": {
+  "C": 0.1,
+  "l1_ratio": 0.5
+ },
+ "n_perm": 200,
+ "p": 0.0945273631840796,
+ "protocol": "full-pipeline label shuffles, cached variance prescreen, seed 42"
+}

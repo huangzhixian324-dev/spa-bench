@@ -1,0 +1,71 @@
+{
+ "model": "Hanley-McNeil asymptotic AUC variance; paired two-method comparison on the same patients, baseline AUC 0.5, alpha 0.05 two-sided, power 0.80",
+ "z": 2.801585218112968,
+ "rows": [
+  {
+   "n": 25,
+   "responder_pct": 0.4,
+   "n1": 10,
+   "n0": 15,
+   "example": "Nathanson 2017",
+   "min_delta_r0.0": 0.394,
+   "min_delta_r0.5": 0.308,
+   "min_delta_r0.75": 0.228
+  },
+  {
+   "n": 28,
+   "responder_pct": 0.46,
+   "n1": 13,
+   "n0": 15,
+   "example": "Hugo 2016",
+   "min_delta_r0.0": 0.371,
+   "min_delta_r0.5": 0.286,
+   "min_delta_r0.75": 0.211
+  },
+  {
+   "n": 42,
+   "responder_pct": 0.21,
+   "n1": 9,
+   "n0": 33,
+   "example": "Riaz RECIST",
+   "min_delta_r0.0": 0.377,
+   "min_delta_r0.5": 0.29,
+   "min_delta_r0.75": 0.213
+  },
+  {
+   "n": 73,
+   "responder_pct": 0.55,
+   "n1": 40,
+   "n0": 33,
+   "example": "Gide 2019",
+   "min_delta_r0.0": 0.249,
+   "min_delta_r0.5": 0.183,
+   "min_delta_r0.75": 0.132
+  },
+  {
+   "n": 100,
+   "responder_pct": 0.5,
+   "n1": 50,
+   "n0": 50,
+   "example": "-",
+   "min_delta_r0.0": 0.217,
+   "min_delta_r0.5": 0.158,
+   "min_delta_r0.75": 0.113
+  },
+  {
+   "n": 200,
+   "responder_pct": 0.5,
+   "n1": 100,
+   "n0": 100,
+   "example": "-",
+   "min_delta_r0.0": 0.157,
+   "min_delta_r0.5": 0.113,
+   "min_delta_r0.75": 0.08
+  }
+ ],
+ "n_for_delta_010": {
+  "r0.0": 512,
+  "r0.5": 258,
+  "r0.75": 130
+ }
+}

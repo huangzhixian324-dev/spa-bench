@@ -1,0 +1,330 @@
+{
+  "skcm": {
+    "IMPRES_like": {
+      "HR": 0.809,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3353,
+      "AUC_3yr": 0.3481,
+      "AUC_5yr": 0.3655
+    },
+    "CD8_T_cells": {
+      "HR": 0.864,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3385,
+      "AUC_3yr": 0.3559,
+      "AUC_5yr": 0.3708
+    },
+    "CD4_T_cells": {
+      "HR": 0.835,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.398,
+      "AUC_3yr": 0.3857,
+      "AUC_5yr": 0.4034
+    },
+    "B_cells": {
+      "HR": 0.917,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.389,
+      "AUC_3yr": 0.4222,
+      "AUC_5yr": 0.4379
+    },
+    "NK_cells": {
+      "HR": 0.876,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3397,
+      "AUC_3yr": 0.3744,
+      "AUC_5yr": 0.3901
+    },
+    "M1_Macrophage": {
+      "HR": 0.915,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4425,
+      "AUC_3yr": 0.4476,
+      "AUC_5yr": 0.4726
+    },
+    "IFNG_response": {
+      "HR": 0.752,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3338,
+      "AUC_3yr": 0.3345,
+      "AUC_5yr": 0.3184
+    },
+    "Cytolytic": {
+      "HR": 0.866,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.337,
+      "AUC_3yr": 0.3611,
+      "AUC_5yr": 0.3786
+    },
+    "Checkpoint": {
+      "HR": 0.82,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3296,
+      "AUC_3yr": 0.3478,
+      "AUC_5yr": 0.3639
+    },
+    "TLS_signature": {
+      "HR": 0.928,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4266,
+      "AUC_3yr": 0.428,
+      "AUC_5yr": 0.4268
+    }
+  },
+  "brca": {
+    "IMPRES_like": {
+      "HR": 0.906,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4417,
+      "AUC_3yr": 0.4707,
+      "AUC_5yr": 0.4661
+    },
+    "CD8_T_cells": {
+      "HR": 0.865,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.373,
+      "AUC_3yr": 0.3986,
+      "AUC_5yr": 0.4165
+    },
+    "CD4_T_cells": {
+      "HR": 0.886,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4298,
+      "AUC_3yr": 0.4506,
+      "AUC_5yr": 0.4595
+    },
+    "B_cells": {
+      "HR": 0.879,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.396,
+      "AUC_3yr": 0.3871,
+      "AUC_5yr": 0.4196
+    },
+    "NK_cells": {
+      "HR": 0.915,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4563,
+      "AUC_3yr": 0.447,
+      "AUC_5yr": 0.4524
+    },
+    "M1_Macrophage": {
+      "HR": 0.974,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.5261,
+      "AUC_3yr": 0.5199,
+      "AUC_5yr": 0.5056
+    },
+    "IFNG_response": {
+      "HR": 0.896,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3881,
+      "AUC_3yr": 0.4518,
+      "AUC_5yr": 0.4457
+    },
+    "Cytolytic": {
+      "HR": 0.877,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3947,
+      "AUC_3yr": 0.418,
+      "AUC_5yr": 0.4294
+    },
+    "Checkpoint": {
+      "HR": 0.9,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4777,
+      "AUC_3yr": 0.4829,
+      "AUC_5yr": 0.4731
+    },
+    "TLS_signature": {
+      "HR": 0.88,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3975,
+      "AUC_3yr": 0.3734,
+      "AUC_5yr": 0.39
+    }
+  },
+  "luad": {
+    "IMPRES_like": {
+      "HR": 0.885,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4027,
+      "AUC_3yr": 0.4555,
+      "AUC_5yr": 0.4628
+    },
+    "CD8_T_cells": {
+      "HR": 0.93,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4746,
+      "AUC_3yr": 0.4735,
+      "AUC_5yr": 0.4691
+    },
+    "CD4_T_cells": {
+      "HR": 0.869,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3794,
+      "AUC_3yr": 0.4378,
+      "AUC_5yr": 0.4367
+    },
+    "B_cells": {
+      "HR": 0.857,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.3981,
+      "AUC_3yr": 0.4033,
+      "AUC_5yr": 0.415
+    },
+    "NK_cells": {
+      "HR": 0.987,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.5,
+      "AUC_3yr": 0.5146,
+      "AUC_5yr": 0.4726
+    },
+    "M1_Macrophage": {
+      "HR": 0.96,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4526,
+      "AUC_3yr": 0.4953,
+      "AUC_5yr": 0.496
+    },
+    "IFNG_response": {
+      "HR": 1.06,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5267,
+      "AUC_3yr": 0.5541,
+      "AUC_5yr": 0.5453
+    },
+    "Cytolytic": {
+      "HR": 0.94,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.471,
+      "AUC_3yr": 0.4755,
+      "AUC_5yr": 0.4774
+    },
+    "Checkpoint": {
+      "HR": 0.918,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4288,
+      "AUC_3yr": 0.4786,
+      "AUC_5yr": 0.4781
+    },
+    "TLS_signature": {
+      "HR": 0.965,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4631,
+      "AUC_3yr": 0.4733,
+      "AUC_5yr": 0.4646
+    }
+  },
+  "coad": {
+    "IMPRES_like": {
+      "HR": 1.04,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5264,
+      "AUC_3yr": 0.5434,
+      "AUC_5yr": 0.5972
+    },
+    "CD8_T_cells": {
+      "HR": 0.991,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4999,
+      "AUC_3yr": 0.5017,
+      "AUC_5yr": 0.5828
+    },
+    "CD4_T_cells": {
+      "HR": 0.993,
+      "p": 1.0,
+      "direction": "BETTER",
+      "AUC_1yr": 0.4999,
+      "AUC_3yr": 0.5347,
+      "AUC_5yr": 0.5775
+    },
+    "B_cells": {
+      "HR": 1.009,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.4774,
+      "AUC_3yr": 0.5307,
+      "AUC_5yr": 0.5779
+    },
+    "NK_cells": {
+      "HR": 1.025,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5186,
+      "AUC_3yr": 0.5239,
+      "AUC_5yr": 0.5713
+    },
+    "M1_Macrophage": {
+      "HR": 1.145,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5672,
+      "AUC_3yr": 0.5885,
+      "AUC_5yr": 0.6486
+    },
+    "IFNG_response": {
+      "HR": 1.014,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5135,
+      "AUC_3yr": 0.5056,
+      "AUC_5yr": 0.5561
+    },
+    "Cytolytic": {
+      "HR": 1.008,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5029,
+      "AUC_3yr": 0.5136,
+      "AUC_5yr": 0.5662
+    },
+    "Checkpoint": {
+      "HR": 1.063,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5366,
+      "AUC_3yr": 0.5412,
+      "AUC_5yr": 0.5905
+    },
+    "TLS_signature": {
+      "HR": 1.025,
+      "p": 1.0,
+      "direction": "WORSE",
+      "AUC_1yr": 0.5264,
+      "AUC_3yr": 0.5415,
+      "AUC_5yr": 0.6016
+    }
+  }
+}

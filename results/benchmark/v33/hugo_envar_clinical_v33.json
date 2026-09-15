@@ -1,0 +1,44 @@
+{
+ "meta": {
+  "params": {
+   "C": 1.0,
+   "l1_ratio": 0.9
+  },
+  "protocol": "v33 leakage-free nested CV, frozen params; NRI/IDI vs constant-0.5 random baseline"
+ },
+ "classification": {
+  "auroc": 0.5282051282051282,
+  "auprc": 0.4917784719978824,
+  "f1": 0.5185185185185185,
+  "sensitivity": 0.5384615384615384,
+  "specificity": 0.5333333333333333,
+  "brier_score": 0.33729246123462975,
+  "auroc_ci_low": 0.3177083333333333,
+  "auroc_ci_high": 0.7611858974358975
+ },
+ "dca": {
+  "tb_0.10": {
+   "model": 0.34523809523809523,
+   "treat_all": 0.40476190476190477
+  },
+  "tb_0.20": {
+   "model": 0.25892857142857145,
+   "treat_all": 0.33035714285714285
+  },
+  "tb_0.50": {
+   "model": 0.0,
+   "treat_all": -0.07142857142857142
+  }
+ },
+ "nri_vs_random": {
+  "nri_events": 0.15384615384615385,
+  "nri_nonevents": -0.26666666666666666,
+  "nri_total": -0.11282051282051281,
+  "nri_pval": 0.658
+ },
+ "idi_vs_random": {
+  "idi_events": 0.006742255380646156,
+  "idi_nonevents": -0.0357643683594695,
+  "idi_total": -0.029022112978823345
+ }
+}

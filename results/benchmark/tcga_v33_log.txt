@@ -1,0 +1,56 @@
+
+===== SKCM =====
+  n=441 events=212
+  Significant (p<0.05): 11/12; BH-adjusted: 11/12
+    IFNG response      HR=0.827 p=1.036e-09 BH=0.0 ***
+    IMPRES-like        HR=0.807 p=2.004e-08 BH=0.0 ***
+    Checkpoint         HR=0.829 p=2.163e-08 BH=0.0 ***
+    NK cells           HR=0.810 p=5.912e-08 BH=0.0 ***
+    CD8 T cells        HR=0.867 p=1.065e-07 BH=0.0 ***
+    Cytolytic          HR=0.863 p=1.505e-06 BH=3e-06 ***
+    Treg               HR=0.827 p=2.977e-06 BH=5e-06 ***
+    Myeloid            HR=0.822 p=1.381e-05 BH=2.1e-05 ***
+    B cells            HR=0.904 p=4.099e-05 BH=5.5e-05 ***
+    M1 Macrophage      HR=0.795 p=1.246e-03 BH=0.001495 **
+    TLS                HR=0.928 p=2.469e-03 BH=0.002694 **
+    Stromal            HR=1.086 p=9.032e-02 BH=0.090323 
+
+===== BRCA =====
+  n=1082 events=151
+  Significant (p<0.05): 6/12; BH-adjusted: 3/12
+    TLS                HR=0.889 p=3.262e-04 BH=0.003828 ***
+    B cells            HR=0.885 p=6.380e-04 BH=0.003828 ***
+    CD8 T cells        HR=0.873 p=5.133e-03 BH=0.020533 **
+    Cytolytic          HR=0.899 p=2.406e-02 BH=0.072187 *
+    IFNG response      HR=0.908 p=3.843e-02 BH=0.092233 *
+    NK cells           HR=0.889 p=4.979e-02 BH=0.099578 *
+    Checkpoint         HR=0.905 p=6.195e-02 BH=0.106205 
+    IMPRES-like        HR=0.901 p=7.487e-02 BH=0.112309 
+    Treg               HR=0.949 p=3.130e-01 BH=0.417269 
+    Myeloid            HR=0.932 p=4.224e-01 BH=0.506829 
+    Stromal            HR=1.026 p=6.965e-01 BH=0.759813 
+    M1 Macrophage      HR=0.977 p=7.873e-01 BH=0.787267 
+
+===== LUAD =====
+  n=510 events=185
+  Significant (p<0.05): 1/12; BH-adjusted: 1/12
+    B cells            HR=0.873 p=2.368e-04 BH=0.002842 ***
+    Myeloid            HR=0.899 p=6.803e-02 BH=0.227216 
+    IMPRES-like        HR=0.896 p=8.095e-02 BH=0.227216 
+    CD8 T cells        HR=0.916 p=9.460e-02 BH=0.227216 
+    Checkpoint         HR=0.908 p=1.139e-01 BH=0.227216 
+    Stromal            HR=1.089 p=1.330e-01 BH=0.227216 
+    TLS                HR=0.941 p=1.528e-01 BH=0.227216 
+    M1 Macrophage      HR=0.897 p=1.598e-01 BH=0.227216 
+    Treg               HR=0.924 p=1.704e-01 BH=0.227216 
+    NK cells           HR=0.931 p=2.805e-01 BH=0.336641 
+    Cytolytic          HR=0.946 p=3.354e-01 BH=0.365931 
+    IFNG response      HR=0.971 p=5.643e-01 BH=0.564344 
+
+===== COAD =====
+  [SKIP] COAD: 106/106 expression columns are not TCGA barcodes (e.g. ['01CO001', '01CO005', '01CO006']). Source data is incompatible with this pipeline; re-download from cBioPortal.
+
+===== SUMMARY =====
+SKCM: 11/12 significant (nominal), 11/12 (BH-adjusted)
+BRCA: 6/12 significant (nominal), 3/12 (BH-adjusted)
+LUAD: 1/12 significant (nominal), 1/12 (BH-adjusted)

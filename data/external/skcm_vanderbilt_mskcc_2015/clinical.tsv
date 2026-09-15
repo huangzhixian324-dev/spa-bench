@@ -1,0 +1,133 @@
+SAMPLE_ID	AGENT	PATIENT_ID	BORR	BRAIN_METS	CHEMOTHERAPY	ECOG_STATUS	IMMUNE_TREATMENT	LIVER_INVOLVEMENT	M_STAGE	OS_MONTHS	OS_STATUS	PFS_MONTHS	RECIST_BURDEN_OF_DISEASE	RESPONSE_GRADE	RESPONSE_TO_TARGET_THERAPY	SAMPLE_COUNT	STAGE	COMMENTS	CANCER_TYPE	CANCER_TYPE_DETAILED	GREATER_THAN_3_SITES	MUTATION_COUNT	NUMBER_OF_SITES	ONCOTREE_CODE	SAMPLE_TYPE	TMB_NONSYNONYMOUS
+VT030	Vemurafenib	VT030	-0.71	NO	YES	0	Ipilimumab	YES	M1c	21.3	1:DECEASED	6.5	148.0	Intermediate	PR	1	IV									
+VT006	Dabrafenib	VT006	-0.21	NO	NO	0	Ipilimumab/Nivolumab	NO		46.6	0:LIVING	44.6	62.9	Excellent	SD	1	IIIC									
+VT014	Vemurafenib	VT014	-0.24	NO	NO	0	Ipilimumab	YES	M1c	23.7	0:LIVING	6.4	87.0	Intermediate	SD	1	IV									
+VT010	Vemurafenib	VT010	-1	YES	NO	0	Ipilimumab	NO	M1c	23.3	1:DECEASED	8.0		Excellent	CR	1	IV	RECIST BURDEN OF DISEASE is NA:  not measurable								
+VT011	Vemurafenib	VT011	-0.79	NO	NO	1	Durvalumab	NO	M1c	41.8	0:LIVING	9.9	101.0	Excellent	PR	1	IV									
+VT021m1	Dabrafenib	VT021m1	-0.54	NO	YES	0	Ipilimumab	NO	M1c	16.9	1:DECEASED	7.9	42.0	Excellent	PR	1	IV									
+VT019	Vemurafenib	VT019	-1	NO	NO	1	Ipilimumab	NO	M1c	43.8	0:LIVING	43.8	78.0	Excellent	CR	1	IV									
+VT029	Vem+cob (leukemia patient)	VT029	-0.53	NO	NO	3	Ipilimumab	YES	M1c	22.4	1:DECEASED	21.4	171.0	Excellent	PR	1	IV									
+VT007m1	Vemurafenib	VT007m1	-0.5	YES	NO	0	Ipilimumab	NO	M1c	51.8	1:DECEASED	14.2		Excellent	PR	1	IV	RECIST BURDEN OF DISEASE is NA - bone/brain, not measurable								
+VT041	Vemurafenib	VT041	-0.5	NO	NO	0	No	NO	M1c	8.7	0:LIVING	3.5	59.0	Intermediate	PR	1	IV									
+VT043	Vemurafenib	VT043	-0.3	NO	NO	0	Ipilimumab + Pembrolizumab	NO	M1c	29.0	0:LIVING	6.1	18.0	Intermediate	PR	1	IV									
+VT050	Vemurafenib	VT050	-0.21	YES	NO	1	No	NO	M1c	23.6	1:DECEASED	20.8	30.0	Excellent	SD	1	IV									
+MT08m1	Vemurafenib	MT08m1	-0.72	NO	NO	0	No	NO	M1c	46.4	0:LIVING	7.1	94.9	Excellent	PR	1	IV									
+BW-09109-0376	Vemurafenib	BW-09109-0376	-0.52	NO	NO	1	No	NO	M1b	35.0	1:DECEASED	26.8	21.0	Excellent	PR	1	IV									
+LL-0757	Vemurafenib	LL-0757	-0.53	YES	NO	0	No	NO	M1c	35.3	1:DECEASED	15.4	30.0	Excellent	PR	1	IV									
+JS-0953	Vemurafenib	JS-0953	-0.85	NO	YES	1	No	YES	M1c	15.1	1:DECEASED	11.6	59.0	Excellent	PR	1	IV									
+HS-0929	Vemurafenib	HS-0929	-0.69	NO	Biochemotherapy	0	No	NO	M1a	31.0	0:LIVING	31.0	43.0	Excellent	PR	1	IV									
+FF-1202	Vemurafenib	FF-1202	-1	NO	NO	1	High-Dose Il-2	NO	M1c	66.6	0:LIVING	16.5	111.0	Excellent	CR	1	IV									
+JH-1397	Vemurafenib	JH-1397	-1	NO	NO	0	High-Dose Il-2	NO	M1c	58.0	0:LIVING	58.0	47.0	Excellent	CR	1	IV									
+MS-1386	Vemurafenib	MS-1386	-1	NO	NO	0	High-Dose Il-2	YES	M1c	58.9	0:LIVING	58.9	25.0	Excellent	CR	1	IV									
+MS-2	Vemurafenib	MS-2	-0.79	NO	YES	1	No	YES	M1c	14.8	1:DECEASED	7.9	208.0	Excellent	PR	1	IV									
+VT009	Vemurafenib	VT009	-0.74	NO	YES	1	No	NO	M1b	10.2	1:DECEASED	5.4	83.0	Intermediate	PR	1	IV									
+VT027	Vemurafenib	VT027	-0.02	NO	NO	1	Mk-3475	YES	M1c	6.9	1:DECEASED	5.7	61.0	Intermediate	SD	1	IV									
+VT008T1	Dabrafenib	VT008T1	-0.11	NO	NO	0	Ipilimumab	YES	M1c	10.3	1:DECEASED	6.3	75.0	Intermediate	SD	1	IV									
+VT013m3	Vemurafenib	VT013m3	-0.54	NO	NO	1	Ipilimumab/Nivolumab; Had Prior Pod On Xl281	YES	M1c	54.3	0:LIVING	6.2	79.0	Intermediate	PR	1	IV									
+VT005	Vemurafenib	VT005	-0.24	NO	NO	0	No	NO	M1c	12.2	1:DECEASED	4.4	85.0	Intermediate	SD	1	IV									
+VT038	Vemurafenib	VT038	-0.25	NO	NO	0	No	NO	M1c	12.8	1:DECEASED	7.5	16.0	Intermediate	SD	1	IV									
+VT049	Vemurafenib	VT049	-0.59	NO	NO	1	Ipilimumab	NO	M1c	11.9	0:LIVING	5.8	71.0	Intermediate	PR	1	IV									
+VT056	Dabrafenib	VT056	-0.33	NO	NO	0	No	YES	M1c	5.0	1:DECEASED	3.7	94.0	Intermediate	PR	1	IV									
+MT004	Vemurafenib	MT004	-0.38	NO	NO	0	Ipilimumab	YES	M1c	14.3	1:DECEASED	11.4	102.0	Intermediate	PR	1	IV									
+VT061	Vemurafenib	VT061	-0.15	YES	NO	0	No	YES	M1c	5.0	1:DECEASED	1.6	84.0	Poor	PD	1	IV									
+EC-0470	Vemurafenib	EC-0470	N.E.	YES	NO	1	No	YES	M1c	5.6	1:DECEASED	4.9	162.0	Intermediate	PD	1	IV	clinical deterioration due to progression of disease								
+RB-0857	Vemurafenib	RB-0857	-0.31	YES	YES	0	No	NO	M1c	7.6	1:DECEASED	4.6	77.0	Intermediate	PR	1	IV									
+VT012	Vemurafenib	VT012	1.16	NO	YES	1	No	NO	M1c	5.3	1:DECEASED	1.7		Poor	PD	1	IV									
+VT002p	Vemurafenib	VT002p	0.56	NO	NO	0	Ipilimumab	YES	M1c	29.1	1:DECEASED	2.3	88.0	Poor	PD	1	IV									
+VT003p	Vemurafenib	VT003p	-0.57	NO	NO	4	Ipilimumab	NO	M1c	2.0	1:DECEASED	2.0		Poor	PR	1	IV	clinically progressed and eventually died before 4 months								
+VT016m1	Vemurafenib	VT016m1	-0.36	NO	NO	3	Ipilimumab	NO	M1c	2.5	1:DECEASED	1.9	62.0	Poor	PD	1	IV									
+VT023	Vemurafenib	VT023	-0.22	NO	NO	3	No	NO	M1c	1.8	1:DECEASED	1.7	252.0	Poor	PD	1	IV									
+VT035	Vemurafenib	VT035	-0.22	NO	NO	1	No	YES	M1c	5.5	1:DECEASED	3.0	92.0	Poor	SD	1	IV									
+VT036	Vemurafenib	VT036	-0.32	NO	NO	1	No	YES	M1c	4.4	1:DECEASED	2.6	184.0	Poor	PR	1	IV									
+VT053	Vemurafenib	VT053	-0.49	NO	NO	1	No	YES	M1c	3.3	1:DECEASED	3.3	119.6	Poor	PR	1	IV									
+VT054	Vemurafenib	VT054	-0.62	NO	NO	1	No	YES	M1a	5.6	1:DECEASED	3.0		Poor	PR	1	IV	developed new brain metastasis								
+VT057	Vemurafenib	VT057	-0.46	NO	NO	0	Ipilimumab	NO	M1c	6.6	1:DECEASED	3.5	55.0	Poor	PR	1	IV									
+VT037	Vemurafenib	VT037	-0.33	NO	NO	0	Interferon (Adjuvant Setting)	NO	M1c	8.4	1:DECEASED	2.6	160.0	Poor	PR	1	IV									
+JJ-1446	Vemurafenib	JJ-1446	0.37	YES	NO	1	No	NO	M1c	4.4	1:DECEASED	2.2	60.0	Poor	PD	1	IV									
+TW0880	Vemurafenib	TW0880	-0.28	NO	NO	1	No	NO	M1c	13.3	1:DECEASED	4.2	202.0	Poor	SD	1	IV									
+JM-1218	Dabrafenib	JM-1218	-0.12	NO	NO	1	No	NO	M1c	44.0	0:LIVING	3.7	158.0	Poor	SD	1	IV									
+SB-0663	Vemurafenib	SB-0663	0.08	NO	YES	1	No	YES	M1c	8.7	1:DECEASED	3.6	94.0	Poor	SD	1	IV									
+DB-1159	Vemurafenib	DB-1159	-0.16	YES	NO	2	No	YES	M1c	2.6	1:DECEASED	2.4	150.0	Poor	PD	1	IV									
+SH-0183	Vemurafenib	SH-0183	0.47	NO	YES	1	High-Dose Il-2	YES	M1c	3.0	1:DECEASED	2.4	186.0	Poor	PD	1	IV									
+GS-1127	Dabrafenib	GS-1127	0.22	NO	NO	0	No	NO	M1a	13.6	1:DECEASED	1.9	67.0	Poor	PD	1	IV	Developed New lesions								
+VT026	Vemurafenib	VT026	N.E	NO	NO	0	Mk-3475 + Nivolumab	NO	M1c	23.8	0:LIVING	16.8	22.0	NE	NE	1	IV									
+VT024	Vemurafenib	VT024	N.E.	NO	NO	0	Ipilimumab	NO	M1c	13.3	1:DECEASED	3.0		NE	NE	1	IV									
+VT040	Vemurafenib	VT040	N.E	NO	YES	1	Ipilimumab	YES	M1c	17.0	1:DECEASED	5.4	90.0	NE	NE	1	IV									
+VT058	Vemurafenib	VT058	N.E.	NO	YES	0	No	NO	M1a	12.2	1:DECEASED	5.9	32.0	NE	NE	1	IV									
+VT022	Dabrafenib + Trametinib	VT022	-0.18	NO	NO	0	Ipilimumab	NO	M1c	41.5	1:DECEASED	3.7	17.0	Intermediate	SD	1	IV									
+VT045	Dabrafenib + Trametinib	VT045	-0.49	NO	NO	1	Ipilimumab	NO	M1a	26.6	0:LIVING	4.7	53.0	Intermediate	PR	1	IV									
+MF-1517	Dabrafenib + Trametinib	MF-1517	-0.79	NO	NO	1	No	NO	M1c	38.7	0:LIVING	14.9	84.0	Excellent	PR	1	IV									
+NF-1117	Dabrafenib + Trametinib	NF-1117	-0.78	NO	NO	1	No	YES	M1c	13.5	1:DECEASED	12.0	106.0	Excellent	PR	1	IV									
+DT-1153	Dabrafenib + Trametinib	DT-1153	-1	NO	NO	1	No	NO	M1c	35.7	1:DECEASED	22.7	131.0	Excellent	CR	1	IV									
+DO-1227	Vemurafenib + cobimetinib	DO-1227	-1	NO	NO	1	No	NO	M1a	27.8	0:LIVING	27.8	106.0	Excellent	CR	1	IV									
+CT-0923	Dabrafenib + Trametinib	CT-0923	-0.7	NO	NO	1	No	YES	M1c	45.6	0:LIVING	13.3	62.0	Excellent	PR	1	IV									
+JL-1415	Vemurafenib + cobimetinib	JL-1415	-1	NO	NO	1	Ipilimumab (Adjuvant Trial)	NO	M1c	31.7	0:LIVING	31.7	11.0	Excellent	CR	1	IV									
+VT051	Dabrafenib + Trametinib	VT051	-0.46	YES	NO	1	Ipilimumab	YES	M1c	8.3	1:DECEASED	3.0	88.0	Poor	PR	1	IV									
+SF-1262	Vemurafenib + cobimetinib	SF-1262	-0.38	NO	NO	0	Ipilimumab(Adjuvant Trial)	NO		7.5	1:DECEASED	3.3	43.0	Poor	PR	1	IIIc									
+JP-1351	Dabrafenib + Trametinib	JP-1351	0.25	NO	YES	1	No	YES	M1c	15.0	0:LIVING	1.9	185.0	Poor	SD	1	IV									
+DS-vem-30-T		VT030																	Melanoma	Cutaneous Melanoma	1	9	5	SKCM	Metastasis	11.3228483757
+DS-vem-006-T		VT006																	Melanoma	Cutaneous Melanoma	0	10	1	SKCM	Metastasis	12.5809426397
+DS-vem-014-T		VT014																	Melanoma	Cutaneous Melanoma	1	8	4	SKCM	Metastasis	10.1752819507
+DS-vem-10-T		VT010																	Melanoma	Cutaneous Melanoma	0	4	1	SKCM	Metastasis	5.08764097535
+DS-vem-11-T		VT011																	Melanoma	Cutaneous Melanoma	0	13	1	SKCM	Metastasis	16.5348331699
+DS-vem-21-MT1		VT021m1																	Melanoma	Cutaneous Melanoma	0	17	2	SKCM	Metastasis	21.6224741452
+DS-vem-019-T		VT019																	Melanoma	Cutaneous Melanoma	1	4	4	SKCM	Metastasis	5.08764097535
+DS-vem-29-T		VT029																	Melanoma	Cutaneous Melanoma	1	30	4	SKCM	Metastasis	37.7428279191
+DS-vem-07-MT1		VT007m1																	Melanoma	Cutaneous Melanoma	0	15	2	SKCM	Metastasis	19.0786536576
+DS-vem-041-M		VT041																	Melanoma	Cutaneous Melanoma	0	3	1	SKCM	Primary	3.81573073151
+DS-vem-043-M		VT043																	Melanoma	Cutaneous Melanoma	0	5	2	SKCM	Metastasis	6.35955121919
+DS-vem-050-M		VT050																	Melanoma	Cutaneous Melanoma	0	12	2	SKCM	Metastasis	15.2629229261
+DS-mek-008-M1		MT08m1																	Melanoma	Cutaneous Melanoma	0	14	2	SKCM	Metastasis	17.8067434137
+DS-vem-065-T		BW-09109-0376																	Melanoma	Cutaneous Melanoma	0	2	1	SKCM	Primary	2.54382048768
+DS-vem-069-T		LL-0757																	Melanoma	Cutaneous Melanoma	0	21	2	SKCM	Metastasis	26.7101151206
+DS-vem-076-T		JS-0953																	Melanoma	Cutaneous Melanoma	1	23	4	SKCM	Metastasis	29.2539356083
+DS-vem-084-T		HS-0929																	Melanoma	Cutaneous Melanoma	0	54	2	SKCM	Metastasis	66.1393326796
+DS-vem-088-T		FF-1202																	Melanoma	Cutaneous Melanoma	1	5	3	SKCM	Metastasis	6.35955121919
+DS-vem-089-T		JH-1397																	Melanoma	Cutaneous Melanoma	0	34	2	SKCM	Metastasis	41.9730380467
+DS-vem-090-T		MS-1386																	Melanoma	Cutaneous Melanoma	0	8	1	SKCM	Metastasis	8.90337170687
+DS-vem-092-T		MS-2																	Melanoma	Cutaneous Melanoma	1	20	7	SKCM	Metastasis	25.4382048768
+DS-vem-09-T		VT009																	Melanoma	Cutaneous Melanoma	1	5	3	SKCM	Metastasis	6.29047131985
+DS-vem-27-T		VT027																	Melanoma	Cutaneous Melanoma	0	6	2	SKCM	Metastasis	7.54856558382
+DS-vem-08-T1		VT008T1																	Melanoma	Cutaneous Melanoma	0	41	2	SKCM	Metastasis	51.5818648228
+DS-vem-13-MT3		VT013m3																	Melanoma	Cutaneous Melanoma	1	17	6	SKCM	Metastasis	21.6224741452
+DS-vem-05-T		VT005																	Melanoma	Cutaneous Melanoma	1	3	3	SKCM	Metastasis	3.77428279191
+DS-vem-038-M		VT038																	Melanoma	Cutaneous Melanoma	0	8	1	SKCM	Metastasis	10.1752819507
+DS-vem-049-T		VT049																	Melanoma	Cutaneous Melanoma	1	9	3	SKCM	Metastasis	11.4471921945
+DS-vem-056-M		VT056																	Melanoma	Cutaneous Melanoma	0	13	1	SKCM	Metastasis	16.5348331699
+DS-mek-004-T		MT004																	Melanoma	Cutaneous Melanoma	1	13	3	SKCM	Metastasis	16.5348331699
+DS-vem-061-T		VT061																	Melanoma	Cutaneous Melanoma	1	10	6	SKCM	Metastasis	11.4471921945
+DS-vem-071-T		EC-0470																	Melanoma	Cutaneous Melanoma	1	24	6	SKCM	Metastasis	29.2539356083
+DS-vem-075-T		RB-0857																	Melanoma	Cutaneous Melanoma	1	11	3	SKCM	Metastasis	13.9910126822
+DS-vem-12-T		VT012																	Melanoma	Cutaneous Melanoma	1	6	3	SKCM	Metastasis	7.63146146303
+DS-vem-02-PT1		VT002p																	Melanoma	Cutaneous Melanoma	0	3	1	SKCM	Metastasis	3.81573073151
+DS-vem-03-PT		VT003p																	Melanoma	Cutaneous Melanoma	1	9	4	SKCM	Primary	11.4471921945
+DS-vem-16-MT1		VT016m1																	Melanoma	Cutaneous Melanoma	1	11	3	SKCM	Metastasis	13.9910126822
+DS-vem-23-T		VT023																	Melanoma	Cutaneous Melanoma	1	12	5	SKCM	Metastasis	15.0971311676
+DS-vem-035-M		VT035																	Melanoma	Cutaneous Melanoma	1	5	4	SKCM	Metastasis	6.35955121919
+DS-vem-036-P		VT036																	Melanoma	Cutaneous Melanoma	1	32	5	SKCM	Primary	40.7011278028
+DS-vem-053-M		VT053																	Melanoma	Cutaneous Melanoma	1	11	5	SKCM	Metastasis	13.9910126822
+DS-vem-054-M		VT054																	Melanoma	Cutaneous Melanoma	1	14	4	SKCM	Metastasis	17.8067434137
+DS-vem-057-M		VT057																	Melanoma	Cutaneous Melanoma	0	8	2	SKCM	Metastasis	17.8067434137
+DS-vem-037-M		VT037																	Melanoma	Cutaneous Melanoma	0	8	2	SKCM	Metastasis	10.1752819507
+DS-vem-066-T		JJ-1446																	Melanoma	Cutaneous Melanoma	1	43	4	SKCM	Metastasis	54.692140485
+DS-vem-072-T		TW0880																	Melanoma	Cutaneous Melanoma	1	16	4	SKCM	Metastasis	19.0786536576
+DS-vem-073-T		JM-1218																	Melanoma	Cutaneous Melanoma	0	8	2	SKCM	Metastasis	10.1752819507
+DS-vem-074-T		SB-0663																	Melanoma	Cutaneous Melanoma	1	17	4	SKCM	Metastasis	21.6224741452
+DS-vem-077-T		DB-1159																	Melanoma	Cutaneous Melanoma	1	6	5	SKCM	Metastasis	7.63146146303
+DS-vem-086-T		SH-0183																	Melanoma	Cutaneous Melanoma	1	10	3	SKCM	Metastasis	12.7191024384
+DS-vem-087-T		GS-1127																	Melanoma	Cutaneous Melanoma	0	7	2	SKCM	Metastasis	7.63146146303
+DS-vem-26-T		VT026																	Melanoma	Cutaneous Melanoma	0	2	1	SKCM	Metastasis	2.51618852794
+DS-vem-24-T		VT024																	Melanoma	Cutaneous Melanoma	0	12	2	SKCM	Metastasis	15.0971311676
+DS-vem-040-M		VT040																	Melanoma	Cutaneous Melanoma	1	8	3	SKCM	Metastasis	10.1752819507
+DS-vem-058-M		VT058																	Melanoma	Cutaneous Melanoma	0	14	1	SKCM	Metastasis	17.8067434137
+DS-vem-022-T		VT022																	Melanoma	Cutaneous Melanoma	0	7	1	SKCM	Primary	8.8066598478
+DS-vem-045-M		VT045																	Melanoma	Cutaneous Melanoma	0	11	2	SKCM	Metastasis	13.9910126822
+DS-vem-067-T		MF-1517																	Melanoma	Cutaneous Melanoma	1	10	3	SKCM	Metastasis	12.7191024384
+DS-vem-068-T		NF-1117																	Melanoma	Cutaneous Melanoma	1	10	5	SKCM	Metastasis	12.7191024384
+DS-vem-079-T		DT-1153																	Melanoma	Cutaneous Melanoma	1	4	5	SKCM	Metastasis	5.08764097535
+DS-vem-081-T		DO-1227																	Melanoma	Cutaneous Melanoma	0	13	2	SKCM	Metastasis	16.5348331699
+DS-vem-083-T		CT-0923																	Melanoma	Cutaneous Melanoma	1	8	3	SKCM	Metastasis	10.1752819507
+DS-vem-085-T		JL-1415																	Melanoma	Cutaneous Melanoma	0	1	2	SKCM	Metastasis	1.27191024384
+DS-vem-051-T		VT051																	Melanoma	Cutaneous Melanoma	1	10	5	SKCM	Metastasis	12.7191024384
+DS-vem-070-T		SF-1262																	Melanoma	Cutaneous Melanoma	0	5	1	SKCM	Metastasis	6.35955121919
+DS-vem-082-T		JP-1351																	Melanoma	Cutaneous Melanoma	1	3	3	SKCM	Metastasis	3.81573073151

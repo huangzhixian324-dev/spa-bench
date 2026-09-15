@@ -1,0 +1,31 @@
+{
+ "n": 25,
+ "n_events": 11,
+ "event_convention": "0 < OS_days <= 400 (approximates archived 11/26; replace with true OS_STATUS before submission)",
+ "median_os_days": 439.0,
+ "impres_cox": {
+  "HR_per_SD": 0.598,
+  "CI_low": 0.302,
+  "CI_high": 1.186,
+  "p": 0.14099331102662216
+ },
+ "impres_km": {
+  "p": 0.053502776419629985,
+  "high_n": 12,
+  "low_n": 13
+ },
+ "gep_cox": {
+  "HR_per_SD": 1.208,
+  "CI_low": 0.686,
+  "CI_high": 2.127,
+  "p": 0.512579973093338
+ },
+ "gep_km": {
+  "p": 0.4283504967328188,
+  "high_n": 12,
+  "low_n": 13
+ },
+ "recist_km": {
+  "p": 0.0003317810340720951
+ }
+}

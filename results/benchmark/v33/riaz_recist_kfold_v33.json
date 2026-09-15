@@ -1,0 +1,23 @@
+{
+ "meta": {
+  "seed": 42,
+  "note": "v33 final assembly. Benchmarks: leakage-free nested CV (per-fold feature selection, inner 3-fold tuning), identical protocol for all cohorts. Permutation cells are recorded only where a full-pipeline label-shuffle null was completed; each cell records its own n_perm. Cells without a permutation p are judged by the bootstrap CI criterion (all CIs overlap 0.5)."
+ },
+ "kfold": {
+  "k=2": {
+   "mean": 0.389,
+   "std": 0.105,
+   "n_seeds": 10
+  },
+  "k=3": {
+   "mean": 0.397,
+   "std": 0.064,
+   "n_seeds": 10
+  },
+  "k=5": {
+   "mean": 0.398,
+   "std": 0.088,
+   "n_seeds": 10
+  }
+ }
+}

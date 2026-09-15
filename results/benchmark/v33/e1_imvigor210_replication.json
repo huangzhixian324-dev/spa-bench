@@ -1,0 +1,189 @@
+{
+ "meta": {
+  "cohort": "IMvigor210 (blca_iatlas_imvigor210_2017, cBioPortal iAtlas)",
+  "n": 297,
+  "endpoints": {
+   "cytolytic_surrogate": {
+    "definition": "GZMA/PRF1 mean, median split (as Riaz)",
+    "n_high": 148,
+    "declared_genes": [
+     "GZMA",
+     "PRF1"
+    ]
+   },
+   "RECIST": {
+    "definition": "CR/PR vs SD/PD",
+    "n_responders": 68
+   }
+  },
+  "seed": 42,
+  "expression": "cBioPortal z-scores (affine-invariant for the benchmark metrics)",
+  "note": "cross-cancer (bladder carcinoma) replication; non-melanoma"
+ },
+ "cytolytic_surrogate": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.9667,
+   "auroc_ci": [
+    0.9484,
+    0.9814
+   ],
+   "auprc": 0.9692,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4629,
+   "auroc_ci": [
+    0.3998,
+    0.5308
+   ],
+   "auprc": 0.4768,
+   "perm_p": 0.8661826763464731,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.7084,
+   "auroc_ci": [
+    0.6526,
+    0.7599
+   ],
+   "auprc": 0.674,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.8626,
+   "auroc_ci": [
+    0.819,
+    0.9017
+   ],
+   "auprc": 0.8304,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.9507,
+   "auroc_ci": [
+    0.9274,
+    0.9704
+   ],
+   "auprc": 0.9526
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.01,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.8705,
+   "auroc_ci": [
+    0.8285,
+    0.9079
+   ],
+   "auprc": 0.8809
+  }
+ },
+ "RECIST": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.6127,
+   "auroc_ci": [
+    0.5356,
+    0.6863
+   ],
+   "auprc": 0.3326,
+   "perm_p": 0.0024599508009839803,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.5174,
+   "auroc_ci": [
+    0.4454,
+    0.5906
+   ],
+   "auprc": 0.2311,
+   "perm_p": 0.3337933241335173,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.5384,
+   "auroc_ci": [
+    0.4694,
+    0.6127
+   ],
+   "auprc": 0.2472,
+   "perm_p": 0.16061678766424672,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5655,
+   "auroc_ci": [
+    0.4927,
+    0.638
+   ],
+   "auprc": 0.2627,
+   "perm_p": 0.05189896202075958,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.6568,
+   "auroc_ci": [
+    0.5867,
+    0.7305
+   ],
+   "auprc": 0.3409
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.6971,
+   "auroc_ci": [
+    0.6286,
+    0.7683
+   ],
+   "auprc": 0.381
+  }
+ },
+ "endpoint_switch_delta": {
+  "GEP": 0.354,
+  "TIDE": -0.054,
+  "IMPRES": 0.17,
+  "PD_L1_IHC": 0.297,
+  "ElasticNet": 0.294,
+  "ElasticNet_Var": 0.173
+ },
+ "cds": {
+  "cytolytic_surrogate": {
+   "CDS": 0.953,
+   "risk": "HIGH",
+   "components": {
+    "C1_MI_endpoint_genes": 0.5481,
+    "C2_rho_endpoint_response": 0.8436,
+    "C3_MI_skew_ratio": 1.0
+   },
+   "null_mean": 0.514,
+   "null_max": 0.662
+  },
+  "RECIST": {
+   "CDS": 0.434,
+   "risk": "MODERATE",
+   "components": {
+    "C1_MI_endpoint_genes": 0.0003,
+    "C2_rho_endpoint_response": 0.1074,
+    "C3_MI_skew_ratio": 1.0
+   },
+   "null_mean": 0.492,
+   "null_max": 0.688
+  }
+ }
+}

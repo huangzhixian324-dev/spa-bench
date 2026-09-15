@@ -1,0 +1,7 @@
+{
+  "AUROC": 1.0,
+  "sensitivity": 1.0,
+  "specificity": 0.94,
+  "mean_cds_circular": 0.8663,
+  "mean_cds_random": 0.4943
+}

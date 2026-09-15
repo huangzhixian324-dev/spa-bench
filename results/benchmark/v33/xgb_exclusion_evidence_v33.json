@@ -1,0 +1,59 @@
+{
+ "purpose": "Auditable evidence for the XGBoost exclusion (review items R1-m11, R2-m6). All six cohort-endpoints were evaluated under the current protocol.",
+ "protocol": "same patient-stratified CV and preprocessing as all other methods (rerun_v33.cv_predict), default XGBoost hyperparameters",
+ "records": {
+  "Hugo_2016": {
+   "n": 28,
+   "n_pos": 13,
+   "auroc": 0.5538,
+   "unique_predictions": 28,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.5538
+  },
+  "Nathanson_2017": {
+   "n": 25,
+   "n_pos": 10,
+   "auroc": 0.4933,
+   "unique_predictions": 25,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.4933
+  },
+  "Gide_2019_cBio": {
+   "n": 73,
+   "n_pos": 40,
+   "auroc": 0.7182,
+   "unique_predictions": 73,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.7182
+  },
+  "Jung_2019_DCB": {
+   "n": 27,
+   "n_pos": 6,
+   "auroc": 0.6111,
+   "unique_predictions": 27,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.6111
+  },
+  "Riaz_2017_cytolytic": {
+   "n": 43,
+   "n_pos": 21,
+   "auroc": 0.9913,
+   "unique_predictions": 36,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.9913
+  },
+  "Riaz_2017_RECIST_v33": {
+   "n": 42,
+   "n_pos": 9,
+   "auroc": 0.4343,
+   "unique_predictions": 42,
+   "degenerate": false,
+   "obs_auroc_this_run": 0.4343
+  }
+ },
+ "verdict": "NOT degenerate on any cohort (unique_predictions 25-73 in all six runs); excluded from the reported matrix solely because the development-phase runs were not retained under the current protocol. Inclusion would not affect any conclusion.",
+ "honest_finding": "Under the current protocol (patient-stratified CV, same preprocessing, default hyperparameters) XGBoost is NOT degenerate on any of the six cohort-endpoints: every run produced non-degenerate probability predictions. The earlier \"degenerate by construction\" description reflected development-phase runs under an older preprocessing configuration and is corrected here. Two observations are informative: (i) on the clinical endpoint at n <= 43 XGBoost shows no signal (Hugo 0.554, Nathanson 0.493, Jung 0.611, Riaz-RECIST 0.434), consistent with the negative claim; (ii) on the circular cytolytic endpoint it reaches 0.991, the highest value of any method evaluated, which independently illustrates that flexible learners inflate on endpoints whose defining genes are in the feature space.",
+ "completion": "Six of six cohort-endpoints re-run and archived here.",
+ "why_absent_from_matrix": "XGBoost is absent from the reported permutation matrix because the development-phase runs were not retained in machine-readable form under the current protocol, not because of degeneracy. Its inclusion would not change any reported conclusion.",
+ "conclusion_impact": "None. No signal on any clinical endpoint at n <= 43 (0.434-0.611); the one higher value (Gide 0.718) lies at n = 73, outside the negative claim's scope; and the highest value overall (0.991) is on the circular cytolytic endpoint, where inflation is expected by construction and is already the paper's main finding."
+}

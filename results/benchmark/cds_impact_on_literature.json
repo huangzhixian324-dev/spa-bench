@@ -1,0 +1,42 @@
+[
+  {
+    "study": "Auslander et al. 2018 (IMPRES)",
+    "cohort_used": "Hugo 2016 (validation)",
+    "published_auroc": 0.83,
+    "cds": 0.449,
+    "cds_risk": "LOW",
+    "was_inflated": false,
+    "cds_correct": true
+  },
+  {
+    "study": "Jiang et al. 2018 (TIDE)",
+    "cohort_used": "IMvigor210 (BLCA)",
+    "published_auroc": 0.8,
+    "cds_estimated": 0.45,
+    "was_inflated": "Unknown",
+    "cds_correct": "Unverified"
+  },
+  {
+    "study": "Mariathasan et al. 2018 (GEP)",
+    "cohort_used": "IMvigor210 (BLCA)",
+    "published_auroc": 0.67,
+    "cds_estimated": 0.45,
+    "was_inflated": "Unknown",
+    "cds_correct": "Unverified"
+  },
+  {
+    "study": "Chowell et al. 2022 (ElasticNet)",
+    "cohort_used": "Multiple (n>200)",
+    "published_auroc": 0.8,
+    "cds_estimated": 0.5,
+    "was_inflated": "Partially",
+    "cds_correct": "Partially verified"
+  },
+  {
+    "study": "Liang et al. 2026",
+    "cohort_used": "Multiple cohorts",
+    "published_auroc": "~0.5-0.7",
+    "was_inflated": "Variable",
+    "cds_correct": "Unknown"
+  }
+]

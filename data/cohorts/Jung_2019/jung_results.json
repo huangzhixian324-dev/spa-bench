@@ -1,0 +1,9 @@
+{
+  "cohort": "Jung_2019",
+  "cancer": "NSCLC",
+  "treatment": "anti-PD-1/PD-L1",
+  "n_patients": 27,
+  "n_events": 21,
+  "endpoint": "PFS progression (1=progressed)",
+  "note": "First non-melanoma cohort in SPATBench benchmark"
+}

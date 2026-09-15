@@ -1,0 +1,19 @@
+# Keep the build context to code + light metadata only.
+# Raw data is mounted or fetched at runtime; results are written to mounts.
+venv/
+__pycache__/
+*.pyc
+.git/
+
+# raw / derived data (regenerable by scripts/, archived on Zenodo)
+data/
+metadata/
+
+# analysis outputs (produced inside the container)
+results/
+webportal/static_portal.html
+
+# local docs not needed in the image
+*.log
+*.tmp
+.dockerignore

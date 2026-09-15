@@ -1,0 +1,671 @@
+{
+ "meta": {
+  "seed": 42,
+  "design": "30 gene-program pseudo-endpoints (median split of program mean; declared genes = program genes), cytolytic positive control (GZMA/PRF1 mean, median split), 10 random-label nulls per cohort; cds v1.1.0",
+  "note": "pseudo-endpoints are gene-defined by construction, so HIGH labels indicate program-agnostic detection of gene-defined surrogates; the random-label null calibrates the CDS floor"
+ },
+ "Gide 2019 RECIST (n=73)": {
+  "pseudo_endpoints": {
+   "A: ECM / stroma (no EMT-TF)|A1 fibrillar collagens": {
+    "CDS": 0.942,
+    "C1": 0.475,
+    "C2": 0.808,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A2 fibroblast activation": {
+    "CDS": 0.845,
+    "C1": 0.161,
+    "C2": 0.4836,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A3 ECM remodeling": {
+    "CDS": 0.842,
+    "C1": 0.164,
+    "C2": 0.4725,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A4 endothelium": {
+    "CDS": 0.905,
+    "C1": 0.304,
+    "C2": 0.683,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A5 pericyte": {
+    "CDS": 0.811,
+    "C1": 0.2477,
+    "C2": 0.5687,
+    "C3": 0.85,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A6 proteoglycan matrix": {
+    "CDS": 0.887,
+    "C1": 0.242,
+    "C2": 0.6224,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A7 basement membrane": {
+    "CDS": 0.888,
+    "C1": 0.2518,
+    "C2": 0.6251,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A8 myofibroblastic CAF": {
+    "CDS": 0.831,
+    "C1": 0.106,
+    "C2": 0.4378,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A9 lymphatic endothelium": {
+    "CDS": 0.862,
+    "C1": 0.1977,
+    "C2": 0.5411,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A10 protease stroma": {
+    "CDS": 0.83,
+    "C1": 0.16,
+    "C2": 0.5117,
+    "C3": 0.9419,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "B: tumor purity / proliferation|B1 cell cycle core": {
+    "CDS": 0.823,
+    "C1": 0.33,
+    "C2": 0.7066,
+    "C3": 0.7768,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B2 E2F targets": {
+    "CDS": 0.906,
+    "C1": 0.3171,
+    "C2": 0.6869,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B3 MYC targets": {
+    "CDS": 0.811,
+    "C1": 0.0941,
+    "C2": 0.3698,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B4 DNA replication/repair": {
+    "CDS": 0.861,
+    "C1": 0.2278,
+    "C2": 0.5362,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B5 spindle checkpoint": {
+    "CDS": 0.878,
+    "C1": 0.3501,
+    "C2": 0.731,
+    "C3": 0.8977,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B6 translation machinery": {
+    "CDS": 0.839,
+    "C1": 0.4099,
+    "C2": 0.7418,
+    "C3": 0.79,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B7 glycolysis": {
+    "CDS": 0.867,
+    "C1": 0.1999,
+    "C2": 0.5562,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B8 oxidative phosphorylation": {
+    "CDS": 0.875,
+    "C1": 0.2347,
+    "C2": 0.5819,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B9 stress response": {
+    "CDS": 0.84,
+    "C1": 0.1776,
+    "C2": 0.4675,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B10 unfolded protein response": {
+    "CDS": 0.817,
+    "C1": 0.09,
+    "C2": 0.3912,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "C: lineage / signaling programs|C1 melanocytic differentiation": {
+    "CDS": 0.884,
+    "C1": 0.2722,
+    "C2": 0.6125,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C2 keratinocyte basal": {
+    "CDS": 0.913,
+    "C1": 0.3525,
+    "C2": 0.7096,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C3 hypoxia": {
+    "CDS": 0.841,
+    "C1": 0.1588,
+    "C2": 0.4698,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C4 interferon response": {
+    "CDS": 0.919,
+    "C1": 0.3464,
+    "C2": 0.7303,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C5 TNF/NF-kB response": {
+    "CDS": 0.872,
+    "C1": 0.2187,
+    "C2": 0.5749,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C6 antigen presentation I": {
+    "CDS": 0.839,
+    "C1": 0.1465,
+    "C2": 0.4628,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C7 complement": {
+    "CDS": 0.894,
+    "C1": 0.2896,
+    "C2": 0.6482,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C8 senescence": {
+    "CDS": 0.83,
+    "C1": 0.1568,
+    "C2": 0.4335,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C9 Wnt targets": {
+    "CDS": 0.792,
+    "C1": 0.0724,
+    "C2": 0.3066,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C10 MHC class II": {
+    "CDS": 0.888,
+    "C1": 0.2456,
+    "C2": 0.6256,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   }
+  },
+  "references": {
+   "cytolytic_surrogate": {
+    "CDS": 0.955,
+    "C1": 0.546,
+    "C2": 0.8485,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 2,
+    "n_genes_declared": 2
+   },
+   "random_null": {
+    "n": 10,
+    "cds_values": [
+     0.419,
+     0.437,
+     0.421,
+     0.502,
+     0.726,
+     0.474,
+     0.711,
+     0.638,
+     0.406,
+     0.443
+    ],
+    "mean": 0.518,
+    "max": 0.726
+   }
+  }
+ },
+ "Hugo 2016 RECIST (n=28)": {
+  "pseudo_endpoints": {
+   "A: ECM / stroma (no EMT-TF)|A1 fibrillar collagens": {
+    "CDS": 0.946,
+    "C1": 0.5063,
+    "C2": 0.8213,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A2 fibroblast activation": {
+    "CDS": 0.867,
+    "C1": 0.2126,
+    "C2": 0.5582,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A3 ECM remodeling": {
+    "CDS": 0.849,
+    "C1": 0.2053,
+    "C2": 0.4974,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A4 endothelium": {
+    "CDS": 0.893,
+    "C1": 0.2915,
+    "C2": 0.6444,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A5 pericyte": {
+    "CDS": 0.875,
+    "C1": 0.241,
+    "C2": 0.5847,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A6 proteoglycan matrix": {
+    "CDS": 0.861,
+    "C1": 0.2455,
+    "C2": 0.5383,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A7 basement membrane": {
+    "CDS": 0.898,
+    "C1": 0.3263,
+    "C2": 0.6599,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A8 myofibroblastic CAF": {
+    "CDS": 0.893,
+    "C1": 0.2682,
+    "C2": 0.6433,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A9 lymphatic endothelium": {
+    "CDS": 0.863,
+    "C1": 0.2115,
+    "C2": 0.5419,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "A: ECM / stroma (no EMT-TF)|A10 protease stroma": {
+    "CDS": 0.883,
+    "C1": 0.3056,
+    "C2": 0.609,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "A"
+   },
+   "B: tumor purity / proliferation|B1 cell cycle core": {
+    "CDS": 0.869,
+    "C1": 0.1863,
+    "C2": 0.5626,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B2 E2F targets": {
+    "CDS": 0.883,
+    "C1": 0.248,
+    "C2": 0.6112,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B3 MYC targets": {
+    "CDS": 0.821,
+    "C1": 0.1399,
+    "C2": 0.4046,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B4 DNA replication/repair": {
+    "CDS": 0.87,
+    "C1": 0.1961,
+    "C2": 0.5659,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 7,
+    "n_genes_declared": 7,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B5 spindle checkpoint": {
+    "CDS": 0.882,
+    "C1": 0.236,
+    "C2": 0.6068,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B6 translation machinery": {
+    "CDS": 0.898,
+    "C1": 0.2896,
+    "C2": 0.661,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B7 glycolysis": {
+    "CDS": 0.869,
+    "C1": 0.2203,
+    "C2": 0.5626,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B8 oxidative phosphorylation": {
+    "CDS": 0.801,
+    "C1": 0.1402,
+    "C2": 0.3878,
+    "C3": 0.9619,
+    "risk": "HIGH",
+    "n_genes_found": 7,
+    "n_genes_declared": 7,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B9 stress response": {
+    "CDS": 0.852,
+    "C1": 0.162,
+    "C2": 0.5051,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "B: tumor purity / proliferation|B10 unfolded protein response": {
+    "CDS": 0.81,
+    "C1": 0.0973,
+    "C2": 0.3659,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "B"
+   },
+   "C: lineage / signaling programs|C1 melanocytic differentiation": {
+    "CDS": 0.884,
+    "C1": 0.257,
+    "C2": 0.6125,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C2 keratinocyte basal": {
+    "CDS": 0.871,
+    "C1": 0.2271,
+    "C2": 0.5687,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C3 hypoxia": {
+    "CDS": 0.848,
+    "C1": 0.139,
+    "C2": 0.4943,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C4 interferon response": {
+    "CDS": 0.9,
+    "C1": 0.3207,
+    "C2": 0.6676,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C5 TNF/NF-kB response": {
+    "CDS": 0.861,
+    "C1": 0.1899,
+    "C2": 0.5383,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C6 antigen presentation I": {
+    "CDS": 0.87,
+    "C1": 0.2219,
+    "C2": 0.567,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C7 complement": {
+    "CDS": 0.883,
+    "C1": 0.272,
+    "C2": 0.609,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C8 senescence": {
+    "CDS": 0.838,
+    "C1": 0.1411,
+    "C2": 0.4609,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C9 Wnt targets": {
+    "CDS": 0.806,
+    "C1": 0.1107,
+    "C2": 0.3532,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   },
+   "C: lineage / signaling programs|C10 MHC class II": {
+    "CDS": 0.927,
+    "C1": 0.3823,
+    "C2": 0.7551,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 8,
+    "n_genes_declared": 8,
+    "family": "C"
+   }
+  },
+  "references": {
+   "cytolytic_surrogate": {
+    "CDS": 0.923,
+    "C1": 0.348,
+    "C2": 0.7428,
+    "C3": 1.0,
+    "risk": "HIGH",
+    "n_genes_found": 2,
+    "n_genes_declared": 2
+   },
+   "random_null": {
+    "n": 10,
+    "cds_values": [
+     0.71,
+     0.463,
+     0.6,
+     0.475,
+     0.654,
+     0.755,
+     0.591,
+     0.468,
+     0.764,
+     0.604
+    ],
+    "mean": 0.608,
+    "max": 0.764
+   }
+  }
+ }
+}

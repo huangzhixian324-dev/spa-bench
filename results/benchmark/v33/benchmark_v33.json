@@ -1,0 +1,308 @@
+{
+ "meta": {
+  "seed": 42,
+  "note": "v33 final assembly. Benchmarks: leakage-free nested CV (per-fold feature selection, inner 3-fold tuning), identical protocol for all cohorts. Permutation cells are recorded only where a full-pipeline label-shuffle null was completed; each cell records its own n_perm. Cells without a permutation p are judged by the bootstrap CI criterion (all CIs overlap 0.5)."
+ },
+ "cohorts": {
+  "Hugo_2016": {
+   "GEP": {
+    "auroc": 0.4462,
+    "auroc_ci": [
+     0.2282,
+     0.6719
+    ],
+    "auprc": 0.4763
+   },
+   "TIDE": {
+    "auroc": 0.4256,
+    "auroc_ci": [
+     0.1844,
+     0.6631
+    ],
+    "auprc": 0.4951
+   },
+   "IMPRES": {
+    "auroc": 0.7949,
+    "auroc_ci": [
+     0.5972,
+     0.9474
+    ],
+    "auprc": 0.7092
+   },
+   "ElasticNet": {
+    "auroc": 0.6308,
+    "auroc_ci": [
+     0.4167,
+     0.8572
+    ],
+    "auprc": 0.6235
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.5282,
+    "auroc_ci": [
+     0.3177,
+     0.7612
+    ],
+    "auprc": 0.4918
+   },
+   "PD_L1": {
+    "auroc": 0.5231,
+    "auroc_ci": [
+     0.3025,
+     0.7488
+    ],
+    "auprc": 0.4632
+   }
+  },
+  "Nathanson_2017": {
+   "GEP": {
+    "auroc": 0.6933,
+    "auroc_ci": [
+     0.4545,
+     0.9118
+    ],
+    "auprc": 0.593
+   },
+   "TIDE": {
+    "auroc": 0.5,
+    "auroc_ci": [
+     0.2738,
+     0.7431
+    ],
+    "auprc": 0.4096
+   },
+   "IMPRES": {
+    "auroc": 0.61,
+    "auroc_ci": [
+     0.3865,
+     0.8259
+    ],
+    "auprc": 0.46
+   },
+   "ElasticNet": {
+    "auroc": 0.7,
+    "auroc_ci": [
+     0.4861,
+     0.8959
+    ],
+    "auprc": 0.5761
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.6267,
+    "auroc_ci": [
+     0.3733,
+     0.8401
+    ],
+    "auprc": 0.5534
+   },
+   "PD_L1": {
+    "auroc": 0.78,
+    "auroc_ci": [
+     0.5714,
+     0.9546
+    ],
+    "auprc": 0.6967
+   }
+  },
+  "Gide_2019_cBio": {
+   "GEP": {
+    "auroc": 0.8295,
+    "auroc_ci": [
+     0.7335,
+     0.9155
+    ],
+    "auprc": 0.8474
+   },
+   "TIDE": {
+    "auroc": 0.7523,
+    "auroc_ci": [
+     0.6387,
+     0.8591
+    ],
+    "auprc": 0.7848
+   },
+   "IMPRES": {
+    "auroc": 0.6261,
+    "auroc_ci": [
+     0.5087,
+     0.7457
+    ],
+    "auprc": 0.6615
+   },
+   "ElasticNet": {
+    "auroc": 0.6295,
+    "auroc_ci": [
+     0.5,
+     0.7458
+    ],
+    "auprc": 0.6724
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.6053,
+    "auroc_ci": [
+     0.4778,
+     0.7312
+    ],
+    "auprc": 0.6248
+   },
+   "PD_L1": {
+    "auroc": 0.7909,
+    "auroc_ci": [
+     0.686,
+     0.8809
+    ],
+    "auprc": 0.8456
+   }
+  },
+  "Jung_2019_DCB": {
+   "GEP": {
+    "auroc": 0.7857,
+    "auroc_ci": [
+     0.5726,
+     0.9604
+    ],
+    "auprc": 0.4389
+   },
+   "TIDE": {
+    "auroc": 0.2778,
+    "auroc_ci": [
+     0.0833,
+     0.5273
+    ],
+    "auprc": 0.1761
+   },
+   "IMPRES": {
+    "auroc": 0.5833,
+    "auroc_ci": [
+     0.3802,
+     0.75
+    ],
+    "auprc": 0.2563
+   },
+   "ElasticNet": {
+    "auroc": 0.4762,
+    "auroc_ci": [
+     0.1522,
+     0.7918
+    ],
+    "auprc": 0.3398
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.4762,
+    "auroc_ci": [
+     0.0999,
+     0.8182
+    ],
+    "auprc": 0.2952
+   },
+   "PD_L1": {
+    "auroc": 0.6587,
+    "auroc_ci": [
+     0.4636,
+     0.8612
+    ],
+    "auprc": 0.3
+   }
+  },
+  "Riaz_2017_cytolytic": {
+   "GEP": {
+    "auroc": 0.9675,
+    "auroc_ci": [
+     0.9152,
+     1.0
+    ],
+    "auprc": 0.9714
+   },
+   "TIDE": {
+    "auroc": 0.4697,
+    "auroc_ci": [
+     0.282,
+     0.6533
+    ],
+    "auprc": 0.5388
+   },
+   "IMPRES": {
+    "auroc": 0.6602,
+    "auroc_ci": [
+     0.4933,
+     0.8114
+    ],
+    "auprc": 0.6492
+   },
+   "ElasticNet": {
+    "auroc": 0.9675,
+    "auroc_ci": [
+     0.9091,
+     1.0
+    ],
+    "auprc": 0.9747
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.9848,
+    "auroc_ci": [
+     0.9543,
+     1.0
+    ],
+    "auprc": 0.9852
+   },
+   "PD_L1": {
+    "auroc": 0.868,
+    "auroc_ci": [
+     0.7488,
+     0.9583
+    ],
+    "auprc": 0.8901
+   }
+  },
+  "Riaz_2017_RECIST_v33": {
+   "GEP": {
+    "auroc": 0.5034,
+    "auroc_ci": [
+     0.3051,
+     0.7096
+    ],
+    "auprc": 0.2556
+   },
+   "TIDE": {
+    "auroc": 0.4663,
+    "auroc_ci": [
+     0.2222,
+     0.7231
+    ],
+    "auprc": 0.2947
+   },
+   "IMPRES": {
+    "auroc": 0.6128,
+    "auroc_ci": [
+     0.3812,
+     0.835
+    ],
+    "auprc": 0.3078
+   },
+   "ElasticNet": {
+    "auroc": 0.569,
+    "auroc_ci": [
+     0.3703,
+     0.7546
+    ],
+    "auprc": 0.2552
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.4646,
+    "auroc_ci": [
+     0.2083,
+     0.7038
+    ],
+    "auprc": 0.3165
+   },
+   "PD_L1": {
+    "auroc": 0.5455,
+    "auroc_ci": [
+     0.3299,
+     0.7592
+    ],
+    "auprc": 0.2593
+   }
+  }
+ }
+}

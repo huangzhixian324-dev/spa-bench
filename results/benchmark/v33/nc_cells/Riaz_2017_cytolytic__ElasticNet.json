@@ -1,0 +1,14 @@
+{
+ "cohort": "Riaz_2017_cytolytic",
+ "method": "ElasticNet",
+ "obs_auroc_this_run": 0.9329,
+ "benchmark_auroc": 0.9675,
+ "obs_deviation": 0.0346,
+ "params_frozen": {
+  "C": 0.1,
+  "l1_ratio": 0.5
+ },
+ "n_perm": 500,
+ "p": 0.001996007984031936,
+ "protocol": "full-pipeline label shuffles, cached variance prescreen, seed 42"
+}

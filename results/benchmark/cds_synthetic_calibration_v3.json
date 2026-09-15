@@ -1,0 +1,37 @@
+[
+  {
+    "scenario": 1,
+    "label": "Pure random endpoint",
+    "cds": 0.697,
+    "auroc_mean": 0.468,
+    "risk": "MODERATE"
+  },
+  {
+    "scenario": 2,
+    "label": "~20% circular, 80% biological",
+    "cds": 0.82,
+    "auroc_mean": 0.691,
+    "risk": "HIGH"
+  },
+  {
+    "scenario": 3,
+    "label": "~50% circular, 50% biological",
+    "cds": 0.83,
+    "auroc_mean": 0.838,
+    "risk": "HIGH"
+  },
+  {
+    "scenario": 4,
+    "label": "~80% circular, 20% biological",
+    "cds": 0.832,
+    "auroc_mean": 0.788,
+    "risk": "HIGH"
+  },
+  {
+    "scenario": 5,
+    "label": "100% circular endpoint",
+    "cds": 0.845,
+    "auroc_mean": 0.845,
+    "risk": "HIGH"
+  }
+]

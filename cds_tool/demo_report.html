@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>CDS Report</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:700px;margin:40px auto;padding:20px;background:#fafafa}
+.card{background:white;border-radius:8px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+h1{color:#1a237e} h2{color:#333;border-bottom:2px solid #e0e0e0;padding-bottom:8px}
+.big-score{font-size:3em;font-weight:bold;text-align:center;color:#e65100;margin:20px 0}
+.risk-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:bold;color:white;background:#e65100}
+.guidance{background:#fff3e0;border-left:4px solid #e65100;padding:16px;margin:16px 0;border-radius:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;text-align:left;border-bottom:1px solid #e0e0e0}
+th{background:#f5f5f5}
+footer{text-align:center;color:#999;font-size:0.85em;margin-top:30px}
+</style></head><body>
+<h1>Circularity Detection Score (CDS) Report</h1>
+<div class="card">
+<h2>Result</h2>
+<div class="big-score">0.852</div>
+<p style="text-align:center"><span class="risk-badge">HIGH RISK</span></p>
+<div class="guidance">The endpoint shows strong circular dependency with prediction features (CDS > 0.70). Genes defining the endpoint (e.g., GZMA, PRF1 for cytolytic score) are strongly co-expressed with the features used for prediction. ML methods will achieve inflated AUROC by learning the endpoint itself rather than clinically meaningful response biology. RECOMMENDATION: Use a clinically-defined endpoint (e.g., RECIST) instead.</div>
+</div>
+<div class="card">
+<h2>Component Breakdown</h2>
+<table>
+<tr><th>Component</th><th>Value</th><th>Description</th></tr>
+<tr><td>C1 (MI)</td><td>0.1785</td><td>Mutual info: endpoint genes with response</td></tr>
+<tr><td>C2 (rho)</td><td>0.5059</td><td>Spearman |rho|: endpoint genes with response</td></tr>
+<tr><td>C3 (skew)</td><td>1.0000</td><td>MI skew ratio: top features / random features</td></tr>
+</table>
+<p><strong>Endpoint genes found:</strong> GZMA, PRF1</p>
+</div>
+<footer>CDS v1.0.0 | SPATBench Project | MIT License</footer>
+</body></html>

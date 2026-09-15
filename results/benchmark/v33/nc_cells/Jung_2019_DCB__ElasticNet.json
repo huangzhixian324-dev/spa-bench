@@ -1,0 +1,14 @@
+{
+ "cohort": "Jung_2019_DCB",
+ "method": "ElasticNet",
+ "obs_auroc_this_run": 0.5635,
+ "benchmark_auroc": 0.4762,
+ "obs_deviation": 0.0873,
+ "params_frozen": {
+  "C": 0.1,
+  "l1_ratio": 0.5
+ },
+ "n_perm": 200,
+ "p": 0.1791044776119403,
+ "protocol": "full-pipeline label shuffles, cached variance prescreen, seed 42"
+}

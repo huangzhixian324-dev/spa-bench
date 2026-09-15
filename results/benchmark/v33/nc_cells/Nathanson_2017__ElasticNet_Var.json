@@ -1,0 +1,14 @@
+{
+ "cohort": "Nathanson_2017",
+ "method": "ElasticNet_Var",
+ "obs_auroc_this_run": 0.6267,
+ "benchmark_auroc": 0.6267,
+ "obs_deviation": 0.0,
+ "params_frozen": {
+  "C": 0.1,
+  "l1_ratio": 0.5
+ },
+ "n_perm": 1000,
+ "p": 0.03596403596403597,
+ "protocol": "full-pipeline label shuffles, cached variance prescreen, seed 42"
+}

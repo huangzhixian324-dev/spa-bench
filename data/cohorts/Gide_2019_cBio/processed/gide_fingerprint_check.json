@@ -1,0 +1,18 @@
+{
+ "IMPRES": {
+  "rebuilt": 0.6261,
+  "benchmark": 0.6261
+ },
+ "GEP": {
+  "rebuilt": 0.8303,
+  "benchmark": 0.8295
+ },
+ "TIDE": {
+  "rebuilt": 0.7606,
+  "benchmark": 0.7523
+ },
+ "PD_L1_IHC": {
+  "rebuilt": 0.7902,
+  "benchmark": 0.7909
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "Jung_2019_DCB/IMPRES": {
+  "rebuilt": 0.5833,
+  "benchmark": 0.5833,
+  "match": true
+ },
+ "Jung_2019_DCB/GEP": {
+  "rebuilt": 0.7857,
+  "benchmark": 0.7857,
+  "match": true
+ },
+ "Jung_2019_DCB/TIDE": {
+  "rebuilt": 0.2778,
+  "benchmark": 0.2778,
+  "match": true
+ },
+ "Jung_2019_DCB/PD_L1": {
+  "rebuilt": 0.6587,
+  "benchmark": 0.6587,
+  "match": true
+ },
+ "Nathanson_2017/IMPRES": {
+  "rebuilt": 0.61,
+  "benchmark": 0.61,
+  "match": true
+ },
+ "Nathanson_2017/GEP": {
+  "rebuilt": 0.6933,
+  "benchmark": 0.6933,
+  "match": true
+ },
+ "Nathanson_2017/TIDE": {
+  "rebuilt": 0.5,
+  "benchmark": 0.5,
+  "match": true
+ },
+ "Nathanson_2017/PD_L1": {
+  "rebuilt": 0.78,
+  "benchmark": 0.78,
+  "match": true
+ },
+ "Gide_2019_cBio/IMPRES": {
+  "rebuilt": 0.6261,
+  "benchmark": 0.6261,
+  "match": true
+ },
+ "Gide_2019_cBio/GEP": {
+  "rebuilt": 0.8295,
+  "benchmark": 0.8295,
+  "match": true
+ },
+ "Gide_2019_cBio/TIDE": {
+  "rebuilt": 0.7523,
+  "benchmark": 0.7523,
+  "match": true
+ },
+ "Gide_2019_cBio/PD_L1": {
+  "rebuilt": 0.7909,
+  "benchmark": 0.7909,
+  "match": true
+ }
+}

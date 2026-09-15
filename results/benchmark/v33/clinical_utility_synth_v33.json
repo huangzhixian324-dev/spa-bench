@@ -1,0 +1,51 @@
+{
+ "meta": {
+  "seed": 42,
+  "protocol": "v33 leakage-free nested CV, frozen hyperparameters from tune_primary"
+ },
+ "hugo_envar_clinical_utility": {
+  "params": {
+   "C": 1.0,
+   "l1_ratio": 0.9
+  },
+  "auroc": 0.528,
+  "auprc": 0.492,
+  "f1": 0.519,
+  "sensitivity": 0.538,
+  "specificity": 0.533,
+  "brier": 0.337,
+  "confusion_tp_fp_tn_fn": [
+   7,
+   7,
+   8,
+   6
+  ],
+  "dca": {
+   "net_benefit_pt=0.1": 0.345,
+   "net_benefit_pt=0.2": 0.259,
+   "net_benefit_pt=0.5": 0.0
+  },
+  "dca_treat_all": {
+   "net_benefit_pt=0.1": 0.405,
+   "net_benefit_pt=0.2": 0.33,
+   "net_benefit_pt=0.5": -0.071
+  },
+  "nri_vs_prevalence_baseline": {
+   "nri_total": 0.021,
+   "nri_pval": 0.478
+  },
+  "idi_vs_prevalence_baseline": {
+   "idi_total": 0.0291
+  }
+ },
+ "synthetic_validation": {
+  "n": 200,
+  "n_genes": 1000,
+  "gep_auroc": 0.679,
+  "en_mi_auroc": 0.62,
+  "en_mi_params": {
+   "C": 0.1,
+   "l1_ratio": 0.1
+  }
+ }
+}

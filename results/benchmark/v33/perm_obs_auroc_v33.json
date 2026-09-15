@@ -1,0 +1,10 @@
+{
+ "Gide_2019_cBio__ElasticNet_5000": 0.6621,
+ "Jung_2019_DCB__ElasticNet": 0.5635,
+ "Jung_2019_DCB__ElasticNet_Var": 0.5238,
+ "Nathanson_2017__ElasticNet_Var": 0.6267,
+ "Riaz_2017_cytolytic__ElasticNet": 0.9329,
+ "Riaz_2017_cytolytic__ElasticNet_Var": 0.974,
+ "Riaz_2017_RECIST_v33__ElasticNet": 0.6162,
+ "Riaz_2017_RECIST_v33__ElasticNet_Var": 0.5455
+}

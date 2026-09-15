@@ -1,0 +1,12 @@
+{
+ "n_samples": 73,
+ "n_genes": 39113,
+ "responders": 40,
+ "cds_rebuilt": 0.852,
+ "cds_expected": 0.852,
+ "components": {
+  "C1": 0.1396,
+  "C2": 0.5081,
+  "C3": 1.0
+ }
+}

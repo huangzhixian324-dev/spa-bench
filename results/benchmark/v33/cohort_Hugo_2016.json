@@ -1,0 +1,50 @@
+{
+ "meta": {
+  "seed": 42,
+  "note": "v33 final assembly. Benchmarks: leakage-free nested CV (per-fold feature selection, inner 3-fold tuning), identical protocol for all cohorts. Permutation cells are recorded only where a full-pipeline label-shuffle null was completed; each cell records its own n_perm. Cells without a permutation p are judged by the bootstrap CI criterion (all CIs overlap 0.5)."
+ },
+ "cohorts": {
+  "Hugo_2016": {
+   "GEP": {
+    "auroc": 0.4462,
+    "auroc_ci": [
+     0.2282,
+     0.6719
+    ],
+    "auprc": 0.4763
+   },
+   "TIDE": {
+    "auroc": 0.4256,
+    "auroc_ci": [
+     0.1844,
+     0.6631
+    ],
+    "auprc": 0.4951
+   },
+   "IMPRES": {
+    "auroc": 0.7949,
+    "auroc_ci": [
+     0.5972,
+     0.9474
+    ],
+    "auprc": 0.7092
+   },
+   "ElasticNet": {
+    "auroc": 0.6308,
+    "auroc_ci": [
+     0.4167,
+     0.8572
+    ],
+    "auprc": 0.6235
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.5282,
+    "auroc_ci": [
+     0.3177,
+     0.7612
+    ],
+    "auprc": 0.4918
+   }
+  }
+ }
+}

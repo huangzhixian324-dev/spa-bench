@@ -1,0 +1,54 @@
+{
+ "clinical_max": {
+  "GEP": {
+   "auroc": 0.8295,
+   "cohort": "Gide_2019_cBio"
+  },
+  "TIDE": {
+   "auroc": 0.7523,
+   "cohort": "Gide_2019_cBio"
+  },
+  "IMPRES": {
+   "auroc": 0.7949,
+   "cohort": "Hugo_2016"
+  },
+  "ElasticNet": {
+   "auroc": 0.7,
+   "cohort": "Nathanson_2017"
+  },
+  "ElasticNet_Var": {
+   "auroc": 0.6267,
+   "cohort": "Nathanson_2017"
+  },
+  "PD_L1": {
+   "auroc": 0.7909,
+   "cohort": "Gide_2019_cBio"
+  }
+ },
+ "overall_max": {
+  "GEP": {
+   "auroc": 0.9675,
+   "cohort": "Riaz_2017_cytolytic"
+  },
+  "TIDE": {
+   "auroc": 0.7523,
+   "cohort": "Gide_2019_cBio"
+  },
+  "IMPRES": {
+   "auroc": 0.7949,
+   "cohort": "Hugo_2016"
+  },
+  "ElasticNet": {
+   "auroc": 0.9675,
+   "cohort": "Riaz_2017_cytolytic"
+  },
+  "ElasticNet_Var": {
+   "auroc": 0.9848,
+   "cohort": "Riaz_2017_cytolytic"
+  },
+  "PD_L1": {
+   "auroc": 0.868,
+   "cohort": "Riaz_2017_cytolytic"
+  }
+ }
+}

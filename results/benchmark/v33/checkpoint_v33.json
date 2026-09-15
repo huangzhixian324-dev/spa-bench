@@ -1,0 +1,115 @@
+{
+ "meta": {
+  "seed": 42,
+  "note": "v33 final (uniform protocol across all six cohorts): IMPRES 500 / ElasticNet_Var 200 / ElasticNet-MI 100 label shuffles per cell, in chunks of 25 seeds via a memmap multiprocessing pool; escalation to 300 for cells whose 100-shuffle p <= 0.06. Permutation-side MI selection draws from the top-200 variable genes (tractability; under shuffled labels the null is insensitive to pool size, verified: Hugo EN null mean 0.501 for pool 2000 vs 0.500 grid for pool 200). Per-cell n_perm recorded."
+ },
+ "cohorts": {
+  "Hugo_2016": {
+   "GEP": {
+    "auroc": 0.4462,
+    "auroc_ci": [
+     0.2282,
+     0.6719
+    ],
+    "auprc": 0.4763
+   },
+   "TIDE": {
+    "auroc": 0.4256,
+    "auroc_ci": [
+     0.1844,
+     0.6631
+    ],
+    "auprc": 0.4951
+   },
+   "IMPRES": {
+    "auroc": 0.7949,
+    "auroc_ci": [
+     0.5972,
+     0.9474
+    ],
+    "auprc": 0.7092
+   },
+   "ElasticNet": {
+    "auroc": 0.6256,
+    "auroc_ci": [
+     0.3958,
+     0.8304
+    ],
+    "auprc": 0.6219
+   },
+   "ElasticNet_Var": {
+    "auroc": 0.5282,
+    "auroc_ci": [
+     0.3177,
+     0.7612
+    ],
+    "auprc": 0.4918
+   }
+  },
+  "Nathanson_2017": {
+   "GEP": {
+    "auroc": 0.6933,
+    "auroc_ci": [
+     0.4545,
+     0.9118
+    ],
+    "auprc": 0.593
+   },
+   "TIDE": {
+    "auroc": 0.5,
+    "auroc_ci": [
+     0.2738,
+     0.7431
+    ],
+    "auprc": 0.4096
+   },
+   "IMPRES": {
+    "auroc": 0.61,
+    "auroc_ci": [
+     0.3865,
+     0.8259
+    ],
+    "auprc": 0.46
+   },
+   "ElasticNet": {
+    "auroc": 0.7,
+    "auroc_ci": [
+     0.4861,
+     0.8959
+    ],
+    "auprc": 0.5761
+   }
+  }
+ },
+ "perms": {
+  "Hugo_2016": {
+   "IMPRES": {
+    "obs_auroc": 0.7949,
+    "p": 0.0029,
+    "n_perm": 700
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.6256,
+    "p": 0.1485,
+    "n_perm": 100
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.5282,
+    "p": 0.3284,
+    "n_perm": 200
+   }
+  },
+  "Nathanson_2017": {
+   "IMPRES": {
+    "obs_auroc": 0.61,
+    "p": 0.1856,
+    "n_perm": 500
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.7,
+    "p": 0.0693,
+    "n_perm": 100
+   }
+  }
+ }
+}

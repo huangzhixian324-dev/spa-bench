@@ -1,0 +1,168 @@
+{
+ "method": "Hanley-McNeil single-sample AUROC variance, normal approximation, one-sided alpha 0.05, H0: AUROC = 0.5",
+ "note": "Complements Table 8 (two-method comparison power); answers the one-sample detectability question used in the Results text.",
+ "table": {
+  "Hugo_2016": {
+   "AUROC=0.55": {
+    "se": 0.111,
+    "power_onesample": 0.066
+   },
+   "AUROC=0.6": {
+    "se": 0.1085,
+    "power_onesample": 0.15
+   },
+   "AUROC=0.63": {
+    "se": 0.1063,
+    "power_onesample": 0.231
+   },
+   "AUROC=0.66": {
+    "se": 0.1036,
+    "power_onesample": 0.339
+   },
+   "AUROC=0.7": {
+    "se": 0.0992,
+    "power_onesample": 0.523
+   },
+   "AUROC=0.75": {
+    "se": 0.0922,
+    "power_onesample": 0.773
+   },
+   "min_auroc_80pct_power": 0.756
+  },
+  "Lauss_2017": {
+   "AUROC=0.55": {
+    "se": 0.1208,
+    "power_onesample": 0.061
+   },
+   "AUROC=0.6": {
+    "se": 0.1175,
+    "power_onesample": 0.134
+   },
+   "AUROC=0.63": {
+    "se": 0.1148,
+    "power_onesample": 0.204
+   },
+   "AUROC=0.66": {
+    "se": 0.1116,
+    "power_onesample": 0.3
+   },
+   "AUROC=0.7": {
+    "se": 0.1064,
+    "power_onesample": 0.468
+   },
+   "AUROC=0.75": {
+    "se": 0.0983,
+    "power_onesample": 0.72
+   },
+   "min_auroc_80pct_power": 0.767
+  },
+  "Gide_2019_cBio": {
+   "AUROC=0.55": {
+    "se": 0.0677,
+    "power_onesample": 0.111
+   },
+   "AUROC=0.6": {
+    "se": 0.0663,
+    "power_onesample": 0.326
+   },
+   "AUROC=0.63": {
+    "se": 0.065,
+    "power_onesample": 0.516
+   },
+   "AUROC=0.66": {
+    "se": 0.0634,
+    "power_onesample": 0.714
+   },
+   "AUROC=0.7": {
+    "se": 0.0607,
+    "power_onesample": 0.909
+   },
+   "AUROC=0.75": {
+    "se": 0.0566,
+    "power_onesample": 0.993
+   },
+   "min_auroc_80pct_power": 0.675
+  },
+  "Jung_2019_DCB": {
+   "AUROC=0.55": {
+    "se": 0.1377,
+    "power_onesample": 0.055
+   },
+   "AUROC=0.6": {
+    "se": 0.1375,
+    "power_onesample": 0.109
+   },
+   "AUROC=0.63": {
+    "se": 0.1366,
+    "power_onesample": 0.157
+   },
+   "AUROC=0.66": {
+    "se": 0.1349,
+    "power_onesample": 0.219
+   },
+   "AUROC=0.7": {
+    "se": 0.1316,
+    "power_onesample": 0.33
+   },
+   "AUROC=0.75": {
+    "se": 0.1254,
+    "power_onesample": 0.513
+   },
+   "min_auroc_80pct_power": 0.817
+  },
+  "Riaz_2017_cytolytic": {
+   "AUROC=0.55": {
+    "se": 0.0886,
+    "power_onesample": 0.081
+   },
+   "AUROC=0.6": {
+    "se": 0.0871,
+    "power_onesample": 0.209
+   },
+   "AUROC=0.63": {
+    "se": 0.0856,
+    "power_onesample": 0.33
+   },
+   "AUROC=0.66": {
+    "se": 0.0837,
+    "power_onesample": 0.481
+   },
+   "AUROC=0.7": {
+    "se": 0.0805,
+    "power_onesample": 0.7
+   },
+   "AUROC=0.75": {
+    "se": 0.0754,
+    "power_onesample": 0.913
+   },
+   "min_auroc_80pct_power": 0.72
+  },
+  "Riaz_2017_RECIST_v33": {
+   "AUROC=0.55": {
+    "se": 0.0896,
+    "power_onesample": 0.08
+   },
+   "AUROC=0.6": {
+    "se": 0.088,
+    "power_onesample": 0.205
+   },
+   "AUROC=0.63": {
+    "se": 0.0864,
+    "power_onesample": 0.324
+   },
+   "AUROC=0.66": {
+    "se": 0.0845,
+    "power_onesample": 0.474
+   },
+   "AUROC=0.7": {
+    "se": 0.0812,
+    "power_onesample": 0.692
+   },
+   "AUROC=0.75": {
+    "se": 0.076,
+    "power_onesample": 0.908
+   },
+   "min_auroc_80pct_power": 0.722
+  }
+ }
+}
