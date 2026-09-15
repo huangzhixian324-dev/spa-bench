@@ -106,7 +106,7 @@ if not miss:
 
 # ---------- 2. 关键数字 ----------
 print('\n[2] 稿件关键数字核对')
-ms = z.read('SPATBench/docs/manuscript_v34_nar.md').decode('utf-8')
+ms = z.read('SPATBench/docs/manuscript_v34.md').decode('utf-8')
 checks = {
     '0.0232': 'Gide EN-MI 最终 p', '5,000': 'shuffle 次数', '0.0278': 'BH q (q_A)',
     '196': '患者总数', '3.5': '端点效应倍数', '0.662': 'perm-obs AUROC',

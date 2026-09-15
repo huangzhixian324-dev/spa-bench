@@ -13,14 +13,14 @@ from pathlib import Path
 import markdown
 
 REPO = Path(__file__).resolve().parents[1]
-MD = REPO / 'docs' / 'manuscript_v34_nar.md'
+MD = REPO / 'docs' / 'manuscript_v34.md'
 FIGD = REPO / 'results' / 'figures' / 'v33'
 HTML_OUT = REPO / 'docs' / '_build' / 'submission.html'
 HTML_OUT.parent.mkdir(parents=True, exist_ok=True)
 PDF_OUT = REPO / 'docs' / 'SPATBench_CellSystems_submission_v35.pdf'
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 
-t = (REPO / 'docs' / 'manuscript_v34_nar.md').read_text(encoding='utf-8')
+t = (REPO / 'docs' / 'manuscript_v34.md').read_text(encoding='utf-8')
 
 # 1. graphical abstract after the H1 title line
 ga = FIGD / 'graphical_abstract.png'

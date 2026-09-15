@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-MP = REPO / 'docs' / 'manuscript_v34_nar.md'
+MP = REPO / 'docs' / 'manuscript_v34.md'
 PY = sys.executable if sys.executable else str(R) + '/venv/Scripts/python.exe'
 
 

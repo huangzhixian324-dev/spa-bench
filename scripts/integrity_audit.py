@@ -89,7 +89,7 @@ print("=" * 70)
 print("4) paths cited in manuscript + supplementary markdown")
 print("=" * 70)
 cited = set()
-for doc in ["docs/manuscript_v34_nar.md", "docs/supplementary_material_v33.md"]:
+for doc in ["docs/manuscript_v34.md", "docs/supplementary_material_v33.md"]:
     text = Path(doc).read_text(encoding="utf-8")
     for pat in [r"`(results/[^`\s]+?)`", r"`(data/[^`\s]+?)`",
                 r"`(scripts/[^`\s]+?)`", r"`(docs/[^`\s]+?)`"]:

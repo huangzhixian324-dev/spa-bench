@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-mp = REPO / 'docs/manuscript_v34_nar.md'
+mp = REPO / 'docs/manuscript_v34.md'
 t = mp.read_text(encoding='utf-8')
 db = json.load(open(REPO / 'results/benchmark/v33/ref_authors_pubmed.json'))
 

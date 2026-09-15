@@ -10,7 +10,7 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 REPO = Path(__file__).resolve().parents[1]
-md = (REPO / 'docs/manuscript_v34_nar.md').read_text(encoding='utf-8')
+md = (REPO / 'docs/manuscript_v34.md').read_text(encoding='utf-8')
 
 doc = Document()
 st = doc.styles['Normal']

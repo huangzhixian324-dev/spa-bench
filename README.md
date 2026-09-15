@@ -36,8 +36,8 @@ n <= 43.
   permutation_v33.json with the complete 36-cell matrix, per-cell checkpoint
   files in `nc_cells/`, power_table_v33.json, bh_sensitivity_v33.json)
 - `results/figures/v33/` - all figures (300 DPI)
-- `docs/` - manuscript (Cell Systems v35 / NAR v34), supplementary material,
-  submission PDFs
+- `docs/` - manuscript source (`manuscript_v34.md`; typeset Cell Systems v35),
+  supplementary material, submission PDFs
 - `cds_tool/` - the CDS package source (v1.2.1)
 - `data/` - cohort data and preprocessing provenance
 - `Dockerfile` - container image (spa-bench:v33)

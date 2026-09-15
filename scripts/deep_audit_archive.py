@@ -75,7 +75,7 @@ for k, v in cnt.items():
 # ---------- 2. 必备文件 ----------
 print('\n[2] 必备文件清单')
 required = [
-    'docs/manuscript_v34_nar.md', 'docs/supplementary_material_v33.md',
+    'docs/manuscript_v34.md', 'docs/supplementary_material_v33.md',
     'docs/SPATBench_CellSystems_submission_v35.pdf',
     'docs/SPATBench_CellSystems_manuscript_v35.docx',
     'results/figures/v33/figS1_response_definition_collapse.png',
@@ -119,7 +119,7 @@ finally:
 
 # ---------- 4. 与仓库一致性 ----------
 print('\n[4] 关键文件与仓库一致性（行尾归一化后哈希）')
-sample = ['docs/manuscript_v34_nar.md', 'results/benchmark/v33/permutation_v33.json',
+sample = ['docs/manuscript_v34.md', 'results/benchmark/v33/permutation_v33.json',
           'scripts/rerun_v33.py', 'scripts/validate.py', 'cds_tool/cds.py',
           'requirements.txt', 'LICENSE']
 diff = 0
