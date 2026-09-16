@@ -291,8 +291,8 @@ This study did not generate new materials.
 
 **Data and code availability**
 
-- Data: All raw cohort data are publicly available from GEO (GSE78220, GSE91061, GSE100797, GSE135222) and cBioPortal (mel_iatlas_gide_2019, blca_iatlas_imvigor210_2017, mel_iatlas_liu_2019).
-- Code: All original code is publicly available. SPATBench pipeline (v33): https://github.com/huangzhixian324-dev/spa-bench (MIT). CDS package (v1.2.1): https://github.com/huangzhixian324-dev/cds (MIT); the packaged source is also included in the Zenodo archive (`cds_tool/`, installable with `pip install ./cds_tool`). A versioned archive with a DOI is deposited on Zenodo (DOI: [ZENODO DOI — to be inserted at acceptance]). The Docker image (spa-bench:v33) reproduces the synthetic validation test (`scripts/validate.py`, exit code 0 verified) and ships the complete pipeline code; reproducing the reported tables additionally requires the Zenodo-archived inputs and `scripts/rerun_v33.py`. - Any additional information required to reanalyze the data reported in this paper is available from the lead contact upon request.
+- Data: All raw cohort data are publicly available from GEO (GSE78220, GSE91061, GSE100797, GSE135222) and cBioPortal (mel_iatlas_gide_2019, blca_iatlas_imvigor210_2017, mel_iatlas_liu_2019). Preprocessed expression matrices, all per-cell permutation outputs and figures are archived in the versioned Zenodo record (DOI: 10.5281/zenodo.22746254).
+- Code: All original code is publicly available. SPATBench pipeline (v33): https://github.com/huangzhixian324-dev/spa-bench (MIT). CDS package (v1.2.1): https://github.com/huangzhixian324-dev/cds (MIT); the packaged source is also included in the Zenodo archive (`cds_tool/`, installable with `pip install ./cds_tool`). A versioned archive with a DOI is deposited on Zenodo (DOI: 10.5281/zenodo.22746254). The included Dockerfile builds the image (`docker build -t spa-bench:v33 .`) that reproduces the synthetic validation test (`scripts/validate.py`, exit code 0 verified) and ships the complete pipeline code; reproducing the reported tables additionally requires the Zenodo-archived inputs and `scripts/rerun_v33.py`. - Any additional information required to reanalyze the data reported in this paper is available from the lead contact upon request.
 
 ### EXPERIMENTAL MODEL AND STUDY PARTICIPANT DETAILS
 
@@ -382,6 +382,7 @@ None.
 |---|---|---|
 | SPATBench pipeline (v33) | This paper; GitHub (https://github.com/huangzhixian324-dev/spa-bench) | spa-bench:v33 |
 | circularity-detection-score | This paper; GitHub (https://github.com/huangzhixian324-dev/cds) | v1.2.1 |
+| SPATBench archive (Zenodo) | This paper | 10.5281/zenodo.22746254 |
 | tidepy | Jingxin Fu | v1.3.9 |
 | scikit-learn | scikit-learn.org | >=1.0 |
 | GSE78220 / GSE91061 / GSE100797 / GSE135222 | GEO | GSE78220; GSE91061; GSE100797; GSE135222 |

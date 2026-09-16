@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with the intention of making
+# citation of the SPATBench benchmark archive straightforward.
+cff-version: 1.2.0
+message: "If you use SPATBench in your work, please cite it using the metadata below."
+title: "SPATBench: Methodological Choices Can Outweigh Algorithmic Choices in Transcriptomic Immunotherapy Prediction Benchmarking at Current Sample Sizes"
+authors:
+  - family-names: Huang
+    given-names: Zhixian
+    affiliation: "Putian University, Putian, Fujian, China"
+keywords:
+  - cancer immunotherapy
+  - biomarker benchmarking
+  - response definition
+  - feature selection
+  - endpoint circularity
+  - transcriptomics
+  - machine learning
+  - immune checkpoint inhibitors
+license: MIT
+repository-code: "https://github.com/huangzhixian324-dev/spa-bench"
+version: v34-submission
+date-released: "2026-09-16"
+doi: 10.5281/zenodo.22746254
+abstract: "SPATBench is an open-source, Docker-reproducible benchmark framework that isolates three benchmarking design choices (response definition, feature selection, and endpoint circularity) across six prediction methods and five immunotherapy-treated cohorts (196 patients; melanoma, NSCLC, bladder). It includes the full analysis pipeline, the CDS circularity-detection package (v1.2.1), machine-readable results, figures, and manuscript source."

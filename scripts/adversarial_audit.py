@@ -214,10 +214,9 @@ except Exception as e:
 unverifiable = [
     'Zenodo web-form metadata (Title/Creators/Description/Keywords/License) — '
     'entered in the Zenodo web interface, not readable from here',
-    'The final published Zenodo DOI — assigned by Zenodo at publish time',
+    'Zenodo record publish state — the reserved DOI becomes live only after '
+    'the record is published on the Zenodo web interface',
     'Editorial Manager file-type designations — selected during submission',
-    'The in-manuscript citation placeholder [ZENODO DOI — to be inserted at '
-    'acceptance] — filled by scripts/apply_doi.py once the DOI is issued',
 ]
 
 print('\n' + '=' * 66)
