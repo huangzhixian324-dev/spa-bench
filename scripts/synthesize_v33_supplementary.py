@@ -512,8 +512,9 @@ def build():
           "(then labelled 'Nathanson') survival row (n = 25, 17 events; "
           "RECIST KM p = 0.0001). The local GSE100797 matrix contains no OS "
           "metadata, so that row could not be regenerated under the v33 "
-          "protocol; it is retained in manuscript Table 7 explicitly marked "
-          "as archived and pending re-validation.*\n")
+          "protocol; it is excluded from the v33 survival table (Table S24) "
+          "and its archived values are retained in Table S9 for "
+          "continuity.*\n")
 
     # ---------------------------------------------------------- S10
     w("## Table S10. Immune Deconvolution Signature Marker Genes "
@@ -551,6 +552,23 @@ def build():
       "signatures computable on every cohort.*\n")
 
     # ---------------------------------------------------------- S11
+    # Perm-obs provenance: frozen-hyperparameter re-runs for previously
+    # n.c. trainable cells (nc_cells/*.json), else the permutation run's
+    # recorded obs_auroc; fixed scorers are label-independent, so the
+    # observed score equals the benchmark AUROC by construction.
+    FIXED_SCORERS = {"IMPRES", "GEP", "TIDE", "PD_L1"}
+    nc_obs = {}
+    _ncdir = REPO / "results" / "benchmark" / "v33" / "nc_cells"
+    for _f in sorted(_ncdir.glob("*.json")):
+        if _f.name.endswith(".ckpt.json"):
+            continue
+        _d = json.load(open(_f))
+        _stem = _f.name[:-5]
+        _coh, _meth = _stem.split("__", 1)
+        if _meth == "ElasticNet_5000":
+            _meth = "ElasticNet"
+        if "obs_auroc_this_run" in _d:
+            nc_obs[(_coh, _meth)] = _d["obs_auroc_this_run"]
     w("## Table S11. Complete Permutation Test Matrix (v33)\n")
     w("Fixed scorers (IMPRES, GEP, TIDE, PD-L1): 50,000 label shuffles "
       "against the fixed score (mathematically equivalent to the "
@@ -559,9 +577,9 @@ def build():
       "(ElasticNet-MI, ElasticNet-Var): full-pipeline label shuffles with "
       "frozen hyperparameters, per-cell n. BH correction within each "
       "cohort.\n")
-    w("| Method | Cohort | n | Obs AUROC | p | n (shuffles) | BH q | "
-      "Significant |")
-    w("|---|---|---|---|---|---|---|---|")
+    w("| Method | Cohort | n | Obs AUROC | Perm-obs AUROC | p | "
+      "n (shuffles) | BH q | Significant |")
+    w("|---|---|---|---|---|---|---|---|---|")
     rows = []
     for cname in COHORTS:
         for m in METHODS:
@@ -572,24 +590,38 @@ def build():
             cell = PM.get(cname, {}).get(m)
             if cell is None:
                 w(f"| {MLABEL[m]} | {LABEL[cname]} | {N_MAP[cname]} | "
-                  f"{BM[cname][m]['auroc']:.3f} | n.c. | — | — | |")
+                  f"{BM[cname][m]['auroc']:.3f} | — | n.c. | — | — | |")
                 continue
             q = QV[(cname, m)]
             sig = "**Yes**" if q < 0.05 else ""
             nsh = cell.get("n_shuffle", cell.get("n_perm"))
+            if m in FIXED_SCORERS:
+                pobs = f"{BM[cname][m]['auroc']:.3f}"
+            elif (cname, m) in nc_obs:
+                pobs = f"{nc_obs[(cname, m)]:.3f}"
+            else:
+                pobs = f"{cell['obs_auroc']:.3f}"
             w(f"| {MLABEL[m]} | {LABEL[cname]} | {N_MAP[cname]} | "
-              f"{BM[cname][m]['auroc']:.3f} | {cell['p']:.4g} | {nsh} | "
-              f"{q:.3f} | {sig} |")
+              f"{BM[cname][m]['auroc']:.3f} | {pobs} | {cell['p']:.4g} | "
+              f"{nsh} | {q:.3f} | {sig} |")
     w("\n*All 36 of 36 method × cohort-endpoint cells carry a recorded "
-      "permutation p (the seven previously n.c. trainable cells were "
+      "permutation p (the previously n.c. trainable cells were "
       "completed by `scripts/fill_nc_cells.py` and merged by "
       "`scripts/merge_nc_cells.py`; seed 42; frozen hyperparameters). "
-      "The Obs AUROC column shows the benchmark AUROC (as in manuscript "
-      "Table 4); permutation-run observed AUROCs for those seven cells "
-      "(frozen hyperparameters differing from the tune_primary "
-      "selections) deviate from the benchmark values by 0.011–0.087 and "
-      "are recorded in results/benchmark/v33/nc_cells/*.json. PD-L1 "
-      "cells use the fixed-scorer protocol "
+      "The Obs AUROC column shows the benchmark AUROC (tune-primary "
+      "protocol). The Perm-obs AUROC column shows the observed AUROC "
+      "under the permutation protocol. For the trainable cells re-run "
+      "with frozen hyperparameters (recorded in "
+      "results/benchmark/v33/nc_cells/*.json, summarized in "
+      "perm_obs_auroc_v33.json) it deviates from the benchmark value by "
+      "0.000–0.087 (largest: Jung ElasticNet-MI 0.564 vs 0.476 — "
+      "frozen-versus-tuned hyperparameters, the same deviation class as "
+      "the Gide ElasticNet-MI cell, which re-run at 5,000 shuffles gives "
+      "0.662 vs the benchmark 0.629, i.e. +0.033); for the remaining "
+      "four trainable cells the permutation-run AUROC reproduces the "
+      "benchmark value within 0.0003. For fixed scorers the observed "
+      "score is the benchmark AUROC by construction (the score is "
+      "label-independent); PD-L1 cells use the fixed-scorer protocol "
       "(`scripts/pdl1_perm_v33.py`).*\n")
     sig_cells = [(MLABEL[m], LABEL[c], BM[c][m]['auroc'], QV[(c, m)])
                  for c in COHORTS for m in METHODS
@@ -902,7 +934,7 @@ def build():
          "`figS8_forest.png`"),
         ("Figure S9. Power curves",
          "Minimum detectable ΔAUROC at 80% power; points reproduce "
-         "manuscript Table 8. `figS9_power_curves.png`"),
+         "Table S25. `figS9_power_curves.png`"),
         ("Figure S10. CDS vs observed ML performance (identical to "
          "main-text Figure 2)",
          "CDS (v1.1.0 recomputation, Table S4b) vs best trainable-ML "
@@ -1213,6 +1245,99 @@ def build():
           "this cell becomes FDR-significant under the wider families; "
           "the manuscript's nominal-only wording is the conservative "
           "reading).\n")
+
+    # ---------------------------------------------------------- S22
+    w("## Table S22. AUROC across Four Clinical-Endpoint Cohorts "
+      "(v33, HGNC-mapped; 95% CIs from 1,000 bootstrap iterations where "
+      "shown; migrated from the main text)\n")
+    w("| Method | Hugo 2016 (28) | Lauss 2017 (25) | Gide 2019 (73) | "
+      "Riaz RECIST (42) |")
+    w("|--------|----------------|-----------------|----------------|"
+      "------------------|")
+    w("| IMPRES | **0.795** [0.597–0.947] | 0.610 | 0.626 | **0.613** |")
+    w("| GEP | 0.446 | 0.693 | **0.830** | 0.503 |")
+    w("| TIDE | 0.426 | 0.500 | 0.752 | 0.466 |")
+    w("| PD-L1 (CD274) | 0.523 | **0.780** | 0.791 | 0.545 |")
+    w("| ElasticNet (Var) | 0.528 [0.318–0.761] | 0.627 | 0.605 | "
+      "0.465 [0.208–0.704] |")
+    w("| ElasticNet (MI) | 0.631 [0.417–0.857] | 0.700 | 0.629 | "
+      "0.569 [0.370–0.755] |")
+    w("\n†Permutation status and BH q-values in Table S11. Riaz RECIST "
+      "n = 42 (rebuilt cohort). Bold = best AUROC per column for context "
+      "only; no method ranking is claimed (all bootstrap CIs of the "
+      "trainable methods on clinical endpoints overlap 0.5 at n ≤ 43).\n")
+
+    # ---------------------------------------------------------- S23
+    w("## Table S23. DCB Endpoint, Jung 2019 (n = 27, NSCLC; corrected "
+      "labels: 1 = durable clinical benefit, 6/27; GSE135222)\n")
+    w("| Method | AUROC | 95% CI |")
+    w("|---|---:|---|")
+    w("| IMPRES | 0.583 | 0.380–0.750 |")
+    w("| GEP | 0.786 | 0.573–0.960 |")
+    w("| TIDE | 0.278 | 0.083–0.527 |")
+    w("| PD-L1 (CD274) | 0.659 | 0.464–0.861 |")
+    w("| ElasticNet (MI) | 0.476 | 0.152–0.792 |")
+    w("| ElasticNet (Var) | 0.476 | 0.100–0.818 |")
+    w("\nTIDE scores far below chance on this cohort (0.278); with only "
+      "6 DCB responders this deviation sits inside the permutation null "
+      "envelope (p = 0.952), and we report the value as computed under "
+      "the tidepy default threshold convention rather than re-tuning it "
+      "to the cohort.\n")
+
+    # ---------------------------------------------------------- S24
+    w("## Table S24. Overall Survival Stratification on Hugo 2016 "
+      "(true events)\n")
+    w("| Cohort | n | Events | Median OS | IMPRES KM p | RECIST KM p | "
+      "GEP KM p |")
+    w("|--------|----|--------|-----------|-------------|-------------|"
+      "----------|")
+    w("| Hugo 2016 (true events) | 26 | 12 | 439 days | 0.554 | "
+      "**0.0003** | 0.475 |")
+    w("\nHugo values come from true OS events (iAtlas OS_STATUS, 26 "
+      "patients / 12 deaths; matching validated by 24/27 local OS_days "
+      "agree with iAtlas OS_MONTHS (±60 d); "
+      "results/benchmark/v33/hugo_survival_true.json). The local "
+      "GSE100797 (Lauss) matrix contains no OS metadata; the archived "
+      "Lauss survival row from earlier versions could not be regenerated "
+      "under the v33 protocol and is therefore excluded from this table "
+      "(archived values retained in Table S9 for continuity).")
+    w("RECIST response strongly stratifies overall survival on Hugo "
+      "(log-rank p = 0.0003). IMPRES — the best AUROC method on Hugo "
+      "2016 — does not significantly stratify OS (KM p = 0.554 with "
+      "true events). Cox regression with z-standardized signatures "
+      "(HR per 1 SD) confirms: IMPRES HR = 0.631 (95% CI [0.325–1.227], "
+      "p = 0.175) on Hugo, GEP HR = 1.03 (95% CI [0.562–1.887], "
+      "p = 0.923). AUROC for binary response prediction does not "
+      "guarantee clinically meaningful survival stratification.")
+    w("Clinical utility metrics for ElasticNet_Var on Hugo 2016 (v33 "
+      "recomputed; Table S9): **DCA** net benefit 0.345 vs treat-all "
+      "0.405 at p_t = 0.10 and 0.259 vs 0.330 at 0.20 — positive but "
+      "consistently below \"treat all\"; at 0.50 the model is at 0. "
+      "**NRI vs. random baseline** = −0.113 (p = 0.658, not "
+      "significant). **IDI** = −0.029 (sensitivity 0.538, specificity "
+      "0.533).\n")
+
+    # ---------------------------------------------------------- S25
+    w("## Table S25. Minimum Detectable ΔAUROC at 80% Power (α = 0.05, "
+      "two-sided; Hanley–McNeil paired model, r = 0.75, the most "
+      "favourable assumption; exact values from "
+      "`scripts/power_table_v33.py`)\n")
+    w("| n | Responder % | Min Detectable ΔAUROC | Example Cohort |")
+    w("|----|------------|----------------------|----------------|")
+    w("| 25 | 40% | 0.23 | Lauss 2017 (ACT) |")
+    w("| 28 | 46% | 0.21 | Hugo 2016 |")
+    w("| 42 | 21% | 0.21 | Riaz RECIST |")
+    w("| 73 | 55% | 0.13 | Gide 2019 |")
+    w("| 100 | 50% | 0.11 | — |")
+    w("| 200 | 50% | 0.08 | — |")
+    w("\nAt n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For "
+      "reliable pairwise comparison at ΔAUROC = 0.10 (80% power), the "
+      "required sample size is ≈130 under the most favourable "
+      "correlation assumption (paired, r = 0.75) and ≈260–510 under "
+      "weaker or no correlation (`power_table_v33.json`); n ≥ 50 is "
+      "therefore reported as a minimum practical floor, not as a "
+      "sufficient condition for adequately powered pairwise "
+      "comparison.\n")
 
     # ---------------------------------------------------------- Note S6
     if E2:

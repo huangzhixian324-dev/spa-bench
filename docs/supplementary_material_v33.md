@@ -93,7 +93,7 @@ Mean null CDS = 0.50 (SD = 0.09), 95th percentile = 0.65, 99th percentile = 0.71
 | 4 | ~80% circular, 20% biological | 0.832 | 0.788 | HIGH |
 | 5 | 100% circular endpoint | 0.845 | 0.845 | HIGH |
 
-CDS ranks all five scenarios monotonically (0.697 < 0.820 < 0.830 < 0.832 < 0.845). Endpoints with CDS ≥ 0.80 show inflated AUROC (0.691–0.845); the pure-random scenario sits at CDS 0.697 — above the 0.51 obtained under the alternative v2 calibration (endpoint-weight parameterization, `cds_synthetic_calibration_v2.json`, scenario 1: CDS 0.513). The two calibrations parameterize circularity differently and are not interchangeable.
+CDS ranks all five scenarios monotonically (0.697 < 0.820 < 0.830 < 0.832 < 0.845). Endpoints with CDS ≥ 0.80 show inflated AUROC (0.691–0.845); the pure-random scenario sits at CDS 0.697 — above the manuscript's earlier '0.51' description, which came from the alternative v2 calibration (endpoint-weight parameterization, `cds_synthetic_calibration_v2.json`, scenario 1: CDS 0.513). The two calibrations parameterize circularity differently and are not interchangeable.
 
 **Threshold disclosure:** one threshold set is shipped everywhere (HIGH > 0.70, MODERATE 0.30–0.70, LOW ≤ 0.30); the conservative 0.80 boundary (0/30 false positives on the synthetic null) is the candidate for CDS v2.0. Continuous CDS values should be reported; categorical labels are advisory.
 
@@ -281,46 +281,46 @@ Signatures are the mean log2(FPKM + 1) expression of the marker genes found in e
 
 Fixed scorers (IMPRES, GEP, TIDE, PD-L1): 50,000 label shuffles against the fixed score (mathematically equivalent to the full-pipeline null because the score is label-independent; the equivalence was verified on Hugo IMPRES). Trainable methods (ElasticNet-MI, ElasticNet-Var): full-pipeline label shuffles with frozen hyperparameters, per-cell n. BH correction within each cohort.
 
-| Method | Cohort | n | Obs AUROC | p | n (shuffles) | BH q | Significant |
-|---|---|---|---|---|---|---|---|
-| IMPRES | Hugo 2016 RECIST (n=28) | 28 | 0.795 | 0.0029 | 50000 | 0.017 | **Yes** |
-| IMPRES | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.610 | 0.1893 | 50000 | 0.227 |  |
-| IMPRES | Gide 2019 RECIST (n=73) | 73 | 0.626 | 0.03168 | 50000 | 0.032 | **Yes** |
-| IMPRES | Jung 2019 DCB (n=27) | 27 | 0.583 | 0.4046 | 50000 | 0.486 |  |
-| IMPRES | Riaz 2017 cytolytic (n=43) | 43 | 0.660 | 0.03224 | 50000 | 0.039 | **Yes** |
-| IMPRES | Riaz 2017 RECIST (n=42) | 42 | 0.613 | 0.1535 | 50000 | 0.461 |  |
-| GEP | Hugo 2016 RECIST (n=28) | 28 | 0.446 | 0.6916 | 50000 | 0.755 |  |
-| GEP | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.693 | 0.0567 | 50000 | 0.113 |  |
-| GEP | Gide 2019 RECIST (n=73) | 73 | 0.830 | 2e-05 | 50000 | 0.000 | **Yes** |
-| GEP | Jung 2019 DCB (n=27) | 27 | 0.786 | 0.01692 | 50000 | 0.102 |  |
-| GEP | Riaz 2017 cytolytic (n=43) | 43 | 0.968 | 2e-05 | 50000 | 0.000 | **Yes** |
-| GEP | Riaz 2017 RECIST (n=42) | 42 | 0.503 | 0.4889 | 50000 | 0.587 |  |
-| TIDE | Hugo 2016 RECIST (n=28) | 28 | 0.426 | 0.7552 | 50000 | 0.755 |  |
-| TIDE | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.500 | 0.5103 | 50000 | 0.510 |  |
-| TIDE | Gide 2019 RECIST (n=73) | 73 | 0.752 | 0.00014 | 50000 | 0.000 | **Yes** |
-| TIDE | Jung 2019 DCB (n=27) | 27 | 0.278 | 0.9521 | 50000 | 0.952 |  |
-| TIDE | Riaz 2017 cytolytic (n=43) | 43 | 0.470 | 0.6365 | 50000 | 0.637 |  |
-| TIDE | Riaz 2017 RECIST (n=42) | 42 | 0.466 | 0.6223 | 50000 | 0.622 |  |
-| PD-L1 (CD274) | Hugo 2016 RECIST (n=28) | 28 | 0.523 | 0.428 | 50000 | 0.642 |  |
-| PD-L1 (CD274) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.780 | 0.0096 | 50000 | 0.058 |  |
-| PD-L1 (CD274) | Gide 2019 RECIST (n=73) | 73 | 0.791 | 2e-05 | 50000 | 0.000 | **Yes** |
-| PD-L1 (CD274) | Jung 2019 DCB (n=27) | 27 | 0.659 | 0.1299 | 50000 | 0.358 |  |
-| PD-L1 (CD274) | Riaz 2017 cytolytic (n=43) | 43 | 0.868 | 2e-05 | 50000 | 0.000 | **Yes** |
-| PD-L1 (CD274) | Riaz 2017 RECIST (n=42) | 42 | 0.545 | 0.3463 | 50000 | 0.519 |  |
-| ElasticNet (MI) | Hugo 2016 RECIST (n=28) | 28 | 0.631 | 0.1311 | 60 | 0.393 |  |
-| ElasticNet (MI) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.700 | 0.082 | 60 | 0.123 |  |
-| ElasticNet (MI) | Gide 2019 RECIST (n=73) | 73 | 0.629 | 0.0232 | 5000 | 0.028 | **Yes** |
-| ElasticNet (MI) | Jung 2019 DCB (n=27) | 27 | 0.476 | 0.1791 | 200 | 0.358 |  |
-| ElasticNet (MI) | Riaz 2017 cytolytic (n=43) | 43 | 0.968 | 0.001996 | 500 | 0.003 | **Yes** |
-| ElasticNet (MI) | Riaz 2017 RECIST (n=42) | 42 | 0.569 | 0.09453 | 200 | 0.461 |  |
-| ElasticNet (Var) | Hugo 2016 RECIST (n=28) | 28 | 0.528 | 0.3443 | 60 | 0.642 |  |
-| ElasticNet (Var) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.627 | 0.03596 | 1000 | 0.108 |  |
-| ElasticNet (Var) | Gide 2019 RECIST (n=73) | 73 | 0.605 | 0.02 | 500 | 0.028 | **Yes** |
-| ElasticNet (Var) | Jung 2019 DCB (n=27) | 27 | 0.476 | 0.2877 | 1000 | 0.432 |  |
-| ElasticNet (Var) | Riaz 2017 cytolytic (n=43) | 43 | 0.985 | 0.000999 | 1000 | 0.002 | **Yes** |
-| ElasticNet (Var) | Riaz 2017 RECIST (n=42) | 42 | 0.465 | 0.25 | 1000 | 0.500 |  |
+| Method | Cohort | n | Obs AUROC | Perm-obs AUROC | p | n (shuffles) | BH q | Significant |
+|---|---|---|---|---|---|---|---|---|
+| IMPRES | Hugo 2016 RECIST (n=28) | 28 | 0.795 | 0.795 | 0.0029 | 50000 | 0.017 | **Yes** |
+| IMPRES | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.610 | 0.610 | 0.1893 | 50000 | 0.227 |  |
+| IMPRES | Gide 2019 RECIST (n=73) | 73 | 0.626 | 0.626 | 0.03168 | 50000 | 0.032 | **Yes** |
+| IMPRES | Jung 2019 DCB (n=27) | 27 | 0.583 | 0.583 | 0.4046 | 50000 | 0.486 |  |
+| IMPRES | Riaz 2017 cytolytic (n=43) | 43 | 0.660 | 0.660 | 0.03224 | 50000 | 0.039 | **Yes** |
+| IMPRES | Riaz 2017 RECIST (n=42) | 42 | 0.613 | 0.613 | 0.1535 | 50000 | 0.461 |  |
+| GEP | Hugo 2016 RECIST (n=28) | 28 | 0.446 | 0.446 | 0.6916 | 50000 | 0.755 |  |
+| GEP | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.693 | 0.693 | 0.0567 | 50000 | 0.113 |  |
+| GEP | Gide 2019 RECIST (n=73) | 73 | 0.830 | 0.830 | 2e-05 | 50000 | 0.000 | **Yes** |
+| GEP | Jung 2019 DCB (n=27) | 27 | 0.786 | 0.786 | 0.01692 | 50000 | 0.102 |  |
+| GEP | Riaz 2017 cytolytic (n=43) | 43 | 0.968 | 0.968 | 2e-05 | 50000 | 0.000 | **Yes** |
+| GEP | Riaz 2017 RECIST (n=42) | 42 | 0.503 | 0.503 | 0.4889 | 50000 | 0.587 |  |
+| TIDE | Hugo 2016 RECIST (n=28) | 28 | 0.426 | 0.426 | 0.7552 | 50000 | 0.755 |  |
+| TIDE | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.500 | 0.500 | 0.5103 | 50000 | 0.510 |  |
+| TIDE | Gide 2019 RECIST (n=73) | 73 | 0.752 | 0.752 | 0.00014 | 50000 | 0.000 | **Yes** |
+| TIDE | Jung 2019 DCB (n=27) | 27 | 0.278 | 0.278 | 0.9521 | 50000 | 0.952 |  |
+| TIDE | Riaz 2017 cytolytic (n=43) | 43 | 0.470 | 0.470 | 0.6365 | 50000 | 0.637 |  |
+| TIDE | Riaz 2017 RECIST (n=42) | 42 | 0.466 | 0.466 | 0.6223 | 50000 | 0.622 |  |
+| PD-L1 (CD274) | Hugo 2016 RECIST (n=28) | 28 | 0.523 | 0.523 | 0.428 | 50000 | 0.642 |  |
+| PD-L1 (CD274) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.780 | 0.780 | 0.0096 | 50000 | 0.058 |  |
+| PD-L1 (CD274) | Gide 2019 RECIST (n=73) | 73 | 0.791 | 0.791 | 2e-05 | 50000 | 0.000 | **Yes** |
+| PD-L1 (CD274) | Jung 2019 DCB (n=27) | 27 | 0.659 | 0.659 | 0.1299 | 50000 | 0.358 |  |
+| PD-L1 (CD274) | Riaz 2017 cytolytic (n=43) | 43 | 0.868 | 0.868 | 2e-05 | 50000 | 0.000 | **Yes** |
+| PD-L1 (CD274) | Riaz 2017 RECIST (n=42) | 42 | 0.545 | 0.545 | 0.3463 | 50000 | 0.519 |  |
+| ElasticNet (MI) | Hugo 2016 RECIST (n=28) | 28 | 0.631 | 0.631 | 0.1311 | 60 | 0.393 |  |
+| ElasticNet (MI) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.700 | 0.700 | 0.082 | 60 | 0.123 |  |
+| ElasticNet (MI) | Gide 2019 RECIST (n=73) | 73 | 0.629 | 0.662 | 0.0232 | 5000 | 0.028 | **Yes** |
+| ElasticNet (MI) | Jung 2019 DCB (n=27) | 27 | 0.476 | 0.564 | 0.1791 | 200 | 0.358 |  |
+| ElasticNet (MI) | Riaz 2017 cytolytic (n=43) | 43 | 0.968 | 0.933 | 0.001996 | 500 | 0.003 | **Yes** |
+| ElasticNet (MI) | Riaz 2017 RECIST (n=42) | 42 | 0.569 | 0.616 | 0.09453 | 200 | 0.461 |  |
+| ElasticNet (Var) | Hugo 2016 RECIST (n=28) | 28 | 0.528 | 0.528 | 0.3443 | 60 | 0.642 |  |
+| ElasticNet (Var) | Lauss 2017 (ACT) RECIST (n=25) | 25 | 0.627 | 0.627 | 0.03596 | 1000 | 0.108 |  |
+| ElasticNet (Var) | Gide 2019 RECIST (n=73) | 73 | 0.605 | 0.605 | 0.02 | 500 | 0.028 | **Yes** |
+| ElasticNet (Var) | Jung 2019 DCB (n=27) | 27 | 0.476 | 0.524 | 0.2877 | 1000 | 0.432 |  |
+| ElasticNet (Var) | Riaz 2017 cytolytic (n=43) | 43 | 0.985 | 0.974 | 0.000999 | 1000 | 0.002 | **Yes** |
+| ElasticNet (Var) | Riaz 2017 RECIST (n=42) | 42 | 0.465 | 0.545 | 0.25 | 1000 | 0.500 |  |
 
-*All 36 of 36 method × cohort-endpoint cells carry a recorded permutation p (the seven previously n.c. trainable cells were completed by `scripts/fill_nc_cells.py` and merged by `scripts/merge_nc_cells.py`; seed 42; frozen hyperparameters). The Obs AUROC column shows the benchmark AUROC (as in manuscript Table 4); permutation-run observed AUROCs for those seven cells (frozen hyperparameters differing from the tune_primary selections) deviate from the benchmark values by 0.011–0.087 and are recorded in results/benchmark/v33/nc_cells/*.json. PD-L1 cells use the fixed-scorer protocol (`scripts/pdl1_perm_v33.py`).*
+*All 36 of 36 method × cohort-endpoint cells carry a recorded permutation p (the previously n.c. trainable cells were completed by `scripts/fill_nc_cells.py` and merged by `scripts/merge_nc_cells.py`; seed 42; frozen hyperparameters). The Obs AUROC column shows the benchmark AUROC (tune-primary protocol). The Perm-obs AUROC column shows the observed AUROC under the permutation protocol. For the trainable cells re-run with frozen hyperparameters (recorded in results/benchmark/v33/nc_cells/*.json, summarized in perm_obs_auroc_v33.json) it deviates from the benchmark value by 0.000–0.087 (largest: Jung ElasticNet-MI 0.564 vs 0.476 — frozen-versus-tuned hyperparameters, the same deviation class as the Gide ElasticNet-MI cell, which re-run at 5,000 shuffles gives 0.662 vs the benchmark 0.629, i.e. +0.033); for the remaining four trainable cells the permutation-run AUROC reproduces the benchmark value within 0.0003. For fixed scorers the observed score is the benchmark AUROC by construction (the score is label-independent); PD-L1 cells use the fixed-scorer protocol (`scripts/pdl1_perm_v33.py`).*
 
 
 Cells surviving within-cohort BH (q < 0.05): 12. Of these, the trainable-method cells are: ElasticNet (MI) on Gide 2019 RECIST (n=73) (0.629, q = 0.028), ElasticNet (Var) on Gide 2019 RECIST (n=73) (0.605, q = 0.028), ElasticNet (MI) on Riaz 2017 cytolytic (n=43) (0.968, q = 0.003), ElasticNet (Var) on Riaz 2017 cytolytic (n=43) (0.985, q = 0.002). No trainable method survives FDR at n ≤ 43; Gide (n = 73) is the first sample size at which a training-based signature becomes detectable, consistent with the power analysis.
@@ -509,7 +509,7 @@ AUROC + 95% bootstrap CI, 6 cohort–endpoints × 6 methods. `figS8_forest.png`
 
 ### Figure S9. Power curves
 
-Minimum detectable ΔAUROC at 80% power; points reproduce manuscript Table 8. `figS9_power_curves.png`
+Minimum detectable ΔAUROC at 80% power; points reproduce Table S25. `figS9_power_curves.png`
 
 ### Figure S10. CDS vs observed ML performance (identical to main-text Figure 2)
 
@@ -659,6 +659,55 @@ All 36 permutation cells recomputed under: (A) within-cohort families, 6 x 6 cel
 
 **Reading.** The manuscript's primary conclusions are family-robust: (i) no trainable method survives FDR on any clinical endpoint at n <= 43 under any family definition (the minimum trainable q on an n <= 43 clinical endpoint is 0.09 under family B and 0.11 under family C); (ii) the circular-endpoint significance of ElasticNet/ElasticNet_Var and GEP/PD-L1 on Riaz cytolytic holds under all three; (iii) IMPRES on Hugo and GEP/TIDE/PD-L1 on Gide hold under all three. Four cells are family-dependent and are reported as within-cohort results throughout the manuscript: ElasticNet_Var on Gide (q 0.030/0.066/0.080), IMPRES on Gide (0.038/0.089/0.077), IMPRES on Riaz cytolytic (0.039/0.089/0.077), and PD-L1 on Lauss (0.058/0.038/0.033 — this cell becomes FDR-significant under the wider families; the manuscript's nominal-only wording is the conservative reading).
 
+## Table S22. AUROC across Four Clinical-Endpoint Cohorts (v33, HGNC-mapped; 95% CIs from 1,000 bootstrap iterations where shown; migrated from the main text)
+
+| Method | Hugo 2016 (28) | Lauss 2017 (25) | Gide 2019 (73) | Riaz RECIST (42) |
+|--------|----------------|-----------------|----------------|------------------|
+| IMPRES | **0.795** [0.597–0.947] | 0.610 | 0.626 | **0.613** |
+| GEP | 0.446 | 0.693 | **0.830** | 0.503 |
+| TIDE | 0.426 | 0.500 | 0.752 | 0.466 |
+| PD-L1 (CD274) | 0.523 | **0.780** | 0.791 | 0.545 |
+| ElasticNet (Var) | 0.528 [0.318–0.761] | 0.627 | 0.605 | 0.465 [0.208–0.704] |
+| ElasticNet (MI) | 0.631 [0.417–0.857] | 0.700 | 0.629 | 0.569 [0.370–0.755] |
+
+†Permutation status and BH q-values in Table S11. Riaz RECIST n = 42 (rebuilt cohort). Bold = best AUROC per column for context only; no method ranking is claimed (all bootstrap CIs of the trainable methods on clinical endpoints overlap 0.5 at n ≤ 43).
+
+## Table S23. DCB Endpoint, Jung 2019 (n = 27, NSCLC; corrected labels: 1 = durable clinical benefit, 6/27; GSE135222)
+
+| Method | AUROC | 95% CI |
+|---|---:|---|
+| IMPRES | 0.583 | 0.380–0.750 |
+| GEP | 0.786 | 0.573–0.960 |
+| TIDE | 0.278 | 0.083–0.527 |
+| PD-L1 (CD274) | 0.659 | 0.464–0.861 |
+| ElasticNet (MI) | 0.476 | 0.152–0.792 |
+| ElasticNet (Var) | 0.476 | 0.100–0.818 |
+
+TIDE scores far below chance on this cohort (0.278); with only 6 DCB responders this deviation sits inside the permutation null envelope (p = 0.952), and we report the value as computed under the tidepy default threshold convention rather than re-tuning it to the cohort.
+
+## Table S24. Overall Survival Stratification on Hugo 2016 (true events)
+
+| Cohort | n | Events | Median OS | IMPRES KM p | RECIST KM p | GEP KM p |
+|--------|----|--------|-----------|-------------|-------------|----------|
+| Hugo 2016 (true events) | 26 | 12 | 439 days | 0.554 | **0.0003** | 0.475 |
+
+Hugo values come from true OS events (iAtlas OS_STATUS, 26 patients / 12 deaths; matching validated by 24/27 local OS_days agree with iAtlas OS_MONTHS (±60 d); results/benchmark/v33/hugo_survival_true.json). The local GSE100797 (Lauss) matrix contains no OS metadata; the archived Lauss survival row from earlier versions could not be regenerated under the v33 protocol and is therefore excluded from this table (archived values retained in Table S9 for continuity).
+RECIST response strongly stratifies overall survival on Hugo (log-rank p = 0.0003). IMPRES — the best AUROC method on Hugo 2016 — does not significantly stratify OS (KM p = 0.554 with true events). Cox regression with z-standardized signatures (HR per 1 SD) confirms: IMPRES HR = 0.631 (95% CI [0.325–1.227], p = 0.175) on Hugo, GEP HR = 1.03 (95% CI [0.562–1.887], p = 0.923). AUROC for binary response prediction does not guarantee clinically meaningful survival stratification.
+Clinical utility metrics for ElasticNet_Var on Hugo 2016 (v33 recomputed; Table S9): **DCA** net benefit 0.345 vs treat-all 0.405 at p_t = 0.10 and 0.259 vs 0.330 at 0.20 — positive but consistently below "treat all"; at 0.50 the model is at 0. **NRI vs. random baseline** = −0.113 (p = 0.658, not significant). **IDI** = −0.029 (sensitivity 0.538, specificity 0.533).
+
+## Table S25. Minimum Detectable ΔAUROC at 80% Power (α = 0.05, two-sided; Hanley–McNeil paired model, r = 0.75, the most favourable assumption; exact values from `scripts/power_table_v33.py`)
+
+| n | Responder % | Min Detectable ΔAUROC | Example Cohort |
+|----|------------|----------------------|----------------|
+| 25 | 40% | 0.23 | Lauss 2017 (ACT) |
+| 28 | 46% | 0.21 | Hugo 2016 |
+| 42 | 21% | 0.21 | Riaz RECIST |
+| 73 | 55% | 0.13 | Gide 2019 |
+| 100 | 50% | 0.11 | — |
+| 200 | 50% | 0.08 | — |
+
+At n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For reliable pairwise comparison at ΔAUROC = 0.10 (80% power), the required sample size is ≈130 under the most favourable correlation assumption (paired, r = 0.75) and ≈260–510 under weaker or no correlation (`power_table_v33.json`); n ≥ 50 is therefore reported as a minimum practical floor, not as a sufficient condition for adequately powered pairwise comparison.
+
 ## Note S6. Negative-Control Stress Test — Design and Interpretation (E2)
 
 **Motivation.** The internal CDS validation used four real endpoints and a synthetic null; the question left open was whether CDS separates 'gene-defined circular construction' from 'any structured biology'. This stress test answers it.
@@ -668,3 +717,4 @@ All 36 permutation cells recomputed under: (A) within-cohort families, 6 x 6 cel
 **Result.** 60/60 pseudo-endpoints score HIGH (Gide range 0.792–0.942, mean 0.861; Hugo 0.801–0.946, mean 0.869), indistinguishable in band from the cytolytic positive control (0.955 / 0.923), while the random-label nulls sit lower (Gide mean 0.518, max 0.726; Hugo mean 0.608, max 0.764 — note 3/10 Hugo replicates still exceed the shipped 0.70 boundary at n = 28).
 
 **Interpretation.** Both readings are reported and both are used in the manuscript. (1) *Program-agnostic sensitivity:* CDS correctly flags every operationally gene-defined surrogate, whatever the program — the construction itself, not the biology, is what triggers the score; a median-split gene-program endpoint IS circular by construction, so HIGH is the correct answer for all 60. (2) *No specificity among structured endpoints:* because real programs and the circular surrogate land in the same band, and because random labels on small real cohorts can also cross the boundary, the categorical HIGH label cannot distinguish circularity from genuine gene–label biology (the Gide 2019 RECIST case, Table S4b). The validated use of CDS v1.1.0 is therefore the continuous value read against its cohort-matched null, plus the procedural rule that declaring endpoint-defining genes identifies circular construction. Both motivate the permutation-based C3 in CDS v2.0.
+

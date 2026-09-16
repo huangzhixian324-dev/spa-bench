@@ -108,9 +108,9 @@ if not miss:
 print('\n[2] 稿件关键数字核对')
 ms = z.read('SPATBench/docs/manuscript_v34.md').decode('utf-8')
 checks = {
-    '0.0232': 'Gide EN-MI 最终 p', '5,000': 'shuffle 次数', '0.0278': 'BH q (q_A)',
+    '0.0232': 'Gide EN-MI 最终 p', '5,000': 'shuffle 次数', '0.028': 'BH q (q_A)',
     '196': '患者总数', '3.5': '端点效应倍数', '0.662': 'perm-obs AUROC',
-    '0.097 to 0.584': 'bootstrap CI', '0.72-0.82': 'one-sample 功效阈',
+    '0.097–0.584': 'bootstrap CI', '0.72–0.82': 'one-sample 功效阈',
     'huangzhixian324-dev/spa-bench': 'GitHub URL', 'Putian University': '单位',
     'no competing interests': 'COI 声明', 'Hanley-McNeil': 'one-sample 方法',
 }
