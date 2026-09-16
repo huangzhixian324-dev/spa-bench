@@ -51,7 +51,7 @@ for o in only_in_zip[:10]:
 
 # 项目里"应发布"但包内没有的
 EXCL_DIR = {'.git', 'venv', '__pycache__', '.pytest_cache', '_build', 'node_modules',
-            'archive', 'circularity_detection_score.egg-info'}
+            'archive', '_process', 'circularity_detection_score.egg-info'}
 EXCL_SUFFIX = ('.log', '.gz', '.pyc')
 EXCL_NAME = {'geo_page.html', 'SPATBench_v33_v34_zenodo.zip', 'di_form_filled_checkmark.pdf',
              'static_portal_v28.html', 'diag_stack.txt'}

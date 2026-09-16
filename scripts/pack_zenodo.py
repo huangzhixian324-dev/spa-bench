@@ -9,7 +9,7 @@ R = Path(__file__).resolve().parents[1]
 REPO = R  # alias
 OUT = REPO / 'SPATBench_v33_v34_zenodo.zip'
 EXCLUDE_DIRS = {'.git', 'venv', '__pycache__', 'github-upload', '.pytest_cache',
-                'node_modules', '_build', 'archive'}
+                'node_modules', '_build', 'archive', '_process'}
 EXCLUDE_FILES = {'SPATBench_v33_v34_zenodo.zip'}
 EXCLUDE_SUFFIX = {'.log', '.pyc'}
 EXCLUDE_NAME_PARTS = ('egg-info',)
