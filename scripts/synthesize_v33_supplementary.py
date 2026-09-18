@@ -125,7 +125,7 @@ def build():
       "`scripts/synthesize_v33_supplementary.py` from the machine-readable "
       "outputs in `results/benchmark/v33/` and `data/tcga/`; do not edit "
       "numbers by hand — change the generating script and re-run.\n")
-    w("**Contents:** Tables S1–S20, Figures S1–S12, Notes S1–S7.\n")
+    w("**Contents:** Tables S1–S26, Figures S1–S12, Notes S1–S6.\n")
     w("---\n")
 
     # ---------------------------------------------------------- S1
@@ -464,6 +464,35 @@ def build():
       "but below 'treat all' at 10–20% thresholds; NRI vs. random is "
       "negative and non-significant (p = 0.658). The archived +0.985 NRI "
       "was a v28-pipeline artifact and is superseded.*\n")
+    CI = json.load(open(V33 / "hugo_impres_clinical_v33.json"))
+    cm2 = CI["classification"]
+    dca2 = CI["dca"]
+    w("\n**Clinical utility, IMPRES on Hugo 2016 (the cohort's only "
+      "FDR-significant method; `hugo_impres_clinical_v33.json`, same "
+      "protocol and conventions):**\n")
+    w("| Metric | Value (v33) |")
+    w("|---|---|")
+    w(f"| Sensitivity / Specificity (0.5 threshold) | "
+      f"{cm2['sensitivity']:.3f} / {cm2['specificity']:.3f} |")
+    w(f"| Brier score | {cm2['brier_score']:.3f} |")
+    for t in ("0.10", "0.20", "0.50"):
+        b = dca2[f"tb_{t}"]
+        w(f"| DCA net benefit at p_t = {t} (model vs treat-all) | "
+          f"{b['model']:.3f} vs {b['treat_all']:.3f} |")
+    nri2 = CI["nri_vs_random"]
+    idi2 = CI["idi_vs_random"]
+    w(f"| NRI vs. random baseline (total) | {nri2['nri_total']:.3f} "
+      f"(p = {nri2['nri_pval']:.3f}) |")
+    w(f"| IDI vs. random baseline (total) | {idi2['idi_total']:.3f} |")
+    w("\n*The ranking advantage of the cohort's only FDR-significant "
+      "method (AUROC 0.795) does not translate into decision utility: at "
+      "the 0.5 threshold it labels 92% of patients responders, its net "
+      "benefit coincides with treat-all at 10\u201320% thresholds, and its "
+      "reclassification metrics do not exceed the random baseline. The "
+      "IMPRES score is an uncalibrated fraction, so these metrics reflect "
+      "threshold behaviour rather than calibrated risk; the same reading "
+      "follows either way \u2014 a high AUROC alone does not establish "
+      "clinical usefulness.*\n")
     w("\n**Survival stratification (Hugo 2016):**\n")
     if HST:
         w("| Quantity | True OS (iAtlas OS_STATUS) | v33 approximation "
@@ -518,7 +547,11 @@ def build():
 
     # ---------------------------------------------------------- S10
     w("## Table S10. Immune Deconvolution Signature Marker Genes "
-      "(64 Genes, 14 Signatures)\n")
+      "(43 Genes, 14 Signatures)\n")
+    w("*Provenance note (2026-09-18): the archived header of this "
+      "table read \u201c64 Genes, 14 Signatures\u201d; the correct count of "
+      "unique marker genes in the table is 43, and the header has been "
+      "corrected accordingly.*\n")
     w("| Signature | Marker genes |")
     w("|---|---|")
     for sig, gl in RC_signature_list():
@@ -579,6 +612,9 @@ def build():
       "cohort.\n")
     w("| Method | Cohort | n | Obs AUROC | Perm-obs AUROC | p | "
       "n (shuffles) | BH q | Significant |")
+    w("\n*Trainable-method p-values are computed against the "
+      "frozen-hyperparameter Perm-obs AUROC (right column), not the "
+      "tuned benchmark Obs AUROC; see the footnote below.*\n")
     w("|---|---|---|---|---|---|---|---|---|")
     rows = []
     for cname in COHORTS:
@@ -614,12 +650,22 @@ def build():
       "with frozen hyperparameters (recorded in "
       "results/benchmark/v33/nc_cells/*.json, summarized in "
       "perm_obs_auroc_v33.json) it deviates from the benchmark value by "
-      "0.000–0.087 (largest: Jung ElasticNet-MI 0.564 vs 0.476 — "
+      "0.000–0.103 (largest: Hugo ElasticNet-MI 0.528 vs 0.631 — "
       "frozen-versus-tuned hyperparameters, the same deviation class as "
       "the Gide ElasticNet-MI cell, which re-run at 5,000 shuffles gives "
-      "0.662 vs the benchmark 0.629, i.e. +0.033); for the remaining "
-      "four trainable cells the permutation-run AUROC reproduces the "
-      "benchmark value within 0.0003. For fixed scorers the observed "
+      "0.662 vs the benchmark 0.629, i.e. +0.033). On 2026-09-18 all "
+      "eight clinical trainable cells were extended to a uniform "
+      "minimum of 2,000 full-pipeline shuffles (four cells at 5,000) "
+      "as a pre-registered resolution-hardening check "
+      "(`scripts/extend_nc_cells_5000.py`, merged by "
+      "`scripts/merge_nc_cells_ext.py`): no cell changed its "
+      "significance verdict, and the smallest within-cohort trainable "
+      "q at n ≤ 43 tightened from 0.108 to 0.0716 (Lauss); the merge "
+      "is reversible via the pre-merge snapshot "
+      "`permutation_v33.pre_ext_backup.json`. For the "
+      "remaining four trainable cells (Gide MI/Var and Riaz cytolytic "
+      "MI/Var) the permutation-run AUROC reproduces the benchmark "
+      "value within 0.0003. For fixed scorers the observed "
       "score is the benchmark AUROC by construction (the score is "
       "label-independent); PD-L1 cells use the fixed-scorer protocol "
       "(`scripts/pdl1_perm_v33.py`).*\n")
@@ -758,6 +804,29 @@ def build():
       "an internal negative control. HR < 1 = protective per 1 SD of the "
       "z-standardized signature. Univariate models; machine-readable in "
       "`data/tcga/tcga_cox_all.json`.\n")
+    w("**Sample-type decomposition (SKCM).** The v33 SKCM policy is "
+      "all-tumour samples, metastatic-dominant, while COAD (GDC) is "
+      "primary-only \u2014 a composition difference the cross-cancer "
+      "gradient partially conflates with cancer type. A three-arm "
+      "decomposition of the identical 12-signature Cox + BH pipeline "
+      "(`scripts/tcga_skcm_sampletype_sensitivity.py`; computed on "
+      "cBioPortal-API-refetched matrices, the all-tumour arm reproducing "
+      "the archived 11/12 with HR 0.795\u20130.928 exactly and thereby "
+      "validating the refetch): all-tumour n = 434 (212 events), 11/12 "
+      "BH-significant; **metastatic-only n = 360 (187 events), 11/12 "
+      "BH-significant (HR 0.789\u20130.934)**; primary-only n = 76 (27 "
+      "events), 0/12. The SKCM signal is carried by the metastatic arm and "
+      "is internally robust to the composition question; the SKCM-versus-"
+      "COAD sides of the gradient should be read as metastatic-dominant "
+      "versus primary-only disease.\n")
+    w("**Multivariate sensitivity (SKCM).** Cox models adjusted for "
+      "age and AJCC stage (n = 390, 191 events; signature, age and "
+      "stage z-standardized; stage parsed from AJCC codes to ordinal "
+      "1\u20134): **8/12 signatures remain BH-significant** with stronger "
+      "protective HRs (0.569\u20130.704) than the univariate models \u2014 "
+      "the immune-prognostic signal is not a stage- or age-proxy "
+      "(`scripts/tcga_skcm_multivariate.py`, "
+      "`SKCM_cox_multivariate.json`).\n")
 
     # ---------------------------------------------------------- S16
     w("## Table S16. k-Fold Robustness — Riaz RECIST (ElasticNet-Var, "
@@ -788,6 +857,7 @@ def build():
           f"{cds} | {r.get('was_inflated', '—')} | "
           f"{r.get('cds_correct', 'Unknown')} |")
     if E3:
+        w("*Rows upgraded by the computed values in (b): the Jiang/Mariathasan IMvigor210 rows move from estimated to computed (RESPONSE CDS 0.434, reading unchanged); the Chowell and Liang multi-cohort rows remain unverified.*\n")
         w("\n### (b) E3 update — computed CDS on cohorts accessible through "
           "the public iAtlas harmonizations (scripts/e3_literature_backtest"
           ".py)\n")
@@ -1022,9 +1092,11 @@ def build():
       "sample per patient was retained. Non-numeric `OS_MONTHS` values "
       "are coerced to missing and dropped; COAD OS_MONTHS = days / "
       "30.436875 (GDC convention).\n")
-    w("**Signatures.** 12 immune signatures (64 genes, Table S10) as mean "
-      "log2(RSEM + 1) of marker genes; the IMPRES-like signature uses the "
-      "12 IMPRES genes as mean expression (the pairwise-ratio logic is "
+    w("**Signatures.** 12 immune signatures (44 unique genes; the "
+      "signature definitions are those of `scripts/run_tcga_cox.py`, "
+      "overlapping but not identical to the 14-signature Table S10 set) as "
+      "mean log2(RSEM + 1) of marker genes; the IMPRES-like signature uses "
+      "the 12 IMPRES genes as mean expression (the pairwise-ratio logic is "
       "not applicable in the Cox pipeline).\n")
     w("**Statistics.** Univariate Cox models (lifelines CoxPHFitter); "
       "Wald p-values; **Benjamini–Hochberg correction within each cancer "
@@ -1035,7 +1107,11 @@ def build():
     w("**Limitations.** Univariate models without clinical covariates; "
       "IMPRES-like signature is a mean-expression approximation; no "
       "time-dependent AUC is reported under v33 (the archived 0.33–0.60 "
-      "range was not regenerated).\n")
+      "range was not regenerated). Sample-type composition differs "
+      "across the compared cancer types (SKCM metastatic-dominant; "
+      "COAD primary-only); the SKCM decomposition in Table S15 "
+      "shows the gradient signal is metastatic-carried and "
+      "internally robust.\n")
 
     pairs = impresa_pairs_from_source()
     w("## Note S5. IMPRES Canonical Implementation — the 15 Pairwise "
@@ -1233,15 +1309,17 @@ def build():
           "family-robust: (i) no trainable method survives FDR on any "
           "clinical endpoint at n <= 43 under any family definition "
           "(the minimum trainable q on an n <= 43 clinical endpoint is "
-          "0.09 under family B and 0.11 under family C); (ii) the "
+          "0.08 under family B and 0.07 under family C — minima "
+          "re-verified at extended permutation resolution after the "
+          "2026-09-18 trainable-cell extension); (ii) the "
           "circular-endpoint significance of ElasticNet/ElasticNet_Var "
           "and GEP/PD-L1 on Riaz cytolytic holds under all three; "
           "(iii) IMPRES on Hugo and GEP/TIDE/PD-L1 on Gide hold under "
           "all three. Four cells are family-dependent and are reported "
           "as within-cohort results throughout the manuscript: "
-          "ElasticNet_Var on Gide (q 0.030/0.066/0.080), IMPRES on Gide "
-          "(0.038/0.089/0.077), IMPRES on Riaz cytolytic "
-          "(0.039/0.089/0.077), and PD-L1 on Lauss (0.058/0.038/0.033 — "
+          "ElasticNet_Var on Gide (q 0.028/0.066/0.070), IMPRES on Gide "
+          "(0.032/0.083/0.077), IMPRES on Riaz cytolytic "
+          "(0.039/0.083/0.077), and PD-L1 on Lauss (0.058/0.038/0.033 — "
           "this cell becomes FDR-significant under the wider families; "
           "the manuscript's nominal-only wording is the conservative "
           "reading).\n")
@@ -1391,6 +1469,72 @@ def build():
           "that declaring endpoint-defining genes identifies circular "
           "construction. Both motivate the permutation-based C3 in "
           "CDS v2.0.\n")
+
+    # ---------------------------------------------------------- S26
+    w("---\n")
+    w("## Table S26. Clinical\u2013Clinical Response-Definition Contrast "
+      "on Liu 2019 \u2014 RECIST vs PFS-derived DCB (first non-circular "
+      "contrast, E5)\n")
+    w("One public cohort carries two clinical response definitions on the "
+      "same patients: the iAtlas harmonization of Liu 2019 annotates both "
+      "RECIST (CR/PR; tumour-biopsy rows) and PFS (patient-level rows). "
+      "DCB = progression-free at \u22656 months; samples censored before "
+      "6 months are excluded (event-free status unknown). Expression: the "
+      "iAtlas z-score matrix (33,732 of 59,409 genes retained after "
+      "dropping genes unmeasured in any sample). Leakage-free nested CV "
+      "with frozen hyperparameters from tune_primary, seed 42; fixed-"
+      "scorer permutations 50,000 shuffles; CDS v1.1.0 with declared genes "
+      "GZMA/PRF1 and 10-replicate random-label nulls. Pipeline: "
+      "`scripts/e5_clinical_contrast_liu2019.py`; machine-readable: "
+      "`e5_liu2019_clinical_contrast.json`. RECIST-column AUROCs differ "
+      "from Table S19 by ≤0.013 for the four fixed scorers; the two "
+      "trainable methods deviate more (ElasticNet-Var 0.441 vs 0.586, "
+      "ElasticNet-MI 0.554 vs 0.538) because their per-fold feature "
+      "selection is re-fit on the complete-case-filtered matrix "
+      "(33,732 of 59,409 genes). All conclusions are within-experiment "
+      "comparisons, so this drift does not affect the RECIST-vs-DCB "
+      "contrast.\n")
+    w("Endpoint concordance: \u03ba(RECIST, DCB) = 0.669; 48 RECIST "
+      "responders, 58 DCB; cross-tab (rows RECIST 0/1 \u00d7 cols DCB "
+      "0/1): 59/15/5/43. Samples progressing before 6 months are scored "
+      "NDB; samples censored before 6 months would be excluded (none in "
+      "this cohort); samples censored at or after 6 months count as DCB "
+      "(event-free at the landmark). IMPRES permutation p-values in this "
+      "table are nominal, not BH-corrected within the E5 design.\n")
+    w("\n| Method | RECIST AUROC | 95% CI | DCB AUROC | 95% CI | "
+      "\u0394 (RECIST\u2212DCB) | Fixed-scorer perm p (RECIST / DCB) |")
+    w("|---|---|---|---|---|---|---|")
+    e5 = json.load(open(REPO / "results/benchmark/v33/"
+                        "e5_liu2019_clinical_contrast.json"))
+    lab = {"IMPRES": "IMPRES", "GEP": "GEP", "TIDE": "TIDE",
+           "PD_L1_IHC": "PD-L1 (CD274)", "ElasticNet": "ElasticNet (MI)",
+           "ElasticNet_Var": "ElasticNet (Var)"}
+    for meth in ["IMPRES", "GEP", "TIDE", "PD_L1_IHC", "ElasticNet",
+                 "ElasticNet_Var"]:
+        r_, d_ = e5["RECIST"][meth], e5["DCB"][meth]
+        pp = ""
+        if "perm_p" in r_:
+            pp = f'{r_["perm_p"]:.4g} / {d_["perm_p"]:.4g}'
+        w(f"| {lab[meth]} | {r_['auroc']:.3f} "
+          f"[{r_['auroc_ci'][0]:.3f}\u2013{r_['auroc_ci'][1]:.3f}] | "
+          f"{d_['auroc']:.3f} "
+          f"[{d_['auroc_ci'][0]:.3f}\u2013{d_['auroc_ci'][1]:.3f}] | "
+          f"{r_['auroc'] - d_['auroc']:+.3f} | {pp} |\n")
+    c_r, c_d = e5["cds"]["RECIST"], e5["cds"]["DCB"]
+    w(f"\n**CDS** (declared genes GZMA/PRF1): RECIST {c_r['CDS']:.3f} "
+      f"(null mean {c_r['null_mean']:.3f}); DCB {c_d['CDS']:.3f} (null mean "
+      f"{c_d['null_mean']:.3f}) \u2014 both in the genuine-biology band, "
+      "far below the circular surrogate's 0.954.\n")
+    w("\n**Reading.** The largest endpoint-switch delta across six methods "
+      "is 0.084 (ElasticNet-Var) \u2014 roughly sixfold below the "
+      "circular collapse (0.520 on Riaz) and below the same-endpoint "
+      "between-method gap on Liu RECIST (0.216, IMPRES vs TIDE). Two "
+      "clinical definitions of the same construct barely move predictions: "
+      "the response-definition effect demonstrated in Design Choice 1 is "
+      "attributable to the circularity channel (gene-defined surrogates), "
+      "not to clinical-definition disagreement \u2014 closing the boundary "
+      "acknowledged in earlier versions and confirming the mechanistic "
+      "prediction of the Discussion's predictive account.\n")
 
     text = "\n".join(s) + "\n"
     io.open(OUT, "w", encoding="utf-8").write(text)

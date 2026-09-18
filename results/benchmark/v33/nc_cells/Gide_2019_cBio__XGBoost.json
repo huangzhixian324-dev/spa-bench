@@ -1,0 +1,39 @@
+{
+ "cohort": "Gide_2019_cBio",
+ "method": "XGBoost",
+ "endpoint": "RECIST (n=73, 40 responders)",
+ "obs_auroc_this_run": 0.7159,
+ "archived_exclusion_evidence_auroc": 0.7182,
+ "obs_deviation_vs_archived": 0.0023,
+ "params_frozen": {
+  "n_estimators": 100,
+  "max_depth": 3,
+  "learning_rate": 0.1,
+  "subsample": 0.8,
+  "random_state": 42,
+  "feature_selection": "full-dim MI top-300 per fold (XGBoostWrapper)"
+ },
+ "n_perm_requested": 1000,
+ "n_valid": 1000,
+ "n_ge_obs": 3,
+ "p": 0.004,
+ "bh_q_7cell_family": {
+  "GEP": 0.0001,
+  "TIDE": 0.0003,
+  "PD_L1": 0.0001,
+  "IMPRES": 0.0317,
+  "ElasticNet_MI": 0.0271,
+  "ElasticNet_Var": 0.0271,
+  "XGBoost": 0.007
+ },
+ "bh_q_6cell_family_others_unchanged_check": {
+  "GEP": 0.0001,
+  "TIDE": 0.0003,
+  "PD_L1": 0.0001,
+  "IMPRES": 0.0317,
+  "ElasticNet_MI": 0.0278,
+  "ElasticNet_Var": 0.0278
+ },
+ "protocol": "full-pipeline label shuffles; per-fold MI top-300 selection on shuffled labels; frozen XGBClassifier hyperparameters; seed 42; multiprocessing pool",
+ "xgboost_version": "3.4.1"
+}

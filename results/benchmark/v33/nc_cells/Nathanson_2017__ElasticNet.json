@@ -1,0 +1,12 @@
+{
+ "cohort": "Nathanson_2017",
+ "method": "ElasticNet",
+ "obs_auroc_this_run": 0.6133,
+ "n_perm": 5000,
+ "n_valid": 5000,
+ "n_ge_obs": 178,
+ "p": 0.03579,
+ "null_mean": 0.3175,
+ "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000",
+ "purpose": "resolution-hardened negative claim: n<=43 trainable cells at uniform 5,000-shuffle resolution"
+}

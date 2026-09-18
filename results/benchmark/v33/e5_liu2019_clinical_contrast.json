@@ -1,0 +1,200 @@
+{
+ "meta": {
+  "cohort": "Liu 2019 (mel_iatlas_liu_2019, cBioPortal iAtlas)",
+  "n": 122,
+  "endpoints": {
+   "RECIST": {
+    "definition": "CR/PR vs SD/PD",
+    "n_responders": 48
+   },
+   "DCB": {
+    "definition": "PFS_MONTHS >= 6 vs progression < 6 mo (censored < 6 mo excluded)",
+    "n_benefit": 58
+   }
+  },
+  "concordance": {
+   "kappa": 0.669,
+   "crosstab": {
+    "0": {
+     "0": 59,
+     "1": 15
+    },
+    "1": {
+     "0": 5,
+     "1": 43
+    }
+   }
+  },
+  "seed": 42,
+  "expression": "cBioPortal z-scores (affine-invariant for the benchmark metrics)",
+  "note": "first non-circular (clinical-clinical) response-definition contrast; closes the boundary acknowledged in the DC3 relation paragraph"
+ },
+ "RECIST": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.5324,
+   "auroc_ci": [
+    0.4256,
+    0.641
+   ],
+   "auprc": 0.4727,
+   "perm_p": 0.2763344733105338,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.3981,
+   "auroc_ci": [
+    0.3021,
+    0.5016
+   ],
+   "auprc": 0.3379,
+   "perm_p": 0.9709405811883762,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.6136,
+   "auroc_ci": [
+    0.5147,
+    0.7135
+   ],
+   "auprc": 0.4831,
+   "perm_p": 0.016299674006519868,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5498,
+   "auroc_ci": [
+    0.4437,
+    0.6522
+   ],
+   "auprc": 0.4623,
+   "perm_p": 0.17951640967180657,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.5
+   },
+   "auroc": 0.5535,
+   "auroc_ci": [
+    0.4504,
+    0.6602
+   ],
+   "auprc": 0.4477
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.01,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.4414,
+   "auroc_ci": [
+    0.3338,
+    0.5535
+   ],
+   "auprc": 0.3593
+  }
+ },
+ "DCB": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.5539,
+   "auroc_ci": [
+    0.4528,
+    0.6605
+   ],
+   "auprc": 0.5369,
+   "perm_p": 0.1515769684606308,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4464,
+   "auroc_ci": [
+    0.3438,
+    0.5449
+   ],
+   "auprc": 0.4524,
+   "perm_p": 0.8446831063378732,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.6327,
+   "auroc_ci": [
+    0.5316,
+    0.7286
+   ],
+   "auprc": 0.5592,
+   "perm_p": 0.005299894002119957,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.6012,
+   "auroc_ci": [
+    0.5028,
+    0.7
+   ],
+   "auprc": 0.5693,
+   "perm_p": 0.02605947881042379,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.5536,
+   "auroc_ci": [
+    0.4515,
+    0.6616
+   ],
+   "auprc": 0.4955
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.5245,
+   "auroc_ci": [
+    0.4191,
+    0.6342
+   ],
+   "auprc": 0.4907
+  }
+ },
+ "endpoint_switch_delta": {
+  "GEP": -0.021,
+  "TIDE": -0.048,
+  "IMPRES": -0.019,
+  "PD_L1_IHC": -0.051,
+  "ElasticNet": -0.0,
+  "ElasticNet_Var": -0.083
+ },
+ "cds": {
+  "RECIST": {
+   "CDS": 0.721,
+   "risk": "HIGH",
+   "components": {
+    "C1_MI_endpoint_genes": 0.1045,
+    "C2_rho_endpoint_response": 0.0708,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.622,
+   "null_max": 0.728
+  },
+  "DCB": {
+   "CDS": 0.726,
+   "risk": "HIGH",
+   "components": {
+    "C1_MI_endpoint_genes": 0.1046,
+    "C2_rho_endpoint_response": 0.0882,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.549,
+   "null_max": 0.739
+  }
+ }
+}

@@ -1,0 +1,318 @@
+{
+ "meta": {
+  "seed": 42,
+  "note": "v33 final assembly. Benchmarks: leakage-free nested CV (per-fold feature selection, inner 3-fold tuning), identical protocol for all cohorts. Permutation cells are recorded only where a full-pipeline label-shuffle null was completed; each cell records its own n_perm. Cells without a permutation p are judged by the bootstrap CI criterion (all CIs overlap 0.5). PD_L1 cells added 2026-09-04 (scripts/pdl1_perm_v33.py): fixed-scorer protocol, 50,000 label shuffles against the fixed CD274 score; observed AUROC asserted equal to the benchmark value. 2026-09-06: the previously n.c. full-pipeline permutation cells (ElasticNet / ElasticNet_Var on Jung_2019_DCB, Riaz_2017_cytolytic, Riaz_2017_RECIST_v33, and ElasticNet_Var on Nathanson_2017) were completed by scripts/fill_nc_cells.py (per-cell n recorded, seed 42, frozen hyperparameters from tune_primary); the permutation matrix is now complete (36/36 method x cohort-endpoint cells have a recorded p), and within-cohort BH families were recomputed. 2026-09-07: bh_q recomputed for ALL cohorts with standard BH (cummin) after n.c. completion; supersedes residual cummax values in Hugo/Gide. 2026-09-12: single-pass standard-BH recomputation over all cohorts (review R1-M1); Gide IMPRES bh_q 0.038016 -> 0.0317 was a stale rank-5 residue. Monotonic cummin asserted."
+ },
+ "cohorts": {
+  "Hugo_2016": {
+   "IMPRES": {
+    "obs_auroc": 0.7949,
+    "p": 0.0029,
+    "n_shuffle": 50000,
+    "bh_q": 0.0174
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.5282,
+    "p": 0.28534,
+    "n_perm": 60,
+    "bh_q": 0.3933,
+    "n_shuffle": 5000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.1311,
+      "n_shuffle": null,
+      "obs_auroc": 0.631
+     },
+     "n_valid": 5000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.4974,
+    "p": 0.36353,
+    "n_perm": 60,
+    "bh_q": 0.6419571608567829,
+    "n_shuffle": 5000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.3443,
+      "n_shuffle": null,
+      "obs_auroc": 0.528
+     },
+     "n_valid": 5000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   },
+   "GEP": {
+    "obs_auroc": 0.4462,
+    "p": 0.69161,
+    "n_shuffle": 50000,
+    "bh_q": 0.75522
+   },
+   "TIDE": {
+    "obs_auroc": 0.4256,
+    "p": 0.75522,
+    "n_shuffle": 50000,
+    "bh_q": 0.75522
+   },
+   "PD_L1": {
+    "obs_auroc": 0.5231,
+    "p": 0.4279714405711886,
+    "n_shuffle": 50000,
+    "bh_q": 0.6419571608567829
+   }
+  },
+  "Nathanson_2017": {
+   "IMPRES": {
+    "obs_auroc": 0.61,
+    "p": 0.18926,
+    "n_shuffle": 50000,
+    "bh_q": 0.22711200000000004
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.6133,
+    "p": 0.03579,
+    "n_perm": 60,
+    "bh_q": 0.123,
+    "n_shuffle": 5000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.082,
+      "n_shuffle": null,
+      "obs_auroc": 0.7
+     },
+     "n_valid": 5000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   },
+   "GEP": {
+    "obs_auroc": 0.6933,
+    "p": 0.0567,
+    "n_shuffle": 50000,
+    "bh_q": 0.1134
+   },
+   "TIDE": {
+    "obs_auroc": 0.5,
+    "p": 0.51029,
+    "n_shuffle": 50000,
+    "bh_q": 0.51029
+   },
+   "PD_L1": {
+    "obs_auroc": 0.78,
+    "p": 0.009599808003839923,
+    "n_shuffle": 50000,
+    "bh_q": 0.05759884802303954
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.6267,
+    "p": 0.03279,
+    "n_perm": 1000,
+    "bh_q": 0.1078921078921079,
+    "n_shuffle": 5000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.03596403596403597,
+      "n_shuffle": null,
+      "obs_auroc": 0.6267
+     },
+     "n_valid": 5000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   }
+  },
+  "Gide_2019_cBio": {
+   "IMPRES": {
+    "obs_auroc": 0.6261,
+    "p": 0.03168,
+    "n_shuffle": 50000,
+    "bh_q": 0.03168
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.631,
+    "p": 0.0232,
+    "n_perm": 5000,
+    "bh_q": 0.02784,
+    "obs_auroc_this_run": 0.6621,
+    "protocol": "; extended to 3,200 checkpointed full-pipeline shuffles (2026-09-09, review P0 item 4; frozen hyperparameters, obs deviation vs benchmark 0.032 = frozen-vs-tuned class)"
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.605,
+    "p": 0.02,
+    "n_perm": 500,
+    "bh_q": 0.02784
+   },
+   "GEP": {
+    "obs_auroc": 0.8295,
+    "p": 2e-05,
+    "n_shuffle": 50000,
+    "bh_q": 6.000000000000001e-05
+   },
+   "TIDE": {
+    "obs_auroc": 0.7523,
+    "p": 0.00014,
+    "n_shuffle": 50000,
+    "bh_q": 0.00028
+   },
+   "PD_L1": {
+    "obs_auroc": 0.7909,
+    "p": 1.999960000799984e-05,
+    "n_shuffle": 50000,
+    "bh_q": 6.000000000000001e-05
+   }
+  },
+  "Jung_2019_DCB": {
+   "IMPRES": {
+    "obs_auroc": 0.5833,
+    "p": 0.40461,
+    "n_shuffle": 50000,
+    "bh_q": 0.4855320000000001
+   },
+   "GEP": {
+    "obs_auroc": 0.7857,
+    "p": 0.01692,
+    "n_shuffle": 50000,
+    "bh_q": 0.10152
+   },
+   "TIDE": {
+    "obs_auroc": 0.2778,
+    "p": 0.9521,
+    "n_shuffle": 50000,
+    "bh_q": 0.9521000000000001
+   },
+   "PD_L1": {
+    "obs_auroc": 0.6587,
+    "p": 0.12989740205195896,
+    "n_shuffle": 50000,
+    "bh_q": 0.3582089552238806
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.5635,
+    "p": 0.23638,
+    "n_perm": 200,
+    "bh_q": 0.3582089552238806,
+    "n_shuffle": 2000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.1791044776119403,
+      "n_shuffle": null,
+      "obs_auroc": 0.5635
+     },
+     "n_valid": 2000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.5238,
+    "p": 0.30635,
+    "n_perm": 1000,
+    "bh_q": 0.4315684315684316,
+    "n_shuffle": 2000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.28771228771228774,
+      "n_shuffle": null,
+      "obs_auroc": 0.5238
+     },
+     "n_valid": 2000,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   }
+  },
+  "Riaz_2017_cytolytic": {
+   "IMPRES": {
+    "obs_auroc": 0.6602,
+    "p": 0.03224,
+    "n_shuffle": 50000,
+    "bh_q": 0.038688
+   },
+   "GEP": {
+    "obs_auroc": 0.9675,
+    "p": 2e-05,
+    "n_shuffle": 50000,
+    "bh_q": 6.000000000000001e-05
+   },
+   "TIDE": {
+    "obs_auroc": 0.4697,
+    "p": 0.63655,
+    "n_shuffle": 50000,
+    "bh_q": 0.63655
+   },
+   "PD_L1": {
+    "obs_auroc": 0.868,
+    "p": 1.999960000799984e-05,
+    "n_shuffle": 50000,
+    "bh_q": 6.000000000000001e-05
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.9329,
+    "p": 0.001996007984031936,
+    "n_perm": 500,
+    "bh_q": 0.002994011976047904
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.974,
+    "p": 0.000999000999000999,
+    "n_perm": 1000,
+    "bh_q": 0.001998001998001998
+   }
+  },
+  "Riaz_2017_RECIST_v33": {
+   "IMPRES": {
+    "obs_auroc": 0.6128,
+    "p": 0.15352,
+    "n_shuffle": 50000,
+    "bh_q": 0.46055999999999997
+   },
+   "GEP": {
+    "obs_auroc": 0.5034,
+    "p": 0.48889,
+    "n_shuffle": 50000,
+    "bh_q": 0.586668
+   },
+   "TIDE": {
+    "obs_auroc": 0.4663,
+    "p": 0.62231,
+    "n_shuffle": 50000,
+    "bh_q": 0.62231
+   },
+   "PD_L1": {
+    "obs_auroc": 0.5455,
+    "p": 0.34627307453850925,
+    "n_shuffle": 50000,
+    "bh_q": 0.5194096118077639
+   },
+   "ElasticNet": {
+    "obs_auroc": 0.6162,
+    "p": 0.0976,
+    "n_perm": 200,
+    "bh_q": 0.46055999999999997,
+    "n_shuffle": 2000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.0945273631840796,
+      "n_shuffle": null,
+      "obs_auroc": 0.6162
+     },
+     "n_valid": 1997,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   },
+   "ElasticNet_Var": {
+    "obs_auroc": 0.5455,
+    "p": 0.22673,
+    "n_perm": 1000,
+    "bh_q": 0.5,
+    "n_shuffle": 2000,
+    "ext_2026_09_18": {
+     "archived": {
+      "p": 0.25,
+      "n_shuffle": null,
+      "obs_auroc": 0.5455
+     },
+     "n_valid": 1997,
+     "protocol": "full-pipeline label shuffles, cached variance prescreen, frozen C=0.1/l1_ratio=0.5, seed 42; extension of fill_nc_cells.py to n=5000"
+    }
+   }
+  }
+ }
+}

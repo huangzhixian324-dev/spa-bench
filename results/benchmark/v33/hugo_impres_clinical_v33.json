@@ -1,0 +1,41 @@
+{
+ "meta": {
+  "method": "IMPRES (canonical 15-pair, fixed scorer)",
+  "protocol": "v33 OOF scores via cv_predict; metrics identical to hugo_envar_clinical_v33.py; NRI/IDI vs constant-0.5 random baseline"
+ },
+ "classification": {
+  "auroc": 0.7948717948717947,
+  "auprc": 0.709181398311833,
+  "f1": 0.6666666666666666,
+  "sensitivity": 0.9230769230769231,
+  "specificity": 0.26666666666666666,
+  "brier_score": 0.2306349206349206,
+  "auroc_ci_low": 0.5972135416666666,
+  "auroc_ci_high": 0.9473821271929825
+ },
+ "dca": {
+  "tb_0.10": {
+   "model": 0.40476190476190477,
+   "treat_all": 0.40476190476190477
+  },
+  "tb_0.20": {
+   "model": 0.33035714285714285,
+   "treat_all": 0.33035714285714285
+  },
+  "tb_0.50": {
+   "model": 0.03571428571428571,
+   "treat_all": -0.07142857142857142
+  }
+ },
+ "nri_vs_random": {
+  "nri_events": 0.0,
+  "nri_nonevents": -0.2,
+  "nri_total": -0.2,
+  "nri_pval": 0.9
+ },
+ "idi_vs_random": {
+  "idi_events": -0.11538461538461542,
+  "idi_nonevents": 0.04222222222222216,
+  "idi_total": -0.07316239316239326
+ }
+}

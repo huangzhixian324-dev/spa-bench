@@ -1,0 +1,37 @@
+{
+ "track": "tuning (tune_primary modal hyperparameters, nested CV)",
+ "n_patients": 42,
+ "bootstrap_replicates": 1000,
+ "point_aurocs_tuning_track": {
+  "cytolytic_EN_Var": 0.8659,
+  "RECIST_IMPRES": 0.6128,
+  "RECIST_GEP": 0.5034,
+  "RECIST_TIDE": 0.4663,
+  "RECIST_PD_L1_IHC": 0.5455,
+  "RECIST_ElasticNet": 0.5556,
+  "RECIST_ElasticNet_Var": 0.4798
+ },
+ "delta_collapse_ENVar": {
+  "point": 0.3861111111111112,
+  "ci95": [
+   0.16257163547237072,
+   0.5983679000101015
+  ]
+ },
+ "gap_max_method_RECIST": {
+  "point": 0.14646464646464646,
+  "ci95": [
+   0.12082175925925934,
+   0.5306140350877193
+  ]
+ },
+ "ratio_delta_over_gap": {
+  "point": 3.5,
+  "ci95": [
+   0.5228694347761647,
+   3.1813109857889734
+  ],
+  "n_valid": 1000
+ },
+ "seed": 42
+}

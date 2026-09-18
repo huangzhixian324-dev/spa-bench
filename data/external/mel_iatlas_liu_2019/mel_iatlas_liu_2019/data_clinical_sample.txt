@@ -1,0 +1,127 @@
+#Patient Identifier	Sample Identifier	Cancer Type	Cancer Type Detailed	Oncotree Code	Biopsy Site	Specimen Preservation Type	Sample Type	Metastasized	Prior ICI Rx	Prior Rx	Response	Sample Treatment	Subsq ICI Rx	Subsq Rx	Tide No Benefits	Tide Responder	Cancer Tissue	Immune Subtype	CTA/Self-Antigen Count	Fusion Neoantigen Count	InDel Neoantigen Count	SNV Neoantigen Count	Splice Neoantigen Count	Viral Neoantigen Count	ERV Neoantigen Count	Somatic Status	TMB (nonsynonymous)
+#Identifier to uniquely specify a patient.	A unique sample identifier.	Cancer Type	Cancer Type Detailed	Oncotree Code	Site where sample was collected from.	Indicates whether the sample is FFPE or not.	Sample Type	Indicates whether the cancer is metastatic or not.	ICI treatment(s) administered before the ICI treatment in the study. Combination therapies, where more than one procedure occurs, are represented by the name of both treatments.	Treatment(s) a patient had before the ICI treatment in the study. Combination therapies, where more than one procedure occurs, are represented by the name of both treatments.	Response to treatment following modified Response Evaluation Criteria in Solid Tumors (mRECIST) guidelines.	The time of sample collection in relation to the ICI treatment time. Most of the datasets collected samples Pre treatment.	ICI treatment(s) administered after the ICI treatment in the study. Combination therapies, where more than one procedure occurs, are represented by the name of both treatments.	Treatment(s) a patient had after the ICI treatment in the study. Combination therapies, where more than one procedure occurs, are represented by the name of both treatments.	TIDE prediction of benefit to ICI treatment.	TIDE prediction of response to ICI treatment.	Original tumor tissue.	Immune Subtype described in Thorsson et al, 2018 e computed using the Immune Subtype Classifier tool (https://github.com/CRI-iAtlas/ImmuneSubtypeClassifier)	Non-mutated self-antigens that may be abnormally expressed in tumors. A major subset includes cancer-testis antigens (CTAs), typically restricted to germline tissues but reactivated in cancers.	Generated when structural variants (e.g., translocations, deletions, inversions) join distant genomic loci, producing novel fusion proteins or transcripts.	Arise from somatic insertion or deletion mutations that create frameshifts or altered coding sequences, leading to tumor-specific peptides.	Produced by somatic single-nucleotide variants that change amino acids directly or indirectly through downstream coding effects.	Generated from abnormal splicing events such as intron retention, exon skipping, or mis-splice site usage, producing tumor-specific transcripts.	Derived from proteins encoded by oncogenic viruses (e.g., HPV, EBV, HTLV-1, HCV) that contribute to cancer development in infected tissues.	Arise from aberrant expression of endogenous retroviruses (ERVs), normally silenced genomic elements reactivated in tumors.	Somatic Status	TMB (nonsynonymous)
+#STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	STRING	NUMBER	NUMBER	NUMBER	NUMBER	NUMBER	NUMBER	NUMBER	STRING	NUMBER
+#1	1	1	1	1	1	1	5	1	4	4	3	5	4	4	3	3	1	2	2	2	1	2	1	1	0	1	1
+PATIENT_ID	SAMPLE_ID	CANCER_TYPE	CANCER_TYPE_DETAILED	ONCOTREE_CODE	BIOPSY_SITE	SPECIMEN_PRESERVATION_TYPE	SAMPLE_TYPE	METASTASIZED	PRIOR_ICI_RX	PRIOR_RX	RESPONSE	SAMPLE_TREATMENT	SUBSQ_ICI_RX	SUBSQ_RX	TIDE_NO_BENEFITS	TIDE_RESPONDER	CANCER_TISSUE	IMMUNE_SUBTYPE	CTA_SELF_NEOANTIGEN	FUSION_NEOANTIGEN	INDEL_NEOANTIGEN	SNV_NEOANTIGEN	SPLICE_NEOANTIGEN	VIRUS_NEOANTIGEN	ERV_NEOANTIGEN	SOMATIC_STATUS	TMB_NONSYNONYMOUS
+Patient1	Liu_Sample1	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	TRUE	Skin	C4	2	4	2	52	51	0	0	Matched	3.133333333
+Patient10	Liu_Sample10	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK	Partial Response	Pre	aCTLA4	aCTLA4 + aMAPK	FALSE	FALSE	Skin	C4	6	1	1	63	43	0	0	Matched	3.733333333
+Patient100	Liu_Sample100	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	TRUE	Skin	C4	5	1	1	39	85	0	0	Matched	4.466666667
+Patient102	Liu_Sample102	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Stable Disease	Pre			FALSE	FALSE	Skin	C4	18	0	1	68	43	0	0	Matched	8.7
+Patient105	Liu_Sample105	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Stable Disease	Pre	Combined ICI	Combined ICI	FALSE	TRUE	Skin	C4	3	0	0	16	81	0	0	Matched	5.166666667
+Patient106	Liu_Sample106	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	TRUE	Skin	C4	10	3	3	64	32	0	0	Matched	8.3
+Patient107	Liu_Sample107	Melanoma	Melanoma	MEL	Endocrine	FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	0	0	0	2	2	0	0	Matched	5.7
+Patient108	Liu_Sample108	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	TRUE	Skin	C4	2	0	0	4	45	0	0	Matched	7.733333333
+Patient11	Liu_Sample11	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Progressive Disease	Pre			FALSE	FALSE	Skin	C4	11	7	7	89	28	0	0	Matched	7.533333333
+Patient112	Liu_Sample112	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	TRUE	Skin	C4	1	0	3	46	14	0	0	Matched	8.366666667
+Patient116	Liu_Sample116	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	16	4	0	58	47	0	0	Matched	8.066666667
+Patient117	Liu_Sample117	Melanoma	Melanoma	MEL	Soft Tissue	FFPE	Metastasis	TRUE	aCTLA4		Progressive Disease	Pre			FALSE	TRUE	Skin	C4	6	8	4	24	41	0	0	Matched	3.7
+Patient121	Liu_Sample121	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	TRUE	Skin	C4	4	0	9	261	48	0	0	Matched	28.5
+Patient125	Liu_Sample125	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	4	1	5	21	43	0	0	Matched	6.333333333
+Patient126	Liu_Sample126	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	10	4	4	205	49	0	0	Matched	22.23333333
+Patient127	Liu_Sample127	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	TRUE	Skin	C4	17	2	10	92	21	0	0	Matched	17.86666667
+Patient13	Liu_Sample13	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Progressive Disease	Pre			TRUE	FALSE	Skin	C4	8	5	5	198	44	0	0	Matched	22.5
+Patient130	Liu_Sample130	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	3	3	0	58	15	0	0	Matched	10.96666667
+Patient131	Liu_Sample131	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	2	0	3	32	48	0	0	Matched	11.8
+Patient132	Liu_Sample132	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	15	1	3	116	20	0	0	Matched	22.43333333
+Patient133	Liu_Sample133	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	TRUE	Skin	C4	3	1	4	84	88	0	0	Matched	11.76666667
+Patient134	Liu_Sample134	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	FALSE	Skin	C4	7	0	2	92	50	0	0	Matched	12.5
+Patient135	Liu_Sample135	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	24	0	0	105	48	0	0	Matched	14
+Patient137	Liu_Sample137	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	1	0	0	112	48	0	0	Matched	29.26666667
+Patient14	Liu_Sample14	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	TRUE	Skin	C4	9	3	0	30	50	0	0	Matched	2.633333333
+Patient140	Liu_Sample140	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	FALSE	Skin	C4	5	3	7	577	55	0	0	Matched	71.5
+Patient141	Liu_Sample141	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			TRUE	FALSE	Skin	C4	1	0	0	23	40	0	0	Matched	2.633333333
+Patient142	Liu_Sample142	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Stable Disease	Pre			FALSE	TRUE	Skin	C4	4	1	0	19	76	0	0	Matched	2.366666667
+Patient143	Liu_Sample143	Melanoma	Melanoma	MEL		FFPE		FALSE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	4	0	2	68	44	0	0	Matched	13.06666667
+Patient144	Liu_Sample144	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	6	0	3	62	63	0	0	Matched	30
+Patient145	Liu_Sample145	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	TRUE	Skin	C4	5	0	1	58	34	0	0	Matched	10.66666667
+Patient146	Liu_Sample146	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	12	1	5	119	32	0	0	Matched	13.86666667
+Patient147	Liu_Sample147	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	5	0	1	137	14	0	0	Matched	18.6
+Patient148	Liu_Sample148	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	6	3	1	62	53	0	0	Matched	11.36666667
+Patient149	Liu_Sample149	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Stable Disease	Pre	aCTLA4	aCTLA4	FALSE	FALSE	Skin	C4	5	0	1	52	66	0	0	Matched	8.033333333
+Patient15	Liu_Sample15	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Partial Response	Pre			FALSE	TRUE	Skin	C4	6	3	0	56	46	0	0	Matched	9.066666667
+Patient150	Liu_Sample150	Melanoma	Melanoma	MEL	Liver	FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	10	5	3	13	32	0	0	Matched	1.666666667
+Patient154	Liu_Sample154	Melanoma	Melanoma	MEL		FFPE		FALSE			Stable Disease	Pre			TRUE	FALSE	Skin	C4	9	0	0	17	21	0	0	Matched	1
+Patient155	Liu_Sample155	Melanoma	Melanoma	MEL		FFPE		FALSE			Progressive Disease	Pre		aMAPK	FALSE	FALSE	Skin	C4	9	0	2	60	9	0	0	Matched	9.233333333
+Patient156	Liu_Sample156	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			TRUE	FALSE	Skin	C4	15	3	0	72	69	0	0	Matched	7
+Patient158	Liu_Sample158	Melanoma	Melanoma	MEL	Endocrine	FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	9	2	39	680	33	0	0	Matched	75.3
+Patient159	Liu_Sample159	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Stable Disease	Pre			FALSE	FALSE	Skin	C4	14	12	2	24	89	0	0	Matched	2.2
+Patient162	Liu_Sample162	Melanoma	Melanoma	MEL	Intestines	FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	TRUE	Skin	C4	6	4	3	299	18	0	0	Matched	56.63333333
+Patient163	Liu_Sample163	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Progressive Disease	Pre	Combined ICI	aMAPK + Combined ICI	FALSE	FALSE	Skin	C4	6	1	3	57	52	0	0	Matched	7.733333333
+Patient165	Liu_Sample165	Melanoma	Melanoma	MEL	Soft Tissue	FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	12	1	4	226	109	0	0	Matched	24.06666667
+Patient166	Liu_Sample166	Melanoma	Melanoma	MEL	Soft Tissue	FFPE	Metastasis	TRUE			Partial Response	Pre	Combined ICI	Combined ICI	TRUE	FALSE	Skin	C4	9	8	0	7	23	0	0	Matched	0.366666667
+Patient167	Liu_Sample167	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	8	6	1	5	29	0	0	Matched	0.966666667
+Patient168	Liu_Sample168	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre	Combined ICI	Combined ICI	TRUE	FALSE	Skin	C4	21	2	0	11	53	0	0	Matched	0.8
+Patient169	Liu_Sample169	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	14	2	5	336	21	0	0	Matched	48.6
+Patient17	Liu_Sample17	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Stable Disease	Pre		aMAPK	FALSE	TRUE	Skin	C4	5	6	7	97	51	0	0	Matched	15.36666667
+Patient170	Liu_Sample170	Melanoma	Melanoma	MEL		FFPE		FALSE			Stable Disease	Pre			FALSE	FALSE	Skin	C4	14	10	1	22	3	0	0	Matched	2.5
+Patient172	Liu_Sample172	Melanoma	Melanoma	MEL		FFPE		FALSE			Stable Disease	Pre			FALSE	TRUE	Skin	C4	7	0	5	126	32	0	0	Matched	23.73333333
+Patient173	Liu_Sample173	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	14	13	2	65	54	0	0	Matched	5.8
+Patient179	Liu_Sample179	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	2	1	0	52	16	0	0	Matched	16.3
+Patient18	Liu_Sample18	Melanoma	Melanoma	MEL		FFPE		FALSE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	11	4	0	116	45	0	0	Matched	13.93333333
+Patient181	Liu_Sample181	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	10	1	3	69	79	0	0	Matched	10.7
+Patient183	Liu_Sample183	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	3	0	1	19	41	0	0	Matched	12.06666667
+Patient184	Liu_Sample184	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	1	0	1	61	9	0	0	Matched	71.66666667
+Patient185	Liu_Sample185	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Stable Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	2	0	1	17	42	0	0	Matched	6.133333333
+Patient187	Liu_Sample187	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Complete Response	Pre			FALSE	FALSE	Skin	C4	18	0	1	37	42	0	0	Matched	4.9
+Patient188	Liu_Sample188	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	25	2	0	13	19	0	0	Matched	1.266666667
+Patient189	Liu_Sample189	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	5	1	0	12	121	0	0	Matched	1.666666667
+Patient191	Liu_Sample191	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	8	2	2	966	34	0	0	Matched	143.1
+Patient192	Liu_Sample192	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK	Partial Response	Pre			FALSE	TRUE	Skin	C4	6	3	4	115	65	0	0	Matched	17.3
+Patient193	Liu_Sample193	Melanoma	Melanoma	MEL		FFPE		FALSE			Stable Disease	Pre			FALSE	FALSE	Skin	C4	11	1	2	138	26	0	0	Matched	21.76666667
+Patient195	Liu_Sample195	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	FALSE	Skin	C4	7	3	5	436	43	0	0	Matched	66.03333333
+Patient196	Liu_Sample196	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	TRUE	Skin	C4	5	4	4	388	50	0	0	Matched	58.4
+Patient197	Liu_Sample197	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	10	4	1	14	40	0	0	Matched	2.5
+Patient20	Liu_Sample20	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	FALSE	Skin	C4	6	2	1	98	32	0	0	Matched	16.33333333
+Patient200	Liu_Sample200	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	6	0	1	257	46	0	0	Matched	25.76666667
+Patient201	Liu_Sample201	Melanoma	Melanoma	MEL	Intestines	FFPE		FALSE			Progressive Disease	Pre		aMAPK	TRUE	FALSE	Skin	C4	1	2	2	6	2	0	0	Matched	2.833333333
+Patient203	Liu_Sample203	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	8	29	0	44	32	0	0	Matched	3.1
+Patient204	Liu_Sample204	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	FALSE	Skin	C4	10	3	2	381	3	0	0	Matched	69.26666667
+Patient205	Liu_Sample205	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	15	2	2	100	33	0	0	Matched	20.5
+Patient206	Liu_Sample206	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	FALSE	Skin	C4	7	4	0	1259	32	0	0	Matched	185.4
+Patient21	Liu_Sample21	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	FALSE	Skin	C4	8	2	14	36	4	0	0	Matched	9.966666667
+Patient22	Liu_Sample22	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			TRUE	FALSE	Skin	C4	7	7	3	27	18	0	0	Matched	3.166666667
+Patient23	Liu_Sample23	Melanoma	Melanoma	MEL		FFPE		FALSE			Progressive Disease	Pre			TRUE	FALSE	Skin	C4	9	5	8	37	41	0	0	Matched	7.1
+Patient24	Liu_Sample24	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Progressive Disease	Pre			TRUE	FALSE	Skin	C4	12	3	3	45	16	0	0	Matched	10.93333333
+Patient25	Liu_Sample25	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	FALSE	Skin	C4	6	2	2	75	62	0	0	Matched	12.56666667
+Patient27	Liu_Sample27	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	TRUE	Skin	C4	8	0	1	58	156	0	0	Matched	7.966666667
+Patient30	Liu_Sample30	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Stable Disease	Pre			FALSE	TRUE	Skin	C4	7	2	1	78	50	0	1	Matched	22.73333333
+Patient31	Liu_Sample31	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	FALSE	Skin	C4	8	1	5	106	23	0	0	Matched	6.5
+Patient32	Liu_Sample32	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK	Progressive Disease	Pre			FALSE	FALSE	Skin	C4	5	0	2	44	108	0	0	Matched	11.2
+Patient33	Liu_Sample33	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	TRUE	Skin	C4	2	1	0	197	102	0	0	Matched	2.966666667
+Patient34	Liu_Sample34	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	FALSE	Skin	C4	2	0	0	23	415	0	0	Matched	1.133333333
+Patient35	Liu_Sample35	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Stable Disease	Pre	aCTLA4 Combined ICI	aCTLA4 + Combined ICI	FALSE	TRUE	Skin	C4	4	3	4	12	20	0	0	Matched	3.2
+Patient36	Liu_Sample36	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	FALSE	FALSE	Skin	C4	3	0	1	50	58	0	0	Matched	6.766666667
+Patient37	Liu_Sample37	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	4	1	0	16	68	0	0	Matched	2.866666667
+Patient38	Liu_Sample38	Melanoma	Melanoma	MEL	Intestines	FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK	Progressive Disease	Pre		aMAPK	FALSE	FALSE	Skin	C4	2	6	3	32	41	0	0	Matched	2.6
+Patient4	Liu_Sample4	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Complete Response	Pre			FALSE	FALSE	Skin	C4	4	0	4	111	88	0	1	Matched	15.26666667
+Patient40	Liu_Sample40	Melanoma	Melanoma	MEL	Liver	FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	4	2	26	2330	51	0	0	Matched	250.8333333
+Patient42	Liu_Sample42	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Complete Response	Pre			FALSE	FALSE	Skin	C4	12	1	1	115	25	0	0	Matched	17.66666667
+Patient44	Liu_Sample44	Melanoma	Melanoma	MEL	Soft Tissue	FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	TRUE	Skin	C4	2	0	0	0	6	0	0	Matched	5.366666667
+Patient45	Liu_Sample45	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Partial Response	Pre			FALSE	TRUE	Skin	C4	7	5	0	46	41	0	0	Matched	10.83333333
+Patient47	Liu_Sample47	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre	aCTLA4	aCTLA4	TRUE	FALSE	Skin	C4	15	5	3	244	23	0	0	Matched	27.9
+Patient48	Liu_Sample48	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	TRUE	Skin	C4	4	1	4	22	34	0	0	Matched	2.733333333
+Patient51	Liu_Sample51	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	TRUE	Skin	C4	2	0	1	31	10	0	0	Matched	39.36666667
+Patient56	Liu_Sample56	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre		aMAPK	FALSE	TRUE	Skin	C4	3	5	0	47	55	0	0	Matched	1.966666667
+Patient58	Liu_Sample58	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			TRUE	FALSE	Skin	C4	1	0	0	10	20	0	0	Matched	3.8
+Patient6	Liu_Sample6	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Stable Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	3	4	7	423	21	0	0	Matched	39.86666667
+Patient61	Liu_Sample61	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Stable Disease	Pre			FALSE	TRUE	Skin	C4	5	0	2	41	0	0	0	Matched	70.96666667
+Patient62	Liu_Sample62	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	FALSE	Skin	C4	16	5	14	2003	42	0	0	Matched	211.9333333
+Patient63	Liu_Sample63	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			FALSE	TRUE	Skin	C4	5	3	6	84	62	0	0	Matched	10.86666667
+Patient67	Liu_Sample67	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	8	0	2	33	59	0	0	Matched	11.7
+Patient7	Liu_Sample7	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Stable Disease	Pre			FALSE	FALSE	Skin	C4	5	11	4	207	44	0	0	Matched	7.033333333
+Patient72	Liu_Sample72	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Progressive Disease	Pre		aMAPK	FALSE	TRUE	Skin	C4	9	2	2	83	46	0	0	Matched	5.333333333
+Patient73	Liu_Sample73	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	10	0	3	35	38	0	0	Matched	3.733333333
+Patient75	Liu_Sample75	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Partial Response	Pre			FALSE	FALSE	Skin	C4	8	1	1	87	13	0	0	Matched	24.46666667
+Patient77	Liu_Sample77	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Progressive Disease	Pre		aMAPK	FALSE	FALSE	Skin	C4	10	4	3	61	43	0	0	Matched	4.1
+Patient78	Liu_Sample78	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Progressive Disease	Pre		aMAPK	FALSE	FALSE	Skin	C4	19	6	2	80	25	0	0	Matched	1.333333333
+Patient79	Liu_Sample79	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE			Progressive Disease	Pre			FALSE	FALSE	Skin	C4	14	3	0	76	14	0	0	Matched	6.6
+Patient8	Liu_Sample8	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE			Stable Disease	Pre			FALSE	FALSE	Skin	C4	4	1	0	211	42	0	0	Matched	11.43333333
+Patient82	Liu_Sample82	Melanoma	Melanoma	MEL	Brain	FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK Unnamed	Progressive Disease	Pre	aCTLA4	aCTLA4 + aMAPK	TRUE	FALSE	Skin	C4	16	0	4	559	42	0	0	Matched	61.96666667
+Patient83	Liu_Sample83	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Progressive Disease	Pre			TRUE	FALSE	Skin	C4	17	1	1	93	65	0	0	Matched	8.033333333
+Patient86	Liu_Sample86	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4		Stable Disease	Pre			FALSE	TRUE	Skin	C4	4	1	3	116	49	0	0	Matched	9.7
+Patient87	Liu_Sample87	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4	Partial Response	Pre			FALSE	TRUE	Skin	C4	7	39	5	66	80	0	0	Matched	4.3
+Patient9	Liu_Sample9	Melanoma	Melanoma	MEL		FFPE		FALSE			Progressive Disease	Pre			TRUE	FALSE	Skin	C4	7	1	6	197	39	0	0	Matched	24.66666667
+Patient94	Liu_Sample94	Melanoma	Melanoma	MEL		FFPE	Metastasis	TRUE	aCTLA4	aCTLA4 aMAPK	Progressive Disease	Pre			FALSE	TRUE	Skin	C4	22	2	0	143	47	0	2	Matched	8.866666667
+Patient96	Liu_Sample96	Melanoma	Melanoma	MEL	Endocrine	FFPE	Metastasis	TRUE			Complete Response	Pre			FALSE	TRUE	Skin	C4	9	2	8	220	74	0	0	Matched	22.36666667
+Patient98	Liu_Sample98	Melanoma	Melanoma	MEL	Lung	FFPE	Metastasis	TRUE			Progressive Disease	Pre	Combined ICI	Combined ICI	FALSE	FALSE	Skin	C4	7	3	1	86	145	0	0	Matched	10.3
+Patient99	Liu_Sample99	Melanoma	Melanoma	MEL	Soft Tissue	FFPE	Metastasis	TRUE			Partial Response	Pre	Combined ICI	Combined ICI	FALSE	TRUE	Skin	C4	33	3	2	267	25	0	0	Matched	29.76666667

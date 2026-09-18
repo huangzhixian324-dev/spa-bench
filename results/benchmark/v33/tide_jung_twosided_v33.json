@@ -1,0 +1,24 @@
+{
+ "cohort": "Jung_2019_DCB",
+ "method": "TIDE",
+ "n": 27,
+ "n_pos": 6,
+ "obs_auroc": 0.254,
+ "archived_benchmark_auroc": 0.2778,
+ "n_shuffle": 50000,
+ "p_upper_onesided": 0.96626,
+ "p_lower": 0.03816,
+ "p_two_sided": 0.07632,
+ "null_mean": 0.4994,
+ "null_sd": 0.1359,
+ "null_percentiles": {
+  "1": 0.1905,
+  "5": 0.2778,
+  "25": 0.4048,
+  "50": 0.5,
+  "75": 0.5952,
+  "95": 0.7222,
+  "99": 0.8095
+ },
+ "protocol": "fixed-scorer label shuffles (50,000), seed 42; score label-independent (tidepy v1.3.9, default vthres)"
+}
