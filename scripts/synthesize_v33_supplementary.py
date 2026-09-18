@@ -490,7 +490,7 @@ def build():
       "benefit coincides with treat-all at 10\u201320% thresholds, and its "
       "reclassification metrics do not exceed the random baseline. The "
       "IMPRES score is an uncalibrated fraction, so these metrics reflect "
-      "threshold behaviour rather than calibrated risk; the same reading "
+      "threshold behavior rather than calibrated risk; the same reading "
       "follows either way \u2014 a high AUROC alone does not establish "
       "clinical usefulness.*\n")
     w("\n**Survival stratification (Hugo 2016):**\n")
@@ -1059,7 +1059,7 @@ def build():
       "correlation['TIDE'] < vthres, default vthres = 0). The earlier "
       "simplified in-repo TIDE implementation (v28, 0.410 on Hugo) agreed "
       "with the official package when compared and has been retired in "
-      "favour of the official package.\n")
+      "favor of the official package.\n")
 
     w("## Note S3. Cohort Acquisition and Quality Control (v33 updates)\n")
     w("Cohorts were downloaded from GEO (GEOquery) or cBioPortal "
@@ -1398,7 +1398,7 @@ def build():
     # ---------------------------------------------------------- S25
     w("## Table S25. Minimum Detectable ΔAUROC at 80% Power (α = 0.05, "
       "two-sided; Hanley–McNeil paired model, r = 0.75, the most "
-      "favourable assumption; exact values from "
+      "favorable assumption; exact values from "
       "`scripts/power_table_v33.py`)\n")
     w("| n | Responder % | Min Detectable ΔAUROC | Example Cohort |")
     w("|----|------------|----------------------|----------------|")
@@ -1410,7 +1410,7 @@ def build():
     w("| 200 | 50% | 0.08 | — |")
     w("\nAt n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For "
       "reliable pairwise comparison at ΔAUROC = 0.10 (80% power), the "
-      "required sample size is ≈130 under the most favourable "
+      "required sample size is ≈130 under the most favorable "
       "correlation assumption (paired, r = 0.75) and ≈260–510 under "
       "weaker or no correlation (`power_table_v33.json`); n ≥ 50 is "
       "therefore reported as a minimum practical floor, not as a "

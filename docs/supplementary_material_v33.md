@@ -233,7 +233,7 @@ Leakage-free nested CV (per-fold feature selection, inner 3-fold tuning), identi
 | NRI vs. random baseline (total) | -0.200 (p = 0.900) |
 | IDI vs. random baseline (total) | -0.073 |
 
-*The ranking advantage of the cohort's only FDR-significant method (AUROC 0.795) does not translate into decision utility: at the 0.5 threshold it labels 92% of patients responders, its net benefit coincides with treat-all at 10–20% thresholds, and its reclassification metrics do not exceed the random baseline. The IMPRES score is an uncalibrated fraction, so these metrics reflect threshold behaviour rather than calibrated risk; the same reading follows either way — a high AUROC alone does not establish clinical usefulness.*
+*The ranking advantage of the cohort's only FDR-significant method (AUROC 0.795) does not translate into decision utility: at the 0.5 threshold it labels 92% of patients responders, its net benefit coincides with treat-all at 10–20% thresholds, and its reclassification metrics do not exceed the random baseline. The IMPRES score is an uncalibrated fraction, so these metrics reflect threshold behavior rather than calibrated risk; the same reading follows either way — a high AUROC alone does not establish clinical usefulness.*
 
 
 **Survival stratification (Hugo 2016):**
@@ -560,7 +560,7 @@ On the bundled synthetic cohort (SYNTH_TEST, n = 200; regenerated during the v33
 
 ## Note S2. TIDE Implementation Validation
 
-v33 evaluates TIDE through the official `tidepy` v1.3.9 package directly. On Hugo 2016 RECIST, tidepy returns AUROC = 0.426; on Riaz 2017 (HGNC-mapped) TIDE is near chance on both endpoints (RECIST 0.466, cytolytic 0.470), consistent with the tidepy source check (classification = correlation['TIDE'] < vthres, default vthres = 0). The earlier simplified in-repo TIDE implementation (v28, 0.410 on Hugo) agreed with the official package when compared and has been retired in favour of the official package.
+v33 evaluates TIDE through the official `tidepy` v1.3.9 package directly. On Hugo 2016 RECIST, tidepy returns AUROC = 0.426; on Riaz 2017 (HGNC-mapped) TIDE is near chance on both endpoints (RECIST 0.466, cytolytic 0.470), consistent with the tidepy source check (classification = correlation['TIDE'] < vthres, default vthres = 0). The earlier simplified in-repo TIDE implementation (v28, 0.410 on Hugo) agreed with the official package when compared and has been retired in favor of the official package.
 
 ## Note S3. Cohort Acquisition and Quality Control (v33 updates)
 
@@ -721,7 +721,7 @@ Hugo values come from true OS events (iAtlas OS_STATUS, 26 patients / 12 deaths;
 RECIST response strongly stratifies overall survival on Hugo (log-rank p = 0.0003). IMPRES — the best AUROC method on Hugo 2016 — does not significantly stratify OS (KM p = 0.554 with true events). Cox regression with z-standardized signatures (HR per 1 SD) confirms: IMPRES HR = 0.631 (95% CI [0.325–1.227], p = 0.175) on Hugo, GEP HR = 1.03 (95% CI [0.562–1.887], p = 0.923). AUROC for binary response prediction does not guarantee clinically meaningful survival stratification.
 Clinical utility metrics for ElasticNet_Var on Hugo 2016 (v33 recomputed; Table S9): **DCA** net benefit 0.345 vs treat-all 0.405 at p_t = 0.10 and 0.259 vs 0.330 at 0.20 — positive but consistently below "treat all"; at 0.50 the model is at 0. **NRI vs. random baseline** = −0.113 (p = 0.658, not significant). **IDI** = −0.029 (sensitivity 0.538, specificity 0.533).
 
-## Table S25. Minimum Detectable ΔAUROC at 80% Power (α = 0.05, two-sided; Hanley–McNeil paired model, r = 0.75, the most favourable assumption; exact values from `scripts/power_table_v33.py`)
+## Table S25. Minimum Detectable ΔAUROC at 80% Power (α = 0.05, two-sided; Hanley–McNeil paired model, r = 0.75, the most favorable assumption; exact values from `scripts/power_table_v33.py`)
 
 | n | Responder % | Min Detectable ΔAUROC | Example Cohort |
 |----|------------|----------------------|----------------|
@@ -732,7 +732,7 @@ Clinical utility metrics for ElasticNet_Var on Hugo 2016 (v33 recomputed; Table 
 | 100 | 50% | 0.11 | — |
 | 200 | 50% | 0.08 | — |
 
-At n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For reliable pairwise comparison at ΔAUROC = 0.10 (80% power), the required sample size is ≈130 under the most favourable correlation assumption (paired, r = 0.75) and ≈260–510 under weaker or no correlation (`power_table_v33.json`); n ≥ 50 is therefore reported as a minimum practical floor, not as a sufficient condition for adequately powered pairwise comparison.
+At n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For reliable pairwise comparison at ΔAUROC = 0.10 (80% power), the required sample size is ≈130 under the most favorable correlation assumption (paired, r = 0.75) and ≈260–510 under weaker or no correlation (`power_table_v33.json`); n ≥ 50 is therefore reported as a minimum practical floor, not as a sufficient condition for adequately powered pairwise comparison.
 
 ## Note S6. Negative-Control Stress Test — Design and Interpretation (E2)
 
