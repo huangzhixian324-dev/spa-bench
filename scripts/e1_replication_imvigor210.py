@@ -77,6 +77,7 @@ def perm_fixed(score, y, n=50000, seed=SEED):
 def main():
     import scanpy as sc
     mat = pd.read_csv(EXT / "expression.tsv.gz", index_col=0)
+    mat = mat.dropna(axis=0, how="any")  # complete-case genes (mirrors E5; the restored study-export z-score matrix contains unmeasured-gene rows)
     clin = pd.read_csv(EXT / "clinical.tsv", sep="\t", index_col=0)
     clin.index = clin.index.astype(str)
     resp = clin.get("RESPONSE")
