@@ -1,0 +1,12 @@
+{
+ "n_raw_genes": 58233,
+ "n_unmapped": 15594,
+ "n_unique_symbols": 41449,
+ "n_dup_rows": 1250,
+ "n_samples": 61,
+ "n_responders": 15,
+ "n_pfs_lt6": 26,
+ "lib_min": 471487.0,
+ "lib_max": 23530390.0,
+ "splits_sha1_16": "d5f128d2ff52c5c3"
+}

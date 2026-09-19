@@ -1,0 +1,166 @@
+{
+ "description": "CDS v2.0 prototype: permutation-based C3 replacing the ratio-based C3 that saturates on real data",
+ "n_perm": 200,
+ "summary": {
+  "v1_circular_mean": 0.954,
+  "v1_clinical_mean": 0.758,
+  "v1_separation": 0.196,
+  "v2_circular_mean": 0.954,
+  "v2_clinical_mean": 0.647,
+  "v2_separation": 0.307,
+  "v1_C3_saturated_count": 6,
+  "total_endpoints": 6
+ },
+ "results": {
+  "Riaz_2017_cytolytic__cytolytic_surrogate": {
+   "cohort": "Riaz_2017_cytolytic",
+   "endpoint": "cytolytic_surrogate",
+   "is_circular": true,
+   "n": 43,
+   "n_pos": 21,
+   "v1": {
+    "CDS": 0.954,
+    "C1": 0.5729,
+    "C2": 0.8454,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.954,
+    "C1": 0.5729,
+    "C2": 0.8454,
+    "C3_v2": 1.0,
+    "C3_z": 10.86,
+    "MI_obs_p90": 0.21533,
+    "MI_perm_mean": 0.09602,
+    "MI_perm_std": 0.01098
+   },
+   "v2_time_s": 99.3
+  },
+  "Riaz_2017_cytolytic__RECIST_clinical": {
+   "cohort": "Riaz_2017_cytolytic",
+   "endpoint": "RECIST_clinical",
+   "is_circular": false,
+   "n": 43,
+   "n_pos": 21,
+   "v1": {
+    "CDS": 0.954,
+    "C1": 0.5729,
+    "C2": 0.8454,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.954,
+    "C1": 0.5729,
+    "C2": 0.8454,
+    "C3_v2": 1.0,
+    "C3_z": 10.86,
+    "MI_obs_p90": 0.21533,
+    "MI_perm_mean": 0.09602,
+    "MI_perm_std": 0.01098
+   },
+   "v2_time_s": 84.5
+  },
+  "Gide_2019_cBio__RECIST_clinical": {
+   "cohort": "Gide_2019_cBio",
+   "endpoint": "RECIST_clinical",
+   "is_circular": false,
+   "n": 73,
+   "n_pos": 40,
+   "v1": {
+    "CDS": 0.852,
+    "C1": 0.1415,
+    "C2": 0.5081,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.654,
+    "C1": 0.1415,
+    "C2": 0.5081,
+    "C3_v2": 0.5036,
+    "C3_z": 0.01,
+    "MI_obs_p90": 0.07438,
+    "MI_perm_mean": 0.07432,
+    "MI_perm_std": 0.00727
+   },
+   "v2_time_s": 90.3
+  },
+  "Hugo_2016__RECIST_clinical": {
+   "cohort": "Hugo_2016",
+   "endpoint": "RECIST_clinical",
+   "is_circular": false,
+   "n": 28,
+   "n_pos": 13,
+   "v1": {
+    "CDS": 0.449,
+    "C1": 0.0,
+    "C2": 0.164,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.382,
+    "C1": 0.0,
+    "C2": 0.164,
+    "C3_v2": 0.8332,
+    "C3_z": 0.97,
+    "MI_obs_p90": 0.13031,
+    "MI_perm_mean": 0.11782,
+    "MI_perm_std": 0.01293
+   },
+   "v2_time_s": 84.8
+  },
+  "Nathanson_2017__RECIST_clinical": {
+   "cohort": "Nathanson_2017",
+   "endpoint": "RECIST_clinical",
+   "is_circular": false,
+   "n": 25,
+   "n_pos": 10,
+   "v1": {
+    "CDS": 0.781,
+    "C1": 0.0488,
+    "C2": 0.2944,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.699,
+    "C1": 0.0488,
+    "C2": 0.2944,
+    "C3_v2": 0.7953,
+    "C3_z": 0.83,
+    "MI_obs_p90": 0.13659,
+    "MI_perm_mean": 0.1224,
+    "MI_perm_std": 0.01719
+   },
+   "v2_time_s": 81.5
+  },
+  "Jung_2019_DCB__DCB_clinical": {
+   "cohort": "Jung_2019_DCB",
+   "endpoint": "DCB_clinical",
+   "is_circular": false,
+   "n": 27,
+   "n_pos": 6,
+   "v1": {
+    "CDS": 0.756,
+    "C1": 0.0988,
+    "C2": 0.1859,
+    "C3_v1": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "CDS": 0.547,
+    "C1": 0.0988,
+    "C2": 0.1859,
+    "C3_v2": 0.4774,
+    "C3_z": -0.06,
+    "MI_obs_p90": 0.08737,
+    "MI_perm_mean": 0.08865,
+    "MI_perm_std": 0.02259
+   },
+   "v2_time_s": 796.9
+  }
+ }
+}
