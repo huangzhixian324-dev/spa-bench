@@ -781,12 +781,12 @@ The pre-declared E1 candidate (strategy-doc P0-1) executed after the clinical en
 
 | Method | RECIST AUROC [95% CI] | PFS<6mo AUROC [95% CI] | Cytolytic AUROC [95% CI] | Perm p (RECIST / PFS / cytolytic) |
 |---|---|---|---|---|
-| GEP | 0.613 [0.432-0.788] | 0.486 [0.331-0.648] | 0.881 [0.777-0.953] | 0.100 / 0.579 / 2e-05 |
+| GEP | 0.613 [0.432-0.787] | 0.486 [0.331-0.648] | 0.881 [0.777-0.953] | 0.100 / 0.579 / 2e-05 |
 | IMPRES | 0.509 [0.329-0.679] | 0.480 [0.338-0.641] | 0.736 [0.616-0.850] | 0.460 / 0.610 / 5.2e-04 |
 | TIDE | 0.499 [0.324-0.672] | 0.370 [0.241-0.513] | 0.510 [0.365-0.660] | 0.510 / 0.960 / 0.448 |
 | PD-L1 (CD274) | 0.690 [0.513-0.865] | 0.491 [0.345-0.641] | 0.753 [0.625-0.866] | 0.014 / 0.547 / 3.0e-04 |
-| ElasticNet (MI) | 0.528 [0.375-0.687] | 0.464 [0.314-0.614] | 0.873 [0.772-0.954] |  |
-| ElasticNet (Var) | 0.528 [0.373-0.675] | 0.559 [0.412-0.711] | 0.774 [0.646-0.885] |  |
+| ElasticNet (MI) | 0.527 [0.375-0.687] | 0.464 [0.314-0.614] | 0.873 [0.772-0.954] |  |
+| ElasticNet (Var) | 0.527 [0.373-0.675] | 0.559 [0.412-0.711] | 0.774 [0.646-0.885] |  |
 
 **CDS (declared genes GZMA/PRF1):** RECIST 0.750 (HIGH; null mean 0.488 — inflated by the known C3-saturation artefact of CDS v1.1.0 on clinical endpoints), PFS<6mo 0.630 (MODERATE; null mean 0.542), cytolytic surrogate 0.786 (HIGH; null mean 0.536). **Reading:** RECIST leaves PD-L1 expression — the biomarker approved for this indication — as the only surviving fixed scorer; every method inflates on the gene-defined surrogate endpoint. The TIDE implementation's internal Entrez conversion drops 16.6% of genes (same behaviour as all other cohorts).
 
@@ -803,6 +803,6 @@ Third executed E1 replication, extending Design Choice 1 to renal cell carcinoma
 | TIDE | 0.503 [0.406-0.596] | 0.483 [0.393-0.575] | 0.474 [0.388-0.562] | 0.472 [0.384-0.555] | 0.483 / 0.632 / 0.723 / 0.743 |
 | PD-L1 (CD274) | 0.599 [0.506-0.694] | 0.541 [0.457-0.632] | 0.443 [0.355-0.526] | 0.706 [0.630-0.776] | 0.023 / 0.194 / 0.903 / 2e-05 |
 | ElasticNet (MI) | 0.658 [0.560-0.747] | 0.596 [0.512-0.687] | 0.638 [0.553-0.718] | 0.842 [0.779-0.896] |  |
-| ElasticNet (Var) | 0.662 [0.567-0.749] | 0.604 [0.519-0.693] | 0.659 [0.582-0.735] | 0.708 [0.632-0.783] |  |
+| ElasticNet (Var) | 0.662 [0.567-0.749] | 0.604 [0.518-0.693] | 0.659 [0.582-0.735] | 0.708 [0.632-0.783] |  |
 
 **CDS (declared genes GZMA/PRF1):** RECIST 0.741 (HIGH; null mean 0.492), DCB6mo 0.653 (null mean 0.492), PFS<6mo 0.570 (null mean 0.459), cytolytic surrogate 0.945 (HIGH; null mean 0.516) — the largest circularity flag of the replication series. **Reading:** RECIST preserves two clinically deployed signals (GEP — consistent with the IFN-gamma stratification used in the trial literature — and PD-L1 expression, the trial's own stratification biomarker); the durable-benefit endpoint attenuates GEP without abolishing it; the time-only PFS variant collapses every fixed signature while ElasticNet-Var retains 0.659, i.e. trainable models can fit PFS-time correlates that are not ICI-specific — an option the fixed scorers do not have; the gene-defined surrogate endpoint produces the series' largest inflation.

@@ -115,7 +115,22 @@ checks = {
     'q = 0.007': 'XGBoost Gide 置换 q（7 格 family）',
     '0.569–0.704': 'SKCM 多变量 Cox HR 区',
     'huangzhixian324-dev/spa-bench': 'GitHub URL', 'Putian University': '单位',
-    'no competing interests': 'COI 声明', 'Hanley-McNeil': 'one-sample 方法',
+    'no competing interests': 'COI 声明',
+    '0.690 [0.513–0.865]': 'NSCLC GSE274975 PD-L1 RECIST AUROC+CI',
+    'p = 0.014': 'NSCLC PD-L1 perm p',
+    'GEP to 0.881': 'NSCLC 代理端点 GEP 膨胀',
+    'CDS 0.786 HIGH': 'NSCLC 代理端点 CDS',
+    'RECIST responders 15': 'NSCLC 应答数',
+    '0.662 [0.569–0.750]': 'RCC IMmotion150 GEP RECIST AUROC+CI',
+    '4.4 × 10⁻⁴': 'RCC GEP perm p',
+    '0.599, p = 0.023': 'RCC PD-L1 RECIST',
+    '0.604, p = 0.016': 'RCC DCB6mo GEP',
+    'collapses every fixed signature (GEP 0.438)': 'RCC time-only PFS 固定 signature 崩塌',
+    'ElasticNet-Var retains 0.659': 'RCC time-only PFS EN-Var',
+    'GEP 0.905': 'RCC 代理端点 GEP',
+    'CDS 0.945 vs null 0.516': 'RCC 代理端点 CDS',
+    'n = 165 RECIST-evaluable, 48 responders': 'RCC 可评估数与应答数',
+    'histotype concordance 57/58': 'GSE274975 身份映射锚', 'Hanley-McNeil': 'one-sample 方法',
 }
 for k, v in checks.items():
     ok = k in ms
