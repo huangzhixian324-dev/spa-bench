@@ -21,6 +21,11 @@ EXCLUDE_NAME_PARTS = ('egg-info',)
 # in scripts/adversarial_audit.py and in the local (unpublished) copy of
 # sync_github_deterministic.py.
 INTERNAL_PATHS = (
+    'data/cohorts/GSE176307',
+    'results/benchmark/v33/e1_gse176307.json',
+    'scripts/build_gse176307_cohort.py',
+    'scripts/e1_gse176307_executed.py',
+    'scripts/fetch_gse176307_resumable.py',
     'docs/reviews',
     'docs/HANDOVER_2026-09-04.md',
     'docs/zenodo_upload_guide.md',
