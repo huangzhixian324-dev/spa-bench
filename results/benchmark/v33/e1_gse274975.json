@@ -1,6 +1,6 @@
 {
  "meta": {
-  "cohort": "GSE274975 (Oncobox NSCLC ICI; Luppov 2024 Front Immunol)",
+  "cohort": "GSE274975 (Oncobox NSCLC ICI; Poddubskaya 2024 Front Immunol)",
   "n": 61,
   "endpoints": {
    "RECIST": {
