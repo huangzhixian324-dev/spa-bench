@@ -1,0 +1,384 @@
+{
+ "meta": {
+  "cohort": "IMmotion150 (ccRCC; McDermott 2018 Nat Med; iAtlas harmonized via cBioPortal API)",
+  "n": 174,
+  "arm": "atezolizumab pooled (mono + atezo-bev arms not separable in iAtlas; sunitinib arm excluded)",
+  "endpoints": {
+   "RECIST": {
+    "definition": "CR/PR vs SD/PD (RESPONDER field)",
+    "n_responders": 48,
+    "n_evaluable": 165
+   },
+   "DCB6mo": {
+    "definition": "PFS >= 6 months AND no progression event (Jung-2019 durable-benefit convention); primary PFS endpoint",
+    "n_benefit": 51
+   },
+   "PFS6mo": {
+    "definition": "PFS < 6 months, time-only (GSE274975-comparable sensitivity)",
+    "n_events": 89
+   },
+   "cytolytic_surrogate": {
+    "definition": "GZMA/PRF1 mean, median split (as Riaz); exploratory addition",
+    "n_high": 87,
+    "declared_genes": [
+     "GZMA",
+     "PRF1"
+    ]
+   }
+  },
+  "identity_mapping": "cBioPortal sampleIds join directly (1 sample per patient)",
+  "expression": "iAtlas TPM via API -> log2(TPM+1); duplicate symbols mean-aggregated; GZMB/TIGIT/CD276 absent in profile (GEP 7/8, exhaustion 5/6, IMPRES pairs degraded automatically by the wrappers)",
+  "seed": 42,
+  "protocol": "v33 leakage-free nested CV; CDS v1.1.0; identical to executed e1_gse274975 / e1_liu2019"
+ },
+ "RECIST": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.6619,
+   "auroc_ci": [
+    0.5691,
+    0.7497
+   ],
+   "auprc": 0.4206,
+   "perm_p": 0.0004399912001759965,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.5027,
+   "auroc_ci": [
+    0.4055,
+    0.5964
+   ],
+   "auprc": 0.3024,
+   "perm_p": 0.48323033539329213,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.5447,
+   "auroc_ci": [
+    0.4525,
+    0.6363
+   ],
+   "auprc": 0.3201,
+   "perm_p": 0.1762364752704946,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5988,
+   "auroc_ci": [
+    0.5059,
+    0.6938
+   ],
+   "auprc": 0.3904,
+   "perm_p": 0.02267954640907182,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.6581,
+   "auroc_ci": [
+    0.5596,
+    0.7473
+   ],
+   "auprc": 0.4892
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.6617,
+   "auroc_ci": [
+    0.5669,
+    0.7492
+   ],
+   "auprc": 0.4673
+  }
+ },
+ "DCB6mo": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.604,
+   "auroc_ci": [
+    0.5132,
+    0.6892
+   ],
+   "auprc": 0.3701,
+   "perm_p": 0.015959680806383873,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4833,
+   "auroc_ci": [
+    0.393,
+    0.5753
+   ],
+   "auprc": 0.278,
+   "perm_p": 0.631887362252755,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.4623,
+   "auroc_ci": [
+    0.3767,
+    0.5501
+   ],
+   "auprc": 0.2748,
+   "perm_p": 0.7909441811163777,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5411,
+   "auroc_ci": [
+    0.4567,
+    0.6324
+   ],
+   "auprc": 0.3043,
+   "perm_p": 0.19431611367772644,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.5962,
+   "auroc_ci": [
+    0.5121,
+    0.6868
+   ],
+   "auprc": 0.3632
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.6039,
+   "auroc_ci": [
+    0.5185,
+    0.6933
+   ],
+   "auprc": 0.3571
+  }
+ },
+ "PFS6mo": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.4378,
+   "auroc_ci": [
+    0.3532,
+    0.5226
+   ],
+   "auprc": 0.4678,
+   "perm_p": 0.9219815603687926,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.474,
+   "auroc_ci": [
+    0.3876,
+    0.5622
+   ],
+   "auprc": 0.5169,
+   "perm_p": 0.7230855382892342,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.5393,
+   "auroc_ci": [
+    0.4559,
+    0.6173
+   ],
+   "auprc": 0.5406,
+   "perm_p": 0.1750564988700226,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.4426,
+   "auroc_ci": [
+    0.355,
+    0.5259
+   ],
+   "auprc": 0.4711,
+   "perm_p": 0.9028619427611447,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.6377,
+   "auroc_ci": [
+    0.5527,
+    0.7183
+   ],
+   "auprc": 0.6101
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.6588,
+   "auroc_ci": [
+    0.5815,
+    0.7348
+   ],
+   "auprc": 0.663
+  }
+ },
+ "cytolytic_surrogate": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.9054,
+   "auroc_ci": [
+    0.8615,
+    0.9423
+   ],
+   "auprc": 0.9154,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4717,
+   "auroc_ci": [
+    0.3839,
+    0.5554
+   ],
+   "auprc": 0.4654,
+   "perm_p": 0.7426451470970581,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.7426,
+   "auroc_ci": [
+    0.6672,
+    0.8121
+   ],
+   "auprc": 0.6842,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.7063,
+   "auroc_ci": [
+    0.63,
+    0.7759
+   ],
+   "auprc": 0.7084,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.8421,
+   "auroc_ci": [
+    0.7791,
+    0.8957
+   ],
+   "auprc": 0.8336
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.01,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.7079,
+   "auroc_ci": [
+    0.6321,
+    0.7826
+   ],
+   "auprc": 0.6944
+  }
+ },
+ "endpoint_switch_delta": {
+  "GEP": {
+   "DCB6mo_minus_RECIST": -0.058,
+   "PFS6mo_minus_RECIST": -0.224,
+   "surrogate_minus_RECIST": 0.243
+  },
+  "TIDE": {
+   "DCB6mo_minus_RECIST": -0.019,
+   "PFS6mo_minus_RECIST": -0.029,
+   "surrogate_minus_RECIST": -0.031
+  },
+  "IMPRES": {
+   "DCB6mo_minus_RECIST": -0.082,
+   "PFS6mo_minus_RECIST": -0.005,
+   "surrogate_minus_RECIST": 0.198
+  },
+  "PD_L1_IHC": {
+   "DCB6mo_minus_RECIST": -0.058,
+   "PFS6mo_minus_RECIST": -0.156,
+   "surrogate_minus_RECIST": 0.108
+  },
+  "ElasticNet": {
+   "DCB6mo_minus_RECIST": -0.062,
+   "PFS6mo_minus_RECIST": -0.02,
+   "surrogate_minus_RECIST": 0.184
+  },
+  "ElasticNet_Var": {
+   "DCB6mo_minus_RECIST": -0.058,
+   "PFS6mo_minus_RECIST": -0.003,
+   "surrogate_minus_RECIST": 0.046
+  }
+ },
+ "cds": {
+  "RECIST": {
+   "CDS": 0.741,
+   "risk": "HIGH",
+   "components": {
+    "C1_MI_endpoint_genes": 0.0437,
+    "C2_rho_endpoint_response": 0.263,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.492,
+   "null_max": 0.621
+  },
+  "DCB6mo": {
+   "CDS": 0.653,
+   "risk": "MODERATE",
+   "components": {
+    "C1_MI_endpoint_genes": 0.0344,
+    "C2_rho_endpoint_response": 0.1555,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.492,
+   "null_max": 0.609
+  },
+  "PFS6mo": {
+   "CDS": 0.57,
+   "risk": "MODERATE",
+   "components": {
+    "C1_MI_endpoint_genes": 0.021,
+    "C2_rho_endpoint_response": 0.1462,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.459,
+   "null_max": 0.608
+  },
+  "cytolytic_surrogate": {
+   "CDS": 0.945,
+   "risk": "HIGH",
+   "components": {
+    "C1_MI_endpoint_genes": 0.5067,
+    "C2_rho_endpoint_response": 0.8179,
+    "C3_MI_skew_ratio": 1.0,
+    "C3_saturated": true
+   },
+   "null_mean": 0.516,
+   "null_max": 0.663
+  }
+ }
+}
