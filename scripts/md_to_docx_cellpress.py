@@ -43,7 +43,7 @@ def flush_para():
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     # 处理行内标记：**bold**、*italic*、[n] 上标
-    parts = re.split(r'(\*\*[^*]+\*\*|\*[^*]+\*|\[\d+(?:[,\-]\s?\d+)*\])', text)
+    parts = re.split(r'(\*\*[^*]+\*\*|\*[^*]+\*|\[\d+(?:[,\u2013\-]\s?\d+)*\])', text)
     for part in parts:
         if not part:
             continue

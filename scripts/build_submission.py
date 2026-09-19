@@ -59,7 +59,7 @@ body = markdown.markdown(t, extensions=['tables', 'fenced_code'])
 
 # Cell Systems citation style: in-text [n] as superscript (outside refs list)
 import re as _re
-body = _re.sub(r'\[(\d+(?:[,&]\s?\d+)*)\]', r'<sup>[\1]</sup>', body)
+body = _re.sub(r'\[(\d+(?:[,&\u2013\-]\s?\d+)*)\]', r'<sup>[\1]</sup>', body)
 # keep the References section numbering as-is (it uses "1." list markers)
 
 CSS = """
