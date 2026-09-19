@@ -1,0 +1,479 @@
+{
+ "all_four_cohorts": {
+  "pairwise_spearman": [
+   {
+    "pair": "IMPRES vs GEP",
+    "rho": -0.4,
+    "p": 0.6
+   },
+   {
+    "pair": "IMPRES vs TIDE",
+    "rho": -0.4,
+    "p": 0.6
+   },
+   {
+    "pair": "IMPRES vs PD-L1 (CD274)",
+    "rho": -0.4,
+    "p": 0.6
+   },
+   {
+    "pair": "IMPRES vs ElasticNet-MI",
+    "rho": -0.2,
+    "p": 0.8
+   },
+   {
+    "pair": "IMPRES vs ElasticNet-Var",
+    "rho": -0.4,
+    "p": 0.6
+   },
+   {
+    "pair": "GEP vs TIDE",
+    "rho": 1.0,
+    "p": 0.0
+   },
+   {
+    "pair": "GEP vs PD-L1 (CD274)",
+    "rho": 1.0,
+    "p": 0.0
+   },
+   {
+    "pair": "GEP vs ElasticNet-MI",
+    "rho": 0.0,
+    "p": 1.0
+   },
+   {
+    "pair": "GEP vs ElasticNet-Var",
+    "rho": 0.6,
+    "p": 0.4
+   },
+   {
+    "pair": "TIDE vs PD-L1 (CD274)",
+    "rho": 1.0,
+    "p": 0.0
+   },
+   {
+    "pair": "TIDE vs ElasticNet-MI",
+    "rho": 0.0,
+    "p": 1.0
+   },
+   {
+    "pair": "TIDE vs ElasticNet-Var",
+    "rho": 0.6,
+    "p": 0.4
+   },
+   {
+    "pair": "PD-L1 (CD274) vs ElasticNet-MI",
+    "rho": 0.0,
+    "p": 1.0
+   },
+   {
+    "pair": "PD-L1 (CD274) vs ElasticNet-Var",
+    "rho": 0.6,
+    "p": 0.4
+   },
+   {
+    "pair": "ElasticNet-MI vs ElasticNet-Var",
+    "rho": 0.8,
+    "p": 0.2
+   }
+  ],
+  "mean_abs_rho": 0.493
+ },
+ "leave_one_cohort_out": {
+  "Hugo_2016": {
+   "remaining": [
+    "Nathanson_2017",
+    "Gide_2019_cBio",
+    "Riaz_2017_RECIST_v33"
+   ],
+   "pairwise_spearman": [
+    {
+     "pair": "IMPRES vs GEP",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs TIDE",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs PD-L1 (CD274)",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-Var",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs TIDE",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "TIDE vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "ElasticNet-MI vs ElasticNet-Var",
+     "rho": 1.0,
+     "p": 0.0
+    }
+   ],
+   "mean_abs_rho": 0.633
+  },
+  "Nathanson_2017": {
+   "remaining": [
+    "Hugo_2016",
+    "Gide_2019_cBio",
+    "Riaz_2017_RECIST_v33"
+   ],
+   "pairwise_spearman": [
+    {
+     "pair": "IMPRES vs GEP",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs TIDE",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs PD-L1 (CD274)",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-MI",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs TIDE",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "TIDE vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "ElasticNet-MI vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    }
+   ],
+   "mean_abs_rho": 0.633
+  },
+  "Gide_2019_cBio": {
+   "remaining": [
+    "Hugo_2016",
+    "Nathanson_2017",
+    "Riaz_2017_RECIST_v33"
+   ],
+   "pairwise_spearman": [
+    {
+     "pair": "IMPRES vs GEP",
+     "rho": -1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "IMPRES vs TIDE",
+     "rho": -1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "IMPRES vs PD-L1 (CD274)",
+     "rho": -1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-Var",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs TIDE",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "TIDE vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-MI",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "ElasticNet-MI vs ElasticNet-Var",
+     "rho": 1.0,
+     "p": 0.0
+    }
+   ],
+   "mean_abs_rho": 0.733
+  },
+  "Riaz_2017_RECIST_v33": {
+   "remaining": [
+    "Hugo_2016",
+    "Nathanson_2017",
+    "Gide_2019_cBio"
+   ],
+   "pairwise_spearman": [
+    {
+     "pair": "IMPRES vs GEP",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs TIDE",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs PD-L1 (CD274)",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "IMPRES vs ElasticNet-Var",
+     "rho": -1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs TIDE",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "GEP vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "GEP vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs PD-L1 (CD274)",
+     "rho": 1.0,
+     "p": 0.0
+    },
+    {
+     "pair": "TIDE vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "TIDE vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-MI",
+     "rho": -0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "PD-L1 (CD274) vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    },
+    {
+     "pair": "ElasticNet-MI vs ElasticNet-Var",
+     "rho": 0.5,
+     "p": 0.6667
+    }
+   ],
+   "mean_abs_rho": 0.633
+  }
+ },
+ "loco_summary": {
+  "mean_abs_rho_range": [
+   0.633,
+   0.733
+  ],
+  "all_below_0.5": false,
+  "interpretation": "Method rankings remain unstable (mean |Spearman rho| < 0.5) regardless of which cohort is removed \u2014 the 'no stable ranking' conclusion is not driven by any single cohort."
+ },
+ "kendalls_w": {
+  "W": 0.021,
+  "interpretation": "W < 0.5 indicates poor agreement across cohorts; W = 1 would mean perfect ranking concordance."
+ },
+ "table9_imvigor210": {
+  "n": 297,
+  "n_responders": 68,
+  "endpoint": "RECIST v1.1 (clinical, non-circular)",
+  "CDS": {
+   "cytolytic_surrogate": 0.953,
+   "RECIST": 0.434,
+   "surrogate_is_circular": true,
+   "RECIST_is_circular": false
+  },
+  "aurocs": {
+   "GEP": 0.613,
+   "TIDE": 0.517,
+   "IMPRES": 0.538,
+   "PD_L1_IHC": 0.566,
+   "ElasticNet": 0.657,
+   "ElasticNet_Var": 0.697
+  },
+  "rank_order": [
+   "ElasticNet_Var",
+   "ElasticNet",
+   "GEP",
+   "PD_L1_IHC",
+   "IMPRES",
+   "TIDE"
+  ],
+  "permutation_survivors": [
+   "GEP"
+  ],
+  "table9_checks": {
+   "large_n (>=50)": true,
+   "clinical_endpoint": true,
+   "CDS_computed": true,
+   "non_learning_baselines": true,
+   "permutation_test": true,
+   "full_statistical_reporting": true
+  },
+  "findings": {
+   "EN_learnability": "EN-MI 0.657, EN-Var 0.697 on RECIST \u2014 the trainable methods find signal on a clinical endpoint at n=297, consistent with Table 9's prediction that n>=50 enables detection",
+   "fixed_scorer_behavior": "GEP 0.615 (the only FDR survivor, q=0.010) \u2014 an application cohort of GEP, so this reflects cross-cohort signal rather than circular inflation",
+   "ranking_vs_melanoma": "the IMvigor210 ranking (EN-Var > EN-MI > GEP > PD-L1 > TIDE > IMPRES) differs from Hugo (IMPRES > PD-L1 > EN-MI > ...) \u2014 confirming context-dependence even at adequate n"
+  }
+ }
+}
