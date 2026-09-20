@@ -22,6 +22,8 @@ EXCLUDE_NAME_PARTS = ('egg-info',)
 # sync_github_deterministic.py.
 INTERNAL_PATHS = (
     'data/cohorts/GSE176307',
+    'data/cohorts/tigeR_clone',
+    'scripts/fetch_gse176307_resumable.py',
     'results/benchmark/v33/e1_gse176307.json',
     'scripts/build_gse176307_cohort.py',
     'scripts/e1_gse176307_executed.py',
