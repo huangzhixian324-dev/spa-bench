@@ -130,7 +130,11 @@ checks = {
     'GEP 0.905': 'RCC 代理端点 GEP',
     'CDS 0.945 vs null 0.516': 'RCC 代理端点 CDS',
     'n = 165 RECIST-evaluable, 48 responders': 'RCC 可评估数与应答数',
-    'histotype concordance 57/58': 'GSE274975 身份映射锚', 'Hanley-McNeil': 'one-sample 方法',
+    'histotype concordance 57/58': 'GSE274975 身份映射锚', 'Hanley-McNeil': 'one-sample 方法',    '0.744 [0.602–0.854]': 'STAD gastric GEP RECIST',
+    '0.00034': 'STAD GEP perm p',
+    '0.688 [0.537–0.820]': 'STAD PD-L1 RECIST',
+    'five cancer types': 'STAD 后五癌种',
+
 }
 for k, v in checks.items():
     ok = k in ms

@@ -1,0 +1,169 @@
+{
+ "meta": {
+  "cohort": "RCC_Braun_2020",
+  "n": 172,
+  "endpoint": {
+   "RECIST": {
+    "n_responders": 39
+   },
+   "cytolytic_surrogate": {
+    "n_high": 86,
+    "declared_genes": [
+     "GZMA",
+     "PRF1"
+    ]
+   }
+  },
+  "seed": 42,
+  "protocol": "v33 nested CV; CDS v1.1.0",
+  "note": "NaN in source replaced with 0 (missing FPKM values in TIGER preprocessed data)"
+ },
+ "RECIST": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.4995,
+   "auroc_ci": [
+    0.3907,
+    0.6092
+   ],
+   "auprc": 0.2502,
+   "perm_p": 0.5079098418031639,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4939,
+   "auroc_ci": [
+    0.3931,
+    0.6004
+   ],
+   "auprc": 0.2365,
+   "perm_p": 0.5503689926201476,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.5122,
+   "auroc_ci": [
+    0.4106,
+    0.6189
+   ],
+   "auprc": 0.239,
+   "perm_p": 0.40815183696326074,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5852,
+   "auroc_ci": [
+    0.4731,
+    0.6997
+   ],
+   "auprc": 0.3142,
+   "perm_p": 0.05359892802143957,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.4687,
+   "auroc_ci": [
+    0.3502,
+    0.5717
+   ],
+   "auprc": 0.2401
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.5458,
+   "auroc_ci": [
+    0.4458,
+    0.6304
+   ],
+   "auprc": 0.237
+  }
+ },
+ "cytolytic_surrogate": {
+  "k": 5,
+  "GEP": {
+   "auroc": 0.8814,
+   "auroc_ci": [
+    0.8315,
+    0.9258
+   ],
+   "auprc": 0.8933,
+   "perm_p": 1.999960000799984e-05,
+   "n_shuffle": 50000
+  },
+  "TIDE": {
+   "auroc": 0.4617,
+   "auroc_ci": [
+    0.3743,
+    0.5572
+   ],
+   "auprc": 0.4878,
+   "perm_p": 0.8092038159236815,
+   "n_shuffle": 50000
+  },
+  "IMPRES": {
+   "auroc": 0.6543,
+   "auroc_ci": [
+    0.5744,
+    0.7249
+   ],
+   "auprc": 0.6114,
+   "perm_p": 0.0001399972000559989,
+   "n_shuffle": 50000
+  },
+  "PD_L1_IHC": {
+   "auroc": 0.5615,
+   "auroc_ci": [
+    0.4701,
+    0.6493
+   ],
+   "auprc": 0.5429,
+   "perm_p": 0.08307833843323134,
+   "n_shuffle": 50000
+  },
+  "ElasticNet": {
+   "params": {
+    "C": 1.0,
+    "l1_ratio": 0.9
+   },
+   "auroc": 0.811,
+   "auroc_ci": [
+    0.741,
+    0.8733
+   ],
+   "auprc": 0.8242
+  },
+  "ElasticNet_Var": {
+   "params": {
+    "C": 0.1,
+    "l1_ratio": 0.1
+   },
+   "auroc": 0.7243,
+   "auroc_ci": [
+    0.6526,
+    0.7965
+   ],
+   "auprc": 0.7173
+  }
+ },
+ "cds": {
+  "RECIST": {
+   "CDS": 0.521,
+   "risk": "MODERATE",
+   "null_mean": 0.475,
+   "null_max": 0.588
+  },
+  "cytolytic_surrogate": {
+   "CDS": 0.92,
+   "risk": "HIGH",
+   "null_mean": 0.513,
+   "null_max": 0.637
+  }
+ }
+}
