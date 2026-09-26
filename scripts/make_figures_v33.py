@@ -64,10 +64,18 @@ def figS1():
     x = np.arange(len(METHODS))
     cy = [BM["Riaz_2017_cytolytic"][m]["auroc"] for m, _ in METHODS]
     re = [BM["Riaz_2017_RECIST_v33"][m]["auroc"] for m, _ in METHODS]
+    cy_ci = [BM["Riaz_2017_cytolytic"][m]["auroc_ci"] for m, _ in METHODS]
+    re_ci = [BM["Riaz_2017_RECIST_v33"][m]["auroc_ci"] for m, _ in METHODS]
+    cy_e = [[v - lo for v, (lo, _hi) in zip(cy, cy_ci)],
+            [hi - v for v, (_lo, hi) in zip(cy, cy_ci)]]
+    re_e = [[v - lo for v, (lo, _hi) in zip(re, re_ci)],
+            [hi - v for v, (_lo, hi) in zip(re, re_ci)]]
     ax.bar(x - 0.2, cy, 0.38, label="Cytolytic endpoint (n=43)",
-           color="#C44E52")
+           color="#C44E52", yerr=cy_e, capsize=3,
+           error_kw={"lw": 0.9, "ecolor": "#333333"})
     ax.bar(x + 0.2, re, 0.38, label="RECIST endpoint (n=42)",
-           color="#4C72B0")
+           color="#4C72B0", yerr=re_e, capsize=3,
+           error_kw={"lw": 0.9, "ecolor": "#333333"})
     for xi, v in zip(x - 0.2, cy):
         ax.text(xi, v + 0.02, f"{v:.3f}", ha="center", fontsize=7)
     for xi, v in zip(x + 0.2, re):
@@ -77,9 +85,9 @@ def figS1():
     ax.set_xticklabels([lbl for _, lbl in METHODS])
     ax.set_ylabel("AUROC (leakage-free nested CV)")
     ax.set_ylim(0, 1.08)
-    ax.set_title("Figure S1. Response-definition collapse (Riaz 2017, "
-                 "HGNC-mapped, v33)")
-    ax.legend(loc="upper right", fontsize=8)
+    ax.set_title("Figure 1. Response-definition collapse (Riaz 2017, "
+                 "HGNC-mapped, v33; 95% bootstrap CIs)")
+    ax.legend(loc="upper left", fontsize=8)
     save(fig, "figS1_response_definition_collapse.png")
 
 
@@ -324,6 +332,7 @@ def figS9():
 # ---------------------------------------------------------------- S10
 def figS10():
     cds = RC["cds_endpoints"]
+    nulls = json.load(open(V33 / "cds_nulls_200_v33.json"))
     pts = []
     name_map = {"Hugo 2016 RECIST": ("Hugo_2016", "Hugo 2016"),
                 "Nathanson 2017 RECIST": ("Nathanson_2017", "Lauss 2017 (ACT)"),
@@ -341,21 +350,31 @@ def figS10():
             continue
         ml = max(BM[ck]["ElasticNet"]["auroc"],
                  BM[ck]["ElasticNet_Var"]["auroc"])
-        pts.append((c, ml, disp))
+        nl = nulls.get(label, {})
+        pts.append((c, ml, disp, nl.get("mean"), nl.get("max")))
     fig, ax = plt.subplots(figsize=(5.2, 3.8))
-    ax.axvspan(0.70, 1.0, color="#C44E52", alpha=0.12)
+    ax.axvspan(0.70, 1.0, color="#C44E52", alpha=0.10)
     ax.axvline(0.70, ls="--", color="#C44E52", lw=1)
-    ax.text(0.71, 0.35, "HIGH\n(CDS > 0.70)", fontsize=8, color="#C44E52")
-    for c, ml, lbl in pts:
-        circ = ml > 0.70
+    ax.text(0.71, 0.33, "shipped HIGH boundary\n(advisory; Limitations)",
+            fontsize=7.5, color="#C44E52")
+    null_drawn = False
+    for c, ml, lbl, nmean, nmax in pts:
+        if nmean is not None:
+            ax.plot([nmean, nmax], [ml - 0.035, ml - 0.035],
+                    color="#555555", lw=5, alpha=0.35, zorder=1,
+                    label=("cohort-matched null (mean\u2013max, 200 reps)"
+                           if not null_drawn else None))
+            null_drawn = True
+        circ = "cytolytic" in lbl
         ax.scatter(c, ml, s=60, zorder=3,
                    color="#C44E52" if circ else "#4C72B0")
         ax.annotate(lbl, (c, ml), textcoords="offset points", xytext=(6, 4),
                     fontsize=8)
-    ax.set_xlabel("CDS (v1.1.0, endpoint genes GZMA/PRF1)")
+    ax.legend(loc="lower right", fontsize=7)
+    ax.set_xlabel("CDS (v1.2.1, endpoint genes GZMA/PRF1)")
     ax.set_ylabel("Best trainable-ML AUROC (nested CV)")
     ax.set_xlim(0.3, 1.0); ax.set_ylim(0.3, 1.05)
-    ax.set_title("Figure S10. CDS vs. observed ML performance (v33)")
+    ax.set_title("Figure 2. CDS vs. observed ML performance (v33)")
     save(fig, "figS10_cds_vs_auroc.png")
 
 
@@ -432,8 +451,12 @@ def figS12():
                 continue
             q = qv[cname][m]
             star = "*" if q < 0.05 else ""
-            ax.text(j, i - 0.16, f"{BM[cname][m]['auroc']:.3f}{star}",
-                    ha="center", va="center", fontsize=7,
+            if m in ("ElasticNet", "ElasticNet_Var"):
+                val = f"{BM[cname][m]['auroc']:.3f}/{cell['obs_auroc']:.3f}"
+            else:
+                val = f"{BM[cname][m]['auroc']:.3f}"
+            ax.text(j, i - 0.16, f"{val}{star}",
+                    ha="center", va="center", fontsize=6,
                     fontweight="bold" if star else "normal")
             ax.text(j, i + 0.22, f"p={cell['p']:.3g}", ha="center",
                     va="center", fontsize=6, color="#555555")
@@ -443,11 +466,12 @@ def figS12():
     ax.set_yticks(range(len(METHODS)))
     ax.set_yticklabels([lbl for _, lbl in METHODS], fontsize=8)
     plt.colorbar(im, ax=ax, label="−log10(permutation p)")
-    ax.set_title("Figure S12. Complete permutation matrix (E4): observed "
-                 "AUROC + p per cell; * BH q < 0.05 within cohort.\n"
-                 "Fixed scorers: 50,000 prediction shuffles; ML: full-pipeline "
-                 "shuffles (per-cell n); n.p. = not permuted (PD-L1 excluded "
-                 "in v33 runs)", fontsize=8)
+    ax.set_title("Figure 3. Complete permutation matrix (E4): AUROC + p per "
+                 "cell; * BH q < 0.05 within cohort.\n"
+                 "Fixed scorers: 50,000 prediction shuffles; trainable: "
+                 "full-pipeline shuffles with frozen hyperparameters (per-cell "
+                 "n); trainable cells show obs/perm-obs (p tests perm-obs)",
+                 fontsize=8)
     save(fig, "figS12_permutation_heatmap.png")
 
 

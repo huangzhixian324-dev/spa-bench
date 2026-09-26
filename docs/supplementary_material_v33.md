@@ -21,18 +21,18 @@ The v33 benchmark stores pooled out-of-fold (OOF) AUROC, 95% bootstrap CI, and A
 
 ## Table S2. Literature Comparison: Published vs. SPATBench Standardized AUROC (v33)
 
-| Method | Published AUROC | Published Cohort | SPATBench best (v33) | Inflation | Reference |
+| Method | Published AUROC | Published Cohort | SPATBench best (v33, clinical endpoints) | Published − SPATBench | Reference |
 |---|---|---|---|---|---|
 | TIDE | 0.80 | IMvigor210 (BLCA, n = 298) | 0.752 (Gide 2019 RECIST) | +0.05 | Jiang et al. 2018, Nature Medicine |
 | IMPRES | 0.83 | Auslander 2018 (SKCM, n = 30–48) | 0.795 (Hugo 2016 RECIST) | +0.04 | Auslander et al. 2018, Nature Medicine |
-| TMB (proxy) | 0.64 | Various (n > 100) | 0.500 constant proxy | +0.14 | Goodman et al. 2017, Mol Cancer Ther |
-| PD-L1 (CD274) | 0.65 | Multiple trials | 0.868 (Riaz 2017 cytolytic) | -0.22 | Topalian et al. 2012, NEJM |
-| GEP | 0.67 | IMvigor210 (BLCA, n = 298) | 0.968 (Riaz 2017 cytolytic) | -0.30 | Mariathasan et al. 2018, Nature |
-| ElasticNet (MI) | 0.80 | Multiple (n > 200) | 0.968 (Riaz 2017 cytolytic) | -0.17 | Chowell et al. 2022, Nature Biotechnology |
+| TMB (constant proxy) | 0.64 | Various (n > 100) | 0.500 constant proxy | +0.14 | Goodman et al. 2017, Mol Cancer Ther |
+| PD-L1 (CD274) | 0.65 | Multiple trials | 0.791 (Gide 2019 RECIST) | −0.14 | Topalian et al. 2012, NEJM |
+| GEP | 0.67 | IMvigor210 (BLCA, n = 298) | 0.830 (Gide 2019 RECIST) | −0.16 | Mariathasan et al. 2018, Nature |
+| ElasticNet (MI) | 0.80 | Multiple (n > 200) | 0.700 (Lauss 2017 ACT RECIST) | +0.10 | Chowell et al. 2022, Nature Biotechnology |
 
-*SPATBench best values are the maximum AUROC across the six v33 cohort–endpoints (leakage-free nested CV); the TMB proxy is a constant 0.5 baseline (real mutation data unavailable) and the PD-L1 proxy is CD274 expression (real IHC scores unavailable).*
+*SPATBench best values are the maximum AUROC across the five clinical v33 cohort–endpoints (leakage-free nested CV, Table S11 observed values); the circular cytolytic-endpoint values (PD-L1 0.868, GEP 0.968, ElasticNet-MI 0.968 — Table 1) are excluded from this comparison because they embed the endpoint-gene dependency quantified in Design Choice 1. The TMB row is a constant 0.5 baseline (real mutation data unavailable; retained only to show that the published 0.64 exceeds what any constant proxy attains) and the PD-L1 proxy is CD274 expression (real IHC scores unavailable).*
 
-**Caveat:** Published values come from different (typically larger) cohorts. This comparison illustrates cross-study variability, not a within-cohort evaluation. Inflation (published minus SPATBench best) ranges from -0.30 to +0.14.
+**Caveat:** Published values come from different (typically larger) cohorts. This comparison illustrates cross-study variability, not a within-cohort evaluation. Published − SPATBench best (positive = published higher) ranges from −0.16 to +0.14.
 
 ## Table S3. Cohort Characteristics (Detailed, v33)
 
@@ -138,7 +138,7 @@ Full IMPRES (15 pairs) AUROC = **0.795** (equals the v33 benchmark value; the sc
 | PDCD1-TNFSF4 | 0.756 | -0.038 | Removing hurts |
 | CD40-PDCD1 | 0.751 | -0.044 | Removing hurts |
 
-All 15 canonical relations are retained in the shipped implementation. Simplifying the pair set on this cohort would constitute outcome-guided selection (data leakage) and is not performed. Interpretative caveat: Carter et al. (2019) reported potential training-set bias in the original IMPRES feature selection [30].
+All 15 canonical relations are retained in the shipped implementation. Simplifying the pair set on this cohort would constitute outcome-guided selection (data leakage) and is not performed. Interpretative caveat: Carter et al. (2019) reported potential training-set bias in the original IMPRES feature selection [28].
 
 ## Table S7. Expression-Scale Sensitivity (Hugo 2016, ElasticNet-MI, v33 protocol)
 
@@ -340,7 +340,7 @@ Fixed scorers (IMPRES, GEP, TIDE, PD-L1): 50,000 label shuffles against the fixe
 | ElasticNet (Var) | Riaz 2017 cytolytic (n=43) | 43 | 0.985 | 0.974 | 0.000999 | 1000 | 0.002 | **Yes** |
 | ElasticNet (Var) | Riaz 2017 RECIST (n=42) | 42 | 0.465 | 0.545 | 0.2267 | 2000 | 0.453 |  |
 
-*All 36 of 36 method × cohort-endpoint cells carry a recorded permutation p (the previously n.c. trainable cells were completed by `scripts/fill_nc_cells.py` and merged by `scripts/merge_nc_cells.py`; seed 42; frozen hyperparameters). The Obs AUROC column shows the benchmark AUROC (tune-primary protocol). The Perm-obs AUROC column shows the observed AUROC under the permutation protocol. For the trainable cells re-run with frozen hyperparameters (recorded in results/benchmark/v33/nc_cells/*.json, summarized in perm_obs_auroc_v33.json) it deviates from the benchmark value by 0.000–0.103 (largest: Hugo ElasticNet-MI 0.528 vs 0.631 — frozen-versus-tuned hyperparameters, the same deviation class as the Gide ElasticNet-MI cell, which re-run at 5,000 shuffles gives 0.662 vs the benchmark 0.629, i.e. +0.033). On 2026-09-18 all eight clinical trainable cells were extended to a uniform minimum of 2,000 full-pipeline shuffles (four cells at 5,000) as a pre-registered resolution-hardening check (`scripts/extend_nc_cells_5000.py`, merged by `scripts/merge_nc_cells_ext.py`): no cell changed its significance verdict, and the smallest within-cohort trainable q at n ≤ 43 tightened from 0.108 to 0.0716 (Lauss); the merge is reversible via the pre-merge snapshot `permutation_v33.pre_ext_backup.json`. For the remaining four trainable cells (Gide MI/Var and Riaz cytolytic MI/Var) the permutation-run AUROC reproduces the benchmark value within 0.0003. For fixed scorers the observed score is the benchmark AUROC by construction (the score is label-independent); PD-L1 cells use the fixed-scorer protocol (`scripts/pdl1_perm_v33.py`).*
+*All 36 of 36 method × cohort-endpoint cells carry a recorded permutation p (the previously n.c. trainable cells were completed by `scripts/fill_nc_cells.py` and merged by `scripts/merge_nc_cells.py`; seed 42; frozen hyperparameters). The Obs AUROC column shows the benchmark AUROC (tune-primary protocol). The Perm-obs AUROC column shows the observed AUROC under the permutation protocol. For the trainable cells re-run with frozen hyperparameters (recorded in results/benchmark/v33/nc_cells/*.json, summarized in perm_obs_auroc_v33.json) it deviates from the benchmark value by 0.000–0.103 (largest: Hugo ElasticNet-MI 0.528 vs 0.631 — frozen-versus-tuned hyperparameters, the same deviation class as the Gide ElasticNet-MI cell, which re-run at 5,000 shuffles gives 0.662 vs the benchmark 0.629, i.e. +0.033). On 2026-09-18 all eight clinical trainable cells were extended to a uniform minimum of 2,000 full-pipeline shuffles (four cells at 5,000) as a pre-registered resolution-hardening check (`scripts/extend_nc_cells_5000.py`, merged by `scripts/merge_nc_cells_ext.py`): no cell changed its significance verdict, and the smallest within-cohort trainable q at n ≤ 43 tightened from 0.108 to 0.0716 (Lauss); the merge is reversible via the pre-merge snapshot `permutation_v33.pre_ext_backup.json`. For the remaining three trainable cells (Gide ElasticNet-Var and Riaz cytolytic MI/Var) the permutation-run AUROC reproduces the benchmark value within 0.0003 (Gide ElasticNet-Var 0.605/0.605 at 500 shuffles); Gide ElasticNet-MI was extended to 5,000 shuffles in the borderline-cell protocol and deviates +0.033 as described above. For fixed scorers the observed score is the benchmark AUROC by construction (the score is label-independent); PD-L1 cells use the fixed-scorer protocol (`scripts/pdl1_perm_v33.py`).*
 
 
 Cells surviving within-cohort BH (q < 0.05): 12. Of these, the trainable-method cells are: ElasticNet (MI) on Gide 2019 RECIST (n=73) (0.629, q = 0.028), ElasticNet (Var) on Gide 2019 RECIST (n=73) (0.605, q = 0.028), ElasticNet (MI) on Riaz 2017 cytolytic (n=43) (0.968, q = 0.003), ElasticNet (Var) on Riaz 2017 cytolytic (n=43) (0.985, q = 0.002). No trainable method survives FDR at n ≤ 43; Gide (n = 73) is the first sample size at which a training-based signature becomes detectable, consistent with the power analysis.
@@ -617,7 +617,7 @@ Pre-declared replication of Design Choice 1 on Liu 2019 (DFCI anti-PD-1 melanoma
 Within-cohort BH over the four fixed scorers on the RECIST endpoint: IMPRES q = 0.108, GEP q = 0.350, TIDE q = 0.960, PD-L1 q = 0.350. IMPRES is therefore nominally significant only (p = 0.027, q = 0.108) and does not survive the manuscript's own FDR framework.
 
 
-*Provenance: GSE274975 (the originally pre-declared NSCLC candidate) was investigated over FTP (the only NCBI protocol reachable from the analysis machine) and disqualified: the series contains no RECIST, PFS or ICI-treatment annotations and cannot serve as an ICI replication cohort. Its complete pre-declared pipeline is retained (`scripts/e1_gse274975_replication.py`) for reuse on any suitable NSCLC ICI cohort. Liu 2019 is the disclosed substitution.*
+*Provenance (two-stage history of GSE274975): the originally pre-declared NSCLC candidate was first disqualified at the metadata stage — investigated over FTP (the only NCBI protocol reachable from the analysis machine), the series carries no RECIST, PFS or ICI-treatment annotations in its repository metadata, and its complete pre-declared pipeline was retained (`scripts/e1_gse274975_replication.py`). It was later re-qualified and executed when the clinical endpoints were recovered from the source publication's Supplementary Table 1 with sample identity verified (patient-number bijection; histotype anchor 57/58) — see Table S27, where the pre-declared protocol ran unchanged. Liu 2019 is the disclosed substitution, executed first. Both orders are recorded in the archived run outputs (`e1_liu2019_replication.json`, `e1_gse274975.json`).*
 
 ## Table S20. Cross-Cancer Replication — Response-Definition Effect on IMvigor210 (Bladder Carcinoma, Non-Melanoma, E1 executed)
 
@@ -709,7 +709,7 @@ All 36 permutation cells recomputed under: (A) within-cohort families, 6 x 6 cel
 | ElasticNet (MI) | 0.476 | 0.152–0.792 |
 | ElasticNet (Var) | 0.476 | 0.100–0.818 |
 
-TIDE scores far below chance on this cohort (0.278); with only 6 DCB responders this deviation sits inside the permutation null envelope (p = 0.952), and I report the value as computed under the tidepy default threshold convention rather than re-tuning it to the cohort.
+TIDE scores far below chance on this cohort (0.278); with only 6 DCB responders this deviation sits inside the permutation null envelope (p = 0.952), and I report the value as computed under the tidepy default threshold convention rather than re-tuning it to the cohort. ElasticNet-MI and ElasticNet-Var coincide at 0.476 on this cohort (confidence intervals differ); whether this reflects identical selected feature sets was not investigated, and both values are reported as computed.
 
 ## Table S24. Overall Survival Stratification on Hugo 2016 (true events)
 
@@ -771,7 +771,7 @@ Endpoint concordance: κ(RECIST, DCB) = 0.669; 48 RECIST responders, 58 DCB; cro
 **CDS** (declared genes GZMA/PRF1): RECIST 0.721 (null mean 0.622); DCB 0.726 (null mean 0.549) — both in the genuine-biology band, far below the circular surrogate's 0.954.
 
 
-**Reading.** The largest endpoint-switch delta across six methods is 0.084 (ElasticNet-Var) — roughly sixfold below the circular collapse (0.520 on Riaz) and below the same-endpoint between-method gap on Liu RECIST (0.216, IMPRES vs TIDE). Two clinical definitions of the same construct barely move predictions: the response-definition effect demonstrated in Design Choice 1 is attributable to the circularity channel (gene-defined surrogates), not to clinical-definition disagreement — closing the boundary acknowledged in earlier versions and confirming the mechanistic prediction of the Discussion's predictive account.
+**Reading.** The largest endpoint-switch delta across six methods is 0.083 (ElasticNet-Var) — roughly sixfold below the circular collapse (0.520 on Riaz) and below the same-endpoint between-method gap on Liu RECIST (0.216, IMPRES vs TIDE). Two clinical definitions of the same construct barely move predictions: the response-definition effect demonstrated in Design Choice 1 is attributable to the circularity channel (gene-defined surrogates), not to clinical-definition disagreement — closing the boundary acknowledged in earlier versions and confirming the mechanistic prediction of the Discussion's predictive account.
 
 ---
 
@@ -823,3 +823,21 @@ Fifth executed E1 replication, extending Design Choice 1 to gastric adenocarcino
 | ElasticNet (Var) | 0.748 [0.617-0.861] |  | |
 
 **CDS:** RECIST 0.779 (above null mean 0.601 — genuine biology, not circular), surrogate GEP 0.922, CDS 0.936 (HIGH; null 0.552). **Reading:** gastric cancer is the strongest GEP validation cohort — the largest GEP effect size among the executed replications (AUROC 0.744, BH q = 0.001), in a tumor type beyond melanoma, bladder carcinoma (IMvigor210) and RCC (IMmotion150), where GEP also survives FDR. The CDS value above null confirms the declared genes genuinely track response.
+
+## Table S30. Field Audit — Published Studies Training or Selecting Immunotherapy-Response Predictors Against Gene-Expression-Derived Response Labels
+
+Structured audit (2026-09-26): PubMed and Google Scholar; query families pairing "TIDE", "immunophenoscore", or "cytolytic activity" with "immunotherapy response" and TCGA (plus predictor-construction terms: LASSO, random forest, ElasticNet, signature). Inclusion: studies that train, select features for, or evaluate transcriptomic "immunotherapy response" predictors against labels derived from gene expression itself (TIDE-score dichotomies, the immunophenoscore, immune-infiltration clustering, or cytolytic-activity median splits) in cohorts without ICI clinical outcomes. This is a structured sample, not an exhaustive systematic review; the count (7) is a verifiable lower bound. Class A = predictor training/feature selection against a gene-derived label; Class B = signature or cluster evaluated against a gene-derived predicted-response outcome.
+
+| # | Class | Study | Cohort | Predictor | Label definition |
+|---|---|---|---|---|---|
+| A1 | A | Charoentong et al. 2017, Cell Rep 18:248–262 | TCGA, 20 solid cancers | immunophenoscore (machine learning) | per-cancer median split of cytolytic activity (GZMA/PRF1 mean, Rooney 2015 definition) |
+| A2 | A | Wang et al. 2025, BMC Cancer 25:1925 | TCGA-COAD | ElasticNet (glmnet) | "ICI response scores from TIDE serving as the response indicator" |
+| A3 | A | Nam and Rhee 2024, Sci Rep 14:6172 | TCGA, 20 cancer types, 8,037 samples | random forest (miRNA features) | TIDE-score sign (negative = responder) |
+| A4 | A | Frontiers in Genetics 2022 (10.3389/fgene.2022.1047435) | TCGA-LUAD | LASSO + SVM-RFE + logistic model | TIDE > 0 scored as non-responder |
+| A5 | A | Scientific Reports 2022 (10.1038/s41598-022-20737-0) | TCGA-LUSC, 502 | LASSO prognostic signature | responders vs non-responders divided "by the TIDE algorithm" |
+| A6 | A | Journal of Translational Medicine 2022 (10.1186/s12967-022-03565-7) | TCGA-LUSC, 501 | LASSO 17-gene IPTS | NMF clusters of ssGSEA immune-infiltration degree |
+| A7 | A | Scientific Reports 2023 (10.1038/s41598-023-31153-2) | TCGA-BRCA | immune-score model | immunophenoscore groups ("no definitive information available in the TCGA BC dataset for evaluating ICI treatment") |
+| B1 | B | Frontiers 2024 (PMC11442245) | TCGA-SKCM | CITPG clusters | share of TIDE-predicted immunotherapy responders compared across clusters |
+| B2 | B | Cancer Gene Therapy 2024 (10.1007/s12672-024-01031-y) | TCGA-CRC | disulfidptosis/ferroptosis risk score | "TIDE aided ICB therapy efficacy prediction" |
+
+The cytolytic-activity median split analyzed in the main text (Design Choice 1) is the construction underlying A1; the TIDE-dichotomy labels in A2–A5 are a strictly stronger form of the same endpoint-gene dependency, since the label is itself a function of the same expression matrix. The clinical-development lineage (main-text refs. [3]–[8], [23]–[31]; the PROSPERO-registered systematic review of Szincsak et al. 2025, Int J Mol Sci 26:5937) instead trains and evaluates on ICI-treated cohorts with clinical outcomes — the two segments are complementary, and the design rules of Table 9 bind both.
