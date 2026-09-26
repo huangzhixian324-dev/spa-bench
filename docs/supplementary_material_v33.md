@@ -709,7 +709,7 @@ All 36 permutation cells recomputed under: (A) within-cohort families, 6 x 6 cel
 | ElasticNet (MI) | 0.476 | 0.152–0.792 |
 | ElasticNet (Var) | 0.476 | 0.100–0.818 |
 
-TIDE scores far below chance on this cohort (0.278); with only 6 DCB responders this deviation sits inside the permutation null envelope (p = 0.952), and we report the value as computed under the tidepy default threshold convention rather than re-tuning it to the cohort.
+TIDE scores far below chance on this cohort (0.278); with only 6 DCB responders this deviation sits inside the permutation null envelope (p = 0.952), and I report the value as computed under the tidepy default threshold convention rather than re-tuning it to the cohort.
 
 ## Table S24. Overall Survival Stratification on Hugo 2016 (true events)
 
