@@ -1,0 +1,34 @@
+{
+ "frozen": {
+  "track": "frozen (fixed hyperparameters C=0.1/l1_ratio=0.5)",
+  "n_patients": 42,
+  "bootstrap_replicates": 1000,
+  "seed": 42,
+  "delta_point": 0.3427609427609428,
+  "gap_point": 0.028619528619528545,
+  "diff_delta_minus_gap": {
+   "point": 0.3141414141414143,
+   "ci95": [
+    -0.12057504058362178,
+    0.4203648841306164
+   ],
+   "p_equiv": 0.099
+  }
+ },
+ "tuning": {
+  "track": "tuning (tune_primary, nested CV)",
+  "n_patients": 42,
+  "bootstrap_replicates": 1000,
+  "seed": 42,
+  "delta_point": 0.3861111111111112,
+  "gap_point": 0.14646464646464646,
+  "diff_delta_minus_gap": {
+   "point": 0.23964646464646472,
+   "ci95": [
+    -0.17629028799019605,
+    0.3175826760871404
+   ],
+   "p_equiv": 0.163
+  }
+ }
+}
