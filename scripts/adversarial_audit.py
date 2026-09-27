@@ -121,6 +121,8 @@ checks = {
     'q = 0.007': 'XGBoost Gide 置换 q（7 格 family）',
     '0.569–0.704': 'SKCM 多变量 Cox HR 区',
     'n = 421, 89 events': 'COAD 多变量 Cox（GDC DR46 重取，2026-09-27）',
+    'IMPRES 0.613 vs ElasticNet-Var 0.465': 'Riaz RECIST 最大方法差距（0.148，JSON 复算校正 2026-09-27）',
+    'more than 0.083 on Liu 2019 and 0.082 on IMmotion150': '双队列临床-临床对比边界（IMmotion150 对比 2026-09-27 并入）',
     'huangzhixian324-dev/spa-bench': 'GitHub URL', 'Putian University': '单位',
     'no competing interests': 'COI 声明',
     '0.690 [0.513–0.865]': 'NSCLC GSE274975 PD-L1 RECIST AUROC+CI',

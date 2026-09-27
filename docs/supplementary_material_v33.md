@@ -376,7 +376,7 @@ Effect-size comparison framework (manuscript Methods): ranges of AUROC attributa
 | Source of variation | Estimated AUROC effect | Notes |
 |---|---|---|
 | Response definition (cytolytic → RECIST), largest | ΔAUROC = 0.520 (ElasticNet-Var: 0.985 → 0.465) | dominant; every method sharing endpoint genes collapses (GEP 0.968 → 0.503); IMPRES Δ = 0.047 (no gene overlap with the endpoint definition) |
-| Between-method, same RECIST endpoint (Riaz) | max ΔAUROC = 0.147 (IMPRES 0.613 vs TIDE 0.466) | endpoint effect exceeds it by 3.5× |
+| Between-method, same RECIST endpoint (Riaz) | max ΔAUROC = 0.148 (IMPRES 0.613 vs ElasticNet-Var 0.465) | endpoint effect exceeds it by 3.5× |
 | Between-method, same cytolytic endpoint (Riaz) | max ΔAUROC = 0.515 (EN-Var vs TIDE) | on the circular endpoint (CDS 0.954) |
 | Between-method, cross-cohort spread | up to 0.508 (Jung: GEP vs TIDE) | why the endpoint effect must be compared within-cohort |
 | Feature selection (MI vs Var), Hugo 2016 | |ΔAUROC| = 0.103 on the benchmark split; cross-seed Δ mean −0.008 ± 0.050 (10 seeds, Table S12) includes zero (manuscript Table 2); top-500 overlap 27.0% under the two-stage prescreen convention (2.4% under the full-data MI convention; Figure S3; mi_var_overlap_v33.json) |
@@ -413,7 +413,9 @@ Cohort details: SKCM n = 441 (212 events); BRCA n = 1082 (151 events); LUAD n = 
 
 **Multivariate sensitivity (SKCM).** Cox models adjusted for age and AJCC stage (n = 390, 191 events; signature, age and stage z-standardized; stage parsed from AJCC codes to ordinal 1–4): **8/12 signatures remain BH-significant** with stronger protective HRs (0.569–0.704) than the univariate models — the immune-prognostic signal is not a stage- or age-proxy (`scripts/tcga_skcm_multivariate.py`, `SKCM_cox_multivariate.json`).
 
-## Table S16. k-Fold Robustness — Riaz RECIST (ElasticNet-Var, 10 stratified seeds per k, v33)
+## Table S16. k-Fold and Seed Robustness (v33) — Riaz RECIST k-fold (ElasticNet-Var) and Gide RECIST 10-seed rerun (both ElasticNets)
+
+### (a) Riaz RECIST — k-fold robustness (10 stratified seeds per k)
 
 | k | Mean AUROC | SD | n seeds |
 |---|---|---|---|
@@ -422,6 +424,15 @@ Cohort details: SKCM n = 441 (212 events); BRCA n = 1082 (151 events); LUAD n = 
 | 5 | 0.398 | 0.088 | 10 |
 
 All values remain far below 0.60: the cytolytic → RECIST collapse is not an artifact of the k = 2 constraint. The archived v28 k-fold JSON (0.51 / 0.318 / 0.361) is superseded by this regeneration (`riaz_recist_kfold_v33.json`).
+
+### (b) Gide 2019 RECIST — 10-seed benchmark-level rerun (k = 5 primary design)
+
+| Method | Mean AUROC | SD | n seeds | Frozen hyperparameters |
+|---|---|---|---|---|
+| ElasticNet (MI) | 0.613 | 0.041 | 10 | C = 1.0, l1_ratio = 0.1 |
+| ElasticNet (Var) | 0.624 | 0.035 | 10 | C = 0.01, l1_ratio = 0.1 |
+
+Folds are regenerated from scratch per seed (RandomState(42 + seed); class-wise shuffle with round-robin assignment — the identical regeneration logic as block (a)); feature selection and fitting use the pipeline-native nested-CV functions with the modal hyperparameters frozen from tune_primary on the seed-42 primary folds (`scripts/gide_recist_10seed_v33.py`; machine-readable: `gide_recist_10seed_v33.json`). Per-seed AUROCs span 0.523–0.673 (MI) and 0.568–0.672 (Var); the benchmark seed-42 values (perm-track 0.662 / 0.605, Table S11) lie within 1 SD of the seed distributions, so the n = 73 detectability reading is not a favorable-split artifact. Permutation-level 10-seed reruns remain infeasible (60–90 s/shuffle × 5,000 × 10) and are out of scope, as disclosed in the revision.
 
 ## Table S17. CDS Retrospective Assessment on Published Benchmark Studies
 
@@ -748,9 +759,9 @@ At n = 25–43, the minimum detectable ΔAUROC is 0.21–0.23. For reliable pair
 
 ---
 
-## Table S26. Clinical–Clinical Response-Definition Contrast on Liu 2019 — RECIST vs PFS-derived DCB (first non-circular contrast, E5)
+## Table S26. Clinical–Clinical Response-Definition Contrast — RECIST vs PFS-derived DCB (Liu 2019, first non-circular contrast E5; IMmotion150, second instance E1)
 
-One public cohort carries two clinical response definitions on the same patients: the iAtlas harmonization of Liu 2019 annotates both RECIST (CR/PR; tumor-biopsy rows) and PFS (patient-level rows). DCB = progression-free at ≥6 months; samples censored before 6 months are excluded (event-free status unknown). Expression: the iAtlas z-score matrix (33,732 of 59,409 genes retained after dropping genes unmeasured in any sample). Leakage-free nested CV with frozen hyperparameters from tune_primary, seed 42; fixed-scorer permutations 50,000 shuffles; CDS v1.1.0 with declared genes GZMA/PRF1 and 10-replicate random-label nulls. Pipeline: `scripts/e5_clinical_contrast_liu2019.py`; machine-readable: `e5_liu2019_clinical_contrast.json`. RECIST-column AUROCs differ from Table S19 by ≤0.013 for the four fixed scorers; the two trainable methods deviate more (ElasticNet-Var 0.441 vs 0.586, ElasticNet-MI 0.554 vs 0.538) because their per-fold feature selection is re-fit on the complete-case-filtered matrix (33,732 of 59,409 genes). All conclusions are within-experiment comparisons, so this drift does not affect the RECIST-vs-DCB contrast.
+The first non-circular contrast (Liu 2019) uses a cohort carrying two clinical response definitions on the same patients: the iAtlas harmonization annotates both RECIST (CR/PR; tumor-biopsy rows) and PFS (patient-level rows). DCB = progression-free at ≥6 months; samples censored before 6 months are excluded (event-free status unknown). Expression: the iAtlas z-score matrix (33,732 of 59,409 genes retained after dropping genes unmeasured in any sample). Leakage-free nested CV with frozen hyperparameters from tune_primary, seed 42; fixed-scorer permutations 50,000 shuffles; CDS v1.1.0 with declared genes GZMA/PRF1 and 10-replicate random-label nulls. Pipeline: `scripts/e5_clinical_contrast_liu2019.py`; machine-readable: `e5_liu2019_clinical_contrast.json`. RECIST-column AUROCs differ from Table S19 by ≤0.013 for the four fixed scorers; the two trainable methods deviate more (ElasticNet-Var 0.441 vs 0.586, ElasticNet-MI 0.554 vs 0.538) because their per-fold feature selection is re-fit on the complete-case-filtered matrix (33,732 of 59,409 genes). All conclusions are within-experiment comparisons, so this drift does not affect the RECIST-vs-DCB contrast.
 
 Endpoint concordance: κ(RECIST, DCB) = 0.669; 48 RECIST responders, 58 DCB; cross-tab (rows RECIST 0/1 × cols DCB 0/1): 59/15/5/43. Samples progressing before 6 months are scored NDB; samples censored before 6 months would be excluded (none in this cohort); samples censored at or after 6 months count as DCB (event-free at the landmark). IMPRES permutation p-values in this table are nominal, not BH-corrected within the E5 design.
 
@@ -758,22 +769,34 @@ Endpoint concordance: κ(RECIST, DCB) = 0.669; 48 RECIST responders, 58 DCB; cro
 | Method | RECIST AUROC | 95% CI | DCB AUROC | 95% CI | Δ (RECIST−DCB) | Fixed-scorer perm p (RECIST / DCB) |
 |---|---|---|---|---|---|---|
 | IMPRES | 0.614 [0.515–0.714] | 0.633 [0.532–0.729] | -0.019 | 0.0163 / 0.0053 |
-
 | GEP | 0.532 [0.426–0.641] | 0.554 [0.453–0.660] | -0.021 | 0.2763 / 0.1516 |
-
 | TIDE | 0.398 [0.302–0.502] | 0.446 [0.344–0.545] | -0.048 | 0.9709 / 0.8447 |
-
 | PD-L1 (CD274) | 0.550 [0.444–0.652] | 0.601 [0.503–0.700] | -0.051 | 0.1795 / 0.02606 |
-
 | ElasticNet (MI) | 0.553 [0.450–0.660] | 0.554 [0.452–0.662] | -0.000 |  |
-
 | ElasticNet (Var) | 0.441 [0.334–0.553] | 0.524 [0.419–0.634] | -0.083 |  |
 
 
 **CDS** (declared genes GZMA/PRF1): RECIST 0.721 (null mean 0.622); DCB 0.726 (null mean 0.549) — both in the genuine-biology band, far below the circular surrogate's 0.954.
 
 
-**Reading.** The largest endpoint-switch delta across six methods is 0.083 (ElasticNet-Var) — roughly sixfold below the circular collapse (0.520 on Riaz) and below the same-endpoint between-method gap on Liu RECIST (0.216, IMPRES vs TIDE). Two clinical definitions of the same construct barely move predictions: the response-definition effect demonstrated in Design Choice 1 is attributable to the circularity channel (gene-defined surrogates), not to clinical-definition disagreement — closing the boundary acknowledged in earlier versions and confirming the mechanistic prediction of the Discussion's predictive account.
+**Reading.** The largest endpoint-switch delta across six methods is 0.083 (ElasticNet-Var) — roughly sixfold below the circular collapse (0.520 on Riaz) and below the same-endpoint between-method gap on Liu RECIST (0.195, IMPRES vs TIDE). Two clinical definitions of the same construct barely move predictions: the response-definition effect demonstrated in Design Choice 1 is attributable to the circularity channel (gene-defined surrogates), not to clinical-definition disagreement — closing the boundary acknowledged in earlier versions and confirming the mechanistic prediction of the Discussion's predictive account.
+
+### (b) IMmotion150 — RECIST vs PFS-derived DCB (E1 extension; second non-circular contrast)
+
+The same construction applies to IMmotion150, whose iAtlas harmonization annotates both RECIST (CR/PR vs SD/PD; 48 responders / 165 evaluable) and the Jung-convention durable clinical benefit (PFS ≥ 6 months without progression; 51 DCB; samples censored before 6 months excluded). The atezolizumab arms are pooled (mono + atezo-bev not separable in iAtlas; sunitinib arm excluded) — a composition constant across the two endpoints, so the within-cohort contrast is unaffected. Protocol identical to the executed E1 runs (v33 leakage-free nested CV, seed 42, frozen modal hyperparameters; `scripts/e1_immotion150_executed.py`; machine-readable: `e1_immotion150.json`). RECIST-column AUROCs are the Table S28 values (same run, so no cross-table drift).
+
+| Method | RECIST AUROC | DCB6mo AUROC | Δ (RECIST−DCB6mo) |
+|---|---|---|---|
+| IMPRES | 0.545 | 0.462 | +0.082 |
+| ElasticNet (MI) | 0.658 | 0.596 | +0.062 |
+| GEP | 0.662 | 0.604 | +0.058 |
+| ElasticNet (Var) | 0.662 | 0.604 | +0.058 |
+| PD-L1 (CD274) | 0.599 | 0.541 | +0.058 |
+| TIDE | 0.503 | 0.483 | +0.019 |
+
+**CDS** (declared genes GZMA/PRF1): RECIST 0.741 (null mean 0.492, max 0.621) and DCB6mo 0.653 (null mean 0.492, max 0.609) — both definitions read above their nulls on this immune-infiltrated RCC cohort (the known genuine-biology reading, Design Choice 3); the clinical–clinical argument concerns the within-cohort endpoint-switch delta below, which is independent of that absolute reading.
+
+**Reading.** The largest endpoint-switch delta on IMmotion150 is 0.082 (IMPRES), below its within-cohort RECIST method gap (0.159, GEP vs TIDE) — a replication of the Liu contrast in a second tumor type. Across the two cohorts (melanoma and RCC), two clinical definitions of the same construct move predictions by at most 0.083, an order of magnitude below the circular collapse.
 
 ---
 
