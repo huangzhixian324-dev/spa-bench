@@ -234,6 +234,121 @@
   }
  },
  "COAD": {
-  "status": "pending GDC refetch (data_mrna_gdc_star_fpkm.txt absent)"
+  "cohort": "TCGA-COAD",
+  "model": "multivariate Cox: signature (z) + AGE (z) + AJCC stage (ordinal 1-4, z); BH within 12 signatures",
+  "n": 421,
+  "events": 89,
+  "source": "GDC STAR matrix (build_coad_gdc.py) + GDC cases endpoint clinical sidecar under Data Release 46 schema (data_clinical_patient_gdc_multiv.txt; ajcc_pathologic_stage / diagnosis-level days_to_last_follow_up)",
+  "note": "extends the SKCM multivariate sensitivity to this cancer type; addresses the univariate-confounding attack on the gradient",
+  "results": {
+   "IMPRES-like": {
+    "HR": 1.168,
+    "p": 0.1391403441363376,
+    "HR_age": 1.455,
+    "p_age": 0.0014792549406504908,
+    "HR_stage": 2.271,
+    "p_stage": 8.861772618169298e-12,
+    "p_bh": 0.23852630423372162
+   },
+   "CD8 T cells": {
+    "HR": 1.089,
+    "p": 0.4221504139426765,
+    "HR_age": 1.461,
+    "p_age": 0.001415478282639698,
+    "HR_stage": 2.243,
+    "p_stage": 1.3223031188962251e-11,
+    "p_bh": 0.46052772430110167
+   },
+   "B cells": {
+    "HR": 1.299,
+    "p": 0.005237925557137521,
+    "HR_age": 1.515,
+    "p_age": 0.0005004373302025248,
+    "HR_stage": 2.257,
+    "p_stage": 6.101996554693e-12,
+    "p_bh": 0.06285510668565025
+   },
+   "NK cells": {
+    "HR": 1.146,
+    "p": 0.16899775576265375,
+    "HR_age": 1.44,
+    "p_age": 0.002170912949945879,
+    "HR_stage": 2.262,
+    "p_stage": 9.184979969053971e-12,
+    "p_bh": 0.2534966336439806
+   },
+   "IFNG response": {
+    "HR": 1.18,
+    "p": 0.06290691123258883,
+    "HR_age": 1.437,
+    "p_age": 0.002134083990469264,
+    "HR_stage": 2.276,
+    "p_stage": 7.10328918603888e-12,
+    "p_bh": 0.20340742401025227
+   },
+   "Cytolytic": {
+    "HR": 1.096,
+    "p": 0.33263457327430307,
+    "HR_age": 1.444,
+    "p_age": 0.00231446745158781,
+    "HR_stage": 2.242,
+    "p_stage": 1.0701811045686855e-11,
+    "p_bh": 0.3991614879291637
+   },
+   "Checkpoint": {
+    "HR": 1.189,
+    "p": 0.08475309333760511,
+    "HR_age": 1.446,
+    "p_age": 0.0017957970349321867,
+    "HR_stage": 2.282,
+    "p_stage": 7.866746416952902e-12,
+    "p_bh": 0.20340742401025227
+   },
+   "TLS": {
+    "HR": 1.22,
+    "p": 0.05617746720408131,
+    "HR_age": 1.487,
+    "p_age": 0.0007303733872925088,
+    "HR_stage": 2.229,
+    "p_stage": 1.266143002251178e-11,
+    "p_bh": 0.20340742401025227
+   },
+   "Treg": {
+    "HR": 1.115,
+    "p": 0.31656973980498687,
+    "HR_age": 1.479,
+    "p_age": 0.0009396159492137973,
+    "HR_stage": 2.252,
+    "p_stage": 1.0586641835831757e-11,
+    "p_bh": 0.3991614879291637
+   },
+   "M1 Macrophage": {
+    "HR": 0.696,
+    "p": 0.07228192786322894,
+    "HR_age": 1.467,
+    "p_age": 0.0011690976118866679,
+    "HR_stage": 2.116,
+    "p_stage": 1.6203454732698328e-10,
+    "p_bh": 0.20340742401025227
+   },
+   "Myeloid": {
+    "HR": 1.146,
+    "p": 0.1362537065246907,
+    "HR_age": 1.456,
+    "p_age": 0.0015858703945700056,
+    "HR_stage": 2.215,
+    "p_stage": 1.149677353594895e-11,
+    "p_bh": 0.23852630423372162
+   },
+   "Stromal": {
+    "HR": 1.027,
+    "p": 0.796227741575144,
+    "HR_age": 1.479,
+    "p_age": 0.0009664267095904908,
+    "HR_stage": 2.202,
+    "p_stage": 2.3628842345556362e-11,
+    "p_bh": 0.796227741575144
+   }
+  }
  }
 }

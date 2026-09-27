@@ -51,7 +51,8 @@ for o in only_in_zip[:10]:
 
 # 项目里"应发布"但包内没有的
 EXCL_DIR = {'.git', 'venv', '__pycache__', '.pytest_cache', '_build', 'node_modules',
-            'archive', '_process', 'circularity_detection_score.egg-info'}
+            'archive', '_process', 'circularity_detection_score.egg-info',
+            'TCGA-COAD_v2'}
 EXCL_SUFFIX = ('.log', '.gz', '.pyc')
 EXCL_NAME = {'geo_page.html', 'SPATBench_v33_v34_zenodo.zip', 'di_form_filled_checkmark.pdf',
              'static_portal_v28.html', 'diag_stack.txt'}
@@ -114,6 +115,7 @@ checks = {
     '0.083': 'E5 临床-临床最大端点切换 Δ', '0.669': 'E5 κ(RECIST,DCB)',
     'q = 0.007': 'XGBoost Gide 置换 q（7 格 family）',
     '0.569–0.704': 'SKCM 多变量 Cox HR 区',
+    'n = 421, 89 events': 'COAD 多变量 Cox（GDC DR46 重取，2026-09-27）',
     'huangzhixian324-dev/spa-bench': 'GitHub URL', 'Putian University': '单位',
     'no competing interests': 'COI 声明',
     '0.690 [0.513–0.865]': 'NSCLC GSE274975 PD-L1 RECIST AUROC+CI',

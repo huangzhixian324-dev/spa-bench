@@ -1,0 +1,58 @@
+{
+ "meta": {
+  "cohort": "Gide_2019_cBio",
+  "endpoint": "RECIST",
+  "n": 73,
+  "responders": 40,
+  "k": 5,
+  "n_seeds": 10,
+  "seed_base": 42,
+  "frozen_params": {
+   "ElasticNet": {
+    "C": 1.0,
+    "l1_ratio": 0.1
+   },
+   "ElasticNet_Var": {
+    "C": 0.01,
+    "l1_ratio": 0.1
+   }
+  },
+  "protocol": "10 stratified seeds, folds regenerated per seed (RandomState(42+seed)); pipeline-native nested_cv_predict with frozen hyperparameters; mirrors riaz_recist_kfold_v33.json"
+ },
+ "methods": {
+  "ElasticNet": {
+   "mean": 0.613,
+   "std": 0.041,
+   "n_seeds": 10,
+   "per_seed": [
+    0.5947,
+    0.6508,
+    0.5894,
+    0.5856,
+    0.6174,
+    0.6265,
+    0.6174,
+    0.6515,
+    0.5227,
+    0.6727
+   ]
+  },
+  "ElasticNet_Var": {
+   "mean": 0.624,
+   "std": 0.035,
+   "n_seeds": 10,
+   "per_seed": [
+    0.5833,
+    0.672,
+    0.6439,
+    0.5826,
+    0.5682,
+    0.6144,
+    0.6182,
+    0.6553,
+    0.6424,
+    0.6644
+   ]
+  }
+ }
+}
