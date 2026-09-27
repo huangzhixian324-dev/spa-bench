@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="circularity-detection-score",
-    version="1.2.1",
+    version="2.0.0",
     description="Detect circular dependencies between benchmark endpoints and prediction features in transcriptomic studies",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

@@ -1,0 +1,24 @@
+{
+ "frozen": {
+  "n_resamples": 10000,
+  "seed": 42,
+  "auc_cytolytic_full": 0.8545,
+  "auc_recist_full": 0.5118,
+  "delta_point": 0.3428,
+  "delta_ci95_10000": [
+   0.0902,
+   0.5975
+  ]
+ },
+ "tuning": {
+  "n_resamples": 10000,
+  "seed": 42,
+  "auc_cytolytic_full": 0.8659,
+  "auc_recist_full": 0.4798,
+  "delta_point": 0.3861,
+  "delta_ci95_10000": [
+   0.1693,
+   0.5885
+  ]
+ }
+}

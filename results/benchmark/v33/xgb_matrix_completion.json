@@ -1,0 +1,43 @@
+{
+ "meta": {
+  "protocol": "full-pipeline label shuffles, default XGBoost hyperparameters, same folds as rerun_v33; exploratory (not part of the 36-cell matrix)",
+  "seed_base": 50000
+ },
+ "results": {
+  "Hugo_2016": {
+   "obs_auroc": 0.5282051282051282,
+   "n_perm": 1000,
+   "null_mean": 0.44214358974358975,
+   "null_q95": 0.682435897435897,
+   "p": 0.2907092907092907
+  },
+  "Nathanson_2017": {
+   "obs_auroc": 0.5733333333333334,
+   "n_perm": 1000,
+   "null_mean": 0.42689666666666665,
+   "null_q95": 0.6868333333333332,
+   "p": 0.16783216783216784
+  },
+  "Jung_2019_DCB": {
+   "obs_auroc": 0.5952380952380952,
+   "n_perm": 1000,
+   "null_mean": 0.4714920634920635,
+   "null_q95": 0.7777777777777778,
+   "p": 0.25274725274725274
+  },
+  "Riaz_2017_cytolytic": {
+   "obs_auroc": 0.9025974025974025,
+   "n_perm": 1000,
+   "null_mean": 0.4624426406926407,
+   "null_q95": 0.6645021645021645,
+   "p": 0.000999000999000999
+  },
+  "Riaz_2017_RECIST_v33": {
+   "obs_auroc": 0.3737373737373737,
+   "n_perm": 1000,
+   "null_mean": 0.47510606060606064,
+   "null_q95": 0.6684343434343433,
+   "p": 0.8101898101898102
+  }
+ }
+}

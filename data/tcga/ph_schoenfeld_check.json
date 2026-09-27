@@ -1,0 +1,471 @@
+{
+ "model": "multivariate Cox: signature (z) + AGE (z) + AJCC stage (z); PH test = lifelines proportional_hazard_test, rank transform, per covariate (sig/age/stage)",
+ "alpha": 0.05,
+ "cancers": {
+  "SKCM": {
+   "n": 390,
+   "events": 191,
+   "signatures": {
+    "IMPRES-like": {
+     "ph_p": {
+      "age": 0.7984,
+      "sig": 0.4353,
+      "stage": 0.0068
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "CD8 T cells": {
+     "ph_p": {
+      "age": 0.7906,
+      "sig": 0.5963,
+      "stage": 0.0069
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "B cells": {
+     "ph_p": {
+      "age": 0.9001,
+      "sig": 0.5304,
+      "stage": 0.0097
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "NK cells": {
+     "ph_p": {
+      "age": 0.8252,
+      "sig": 0.9774,
+      "stage": 0.0074
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "IFNG response": {
+     "ph_p": {
+      "age": 0.6222,
+      "sig": 0.0834,
+      "stage": 0.0139
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Cytolytic": {
+     "ph_p": {
+      "age": 0.8378,
+      "sig": 0.6313,
+      "stage": 0.0077
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Checkpoint": {
+     "ph_p": {
+      "age": 0.8039,
+      "sig": 0.3905,
+      "stage": 0.0063
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "TLS": {
+     "ph_p": {
+      "age": 0.9543,
+      "sig": 0.1123,
+      "stage": 0.0083
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Treg": {
+     "ph_p": {
+      "age": 0.7754,
+      "sig": 0.5555,
+      "stage": 0.0123
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "M1 Macrophage": {
+     "ph_p": {
+      "age": 0.9329,
+      "sig": 0.6971,
+      "stage": 0.01
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Myeloid": {
+     "ph_p": {
+      "age": 0.7758,
+      "sig": 0.6774,
+      "stage": 0.0125
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Stromal": {
+     "ph_p": {
+      "age": 0.9085,
+      "sig": 0.8355,
+      "stage": 0.0104
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    }
+   },
+   "models_with_any_violation": 12,
+   "models_total": 12
+  },
+  "BRCA": {
+   "n": 1050,
+   "events": 143,
+   "signatures": {
+    "IMPRES-like": {
+     "ph_p": {
+      "age": 0.3673,
+      "sig": 0.4603,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "CD8 T cells": {
+     "ph_p": {
+      "age": 0.4063,
+      "sig": 0.4119,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "B cells": {
+     "ph_p": {
+      "age": 0.4244,
+      "sig": 0.8038,
+      "stage": 0.0003
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "NK cells": {
+     "ph_p": {
+      "age": 0.3863,
+      "sig": 0.8133,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "IFNG response": {
+     "ph_p": {
+      "age": 0.3983,
+      "sig": 0.4425,
+      "stage": 0.0004
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Cytolytic": {
+     "ph_p": {
+      "age": 0.402,
+      "sig": 0.393,
+      "stage": 0.0005
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Checkpoint": {
+     "ph_p": {
+      "age": 0.3604,
+      "sig": 0.4421,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "TLS": {
+     "ph_p": {
+      "age": 0.336,
+      "sig": 0.747,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Treg": {
+     "ph_p": {
+      "age": 0.3641,
+      "sig": 0.0337,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "sig",
+      "stage"
+     ]
+    },
+    "M1 Macrophage": {
+     "ph_p": {
+      "age": 0.3386,
+      "sig": 0.1778,
+      "stage": 0.0002
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Myeloid": {
+     "ph_p": {
+      "age": 0.4051,
+      "sig": 0.6238,
+      "stage": 0.0003
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    },
+    "Stromal": {
+     "ph_p": {
+      "age": 0.3999,
+      "sig": 0.3026,
+      "stage": 0.0004
+     },
+     "violated_at_0.05": [
+      "stage"
+     ]
+    }
+   },
+   "models_with_any_violation": 12,
+   "models_total": 12
+  },
+  "LUAD": {
+   "n": 485,
+   "events": 177,
+   "signatures": {
+    "IMPRES-like": {
+     "ph_p": {
+      "age": 0.8134,
+      "sig": 0.1455,
+      "stage": 0.2012
+     },
+     "violated_at_0.05": []
+    },
+    "CD8 T cells": {
+     "ph_p": {
+      "age": 0.9058,
+      "sig": 0.6608,
+      "stage": 0.157
+     },
+     "violated_at_0.05": []
+    },
+    "B cells": {
+     "ph_p": {
+      "age": 0.8612,
+      "sig": 0.1163,
+      "stage": 0.2402
+     },
+     "violated_at_0.05": []
+    },
+    "NK cells": {
+     "ph_p": {
+      "age": 0.8853,
+      "sig": 0.87,
+      "stage": 0.1446
+     },
+     "violated_at_0.05": []
+    },
+    "IFNG response": {
+     "ph_p": {
+      "age": 0.8852,
+      "sig": 0.7983,
+      "stage": 0.1463
+     },
+     "violated_at_0.05": []
+    },
+    "Cytolytic": {
+     "ph_p": {
+      "age": 0.876,
+      "sig": 0.7587,
+      "stage": 0.1521
+     },
+     "violated_at_0.05": []
+    },
+    "Checkpoint": {
+     "ph_p": {
+      "age": 0.8133,
+      "sig": 0.2218,
+      "stage": 0.1825
+     },
+     "violated_at_0.05": []
+    },
+    "TLS": {
+     "ph_p": {
+      "age": 0.7866,
+      "sig": 0.4749,
+      "stage": 0.1607
+     },
+     "violated_at_0.05": []
+    },
+    "Treg": {
+     "ph_p": {
+      "age": 0.8612,
+      "sig": 0.1565,
+      "stage": 0.1782
+     },
+     "violated_at_0.05": []
+    },
+    "M1 Macrophage": {
+     "ph_p": {
+      "age": 0.8069,
+      "sig": 0.1314,
+      "stage": 0.1422
+     },
+     "violated_at_0.05": []
+    },
+    "Myeloid": {
+     "ph_p": {
+      "age": 0.851,
+      "sig": 0.1977,
+      "stage": 0.1987
+     },
+     "violated_at_0.05": []
+    },
+    "Stromal": {
+     "ph_p": {
+      "age": 0.9007,
+      "sig": 0.8878,
+      "stage": 0.1431
+     },
+     "violated_at_0.05": []
+    }
+   },
+   "models_with_any_violation": 0,
+   "models_total": 12
+  },
+  "COAD": {
+   "n": 421,
+   "events": 89,
+   "signatures": {
+    "IMPRES-like": {
+     "ph_p": {
+      "age": 0.9133,
+      "sig": 0.5732,
+      "stage": 0.3418
+     },
+     "violated_at_0.05": []
+    },
+    "CD8 T cells": {
+     "ph_p": {
+      "age": 0.8412,
+      "sig": 0.7981,
+      "stage": 0.2983
+     },
+     "violated_at_0.05": []
+    },
+    "B cells": {
+     "ph_p": {
+      "age": 0.7705,
+      "sig": 0.2888,
+      "stage": 0.2878
+     },
+     "violated_at_0.05": []
+    },
+    "NK cells": {
+     "ph_p": {
+      "age": 0.9429,
+      "sig": 0.5493,
+      "stage": 0.3623
+     },
+     "violated_at_0.05": []
+    },
+    "IFNG response": {
+     "ph_p": {
+      "age": 0.9855,
+      "sig": 0.2661,
+      "stage": 0.3786
+     },
+     "violated_at_0.05": []
+    },
+    "Cytolytic": {
+     "ph_p": {
+      "age": 0.863,
+      "sig": 0.125,
+      "stage": 0.4271
+     },
+     "violated_at_0.05": []
+    },
+    "Checkpoint": {
+     "ph_p": {
+      "age": 0.9419,
+      "sig": 0.4852,
+      "stage": 0.3534
+     },
+     "violated_at_0.05": []
+    },
+    "TLS": {
+     "ph_p": {
+      "age": 0.9192,
+      "sig": 0.3594,
+      "stage": 0.2837
+     },
+     "violated_at_0.05": []
+    },
+    "Treg": {
+     "ph_p": {
+      "age": 0.8523,
+      "sig": 0.2733,
+      "stage": 0.4059
+     },
+     "violated_at_0.05": []
+    },
+    "M1 Macrophage": {
+     "ph_p": {
+      "age": 0.979,
+      "sig": 0.5969,
+      "stage": 0.3073
+     },
+     "violated_at_0.05": []
+    },
+    "Myeloid": {
+     "ph_p": {
+      "age": 0.9623,
+      "sig": 0.1531,
+      "stage": 0.2898
+     },
+     "violated_at_0.05": []
+    },
+    "Stromal": {
+     "ph_p": {
+      "age": 0.8829,
+      "sig": 0.8039,
+      "stage": 0.3349
+     },
+     "violated_at_0.05": []
+    }
+   },
+   "models_with_any_violation": 0,
+   "models_total": 12
+  }
+ }
+}

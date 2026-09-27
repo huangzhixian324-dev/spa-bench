@@ -1,0 +1,139 @@
+{
+ "meta": {
+  "cds_version": "2.0.0",
+  "permutation": 200,
+  "hypothesis_free": true,
+  "n_hf_features": 2000,
+  "declared_genes": [
+   "GZMA",
+   "PRF1"
+  ],
+  "note": "v1.x composite unchanged; v2 block is additive"
+ },
+ "endpoints": {
+  "IMmotion150_cytolytic": {
+   "v1": {
+    "CDS": 0.945,
+    "risk": "HIGH",
+    "C1": 0.5067,
+    "C2": 0.8179,
+    "C3": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "permutation_c3": {
+     "R_observed": 10.734,
+     "R_null_mean": 385.134,
+     "R_null_q95": 536.024,
+     "empirical_p": 1.0,
+     "note": "permutation null of the v1 C3 skew ratio R; replaces the saturated point reading with an empirical enrichment p-value"
+    },
+    "declared_gene_specificity": {
+     "mean_percentile": 100.0,
+     "empirical_p": 0.005,
+     "interpretation": "circular-by-construction endpoints place the declared genes at the extreme top of the genome-wide MI distribution (the label is derived from them); genuine biology embeds them in a broader program"
+    },
+    "hypothesis_free": {
+     "statistic": "p90 of genome-wide MI (top-2000 variance features, declared genes always included)",
+     "observed": 0.0597,
+     "empirical_p": 0.005,
+     "interpretation": "tests whether the label associates with the feature space beyond chance WITHOUT declared genes (undeclared-surrogate detector)"
+    },
+    "conservative_HIGH_080": true
+   }
+  },
+  "Gide_RECIST": {
+   "v1": {
+    "CDS": 0.852,
+    "risk": "HIGH",
+    "C1": 0.1415,
+    "C2": 0.5081,
+    "C3": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "permutation_c3": {
+     "R_observed": 102.891,
+     "R_null_mean": 635.897,
+     "R_null_q95": 845.208,
+     "empirical_p": 0.8955,
+     "note": "permutation null of the v1 C3 skew ratio R; replaces the saturated point reading with an empirical enrichment p-value"
+    },
+    "declared_gene_specificity": {
+     "mean_percentile": 98.1,
+     "empirical_p": 0.01,
+     "interpretation": "circular-by-construction endpoints place the declared genes at the extreme top of the genome-wide MI distribution (the label is derived from them); genuine biology embeds them in a broader program"
+    },
+    "hypothesis_free": {
+     "statistic": "p90 of genome-wide MI (top-2000 variance features, declared genes always included)",
+     "observed": 0.079,
+     "empirical_p": 0.1642,
+     "interpretation": "tests whether the label associates with the feature space beyond chance WITHOUT declared genes (undeclared-surrogate detector)"
+    },
+    "conservative_HIGH_080": true
+   }
+  },
+  "Hugo_RECIST": {
+   "v1": {
+    "CDS": 0.449,
+    "risk": "MODERATE",
+    "C1": 0.0,
+    "C2": 0.164,
+    "C3": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "permutation_c3": {
+     "R_observed": 1303.117,
+     "R_null_mean": 1046.67,
+     "R_null_q95": 1372.049,
+     "empirical_p": 0.1343,
+     "note": "permutation null of the v1 C3 skew ratio R; replaces the saturated point reading with an empirical enrichment p-value"
+    },
+    "declared_gene_specificity": {
+     "mean_percentile": 26.9,
+     "empirical_p": 0.8756,
+     "interpretation": "circular-by-construction endpoints place the declared genes at the extreme top of the genome-wide MI distribution (the label is derived from them); genuine biology embeds them in a broader program"
+    },
+    "hypothesis_free": {
+     "statistic": "p90 of genome-wide MI (top-2000 variance features, declared genes always included)",
+     "observed": 0.1195,
+     "empirical_p": 0.398,
+     "interpretation": "tests whether the label associates with the feature space beyond chance WITHOUT declared genes (undeclared-surrogate detector)"
+    },
+    "conservative_HIGH_080": false
+   }
+  },
+  "Lauss_RECIST": {
+   "v1": {
+    "CDS": 0.781,
+    "risk": "HIGH",
+    "C1": 0.0488,
+    "C2": 0.2944,
+    "C3": 1.0,
+    "C3_saturated": true
+   },
+   "v2": {
+    "permutation_c3": {
+     "R_observed": 1365.891,
+     "R_null_mean": 1113.325,
+     "R_null_q95": 1504.968,
+     "empirical_p": 0.1443,
+     "note": "permutation null of the v1 C3 skew ratio R; replaces the saturated point reading with an empirical enrichment p-value"
+    },
+    "declared_gene_specificity": {
+     "mean_percentile": 70.0,
+     "empirical_p": 0.2388,
+     "interpretation": "circular-by-construction endpoints place the declared genes at the extreme top of the genome-wide MI distribution (the label is derived from them); genuine biology embeds them in a broader program"
+    },
+    "hypothesis_free": {
+     "statistic": "p90 of genome-wide MI (top-2000 variance features, declared genes always included)",
+     "observed": 0.1254,
+     "empirical_p": 0.403,
+     "interpretation": "tests whether the label associates with the feature space beyond chance WITHOUT declared genes (undeclared-surrogate detector)"
+    },
+    "conservative_HIGH_080": false
+   }
+  }
+ }
+}

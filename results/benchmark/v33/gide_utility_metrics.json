@@ -1,0 +1,92 @@
+{
+ "cohort": "Gide_2019_cBio",
+ "endpoint": "RECIST",
+ "os_source": "cBioPortal API mel_iatlas_gide_2019 patient clinical data, fetched 2026-09-27",
+ "n_samples": 73,
+ "n_os_matched": 73,
+ "os_events": 29,
+ "frozen_params": {
+  "ElasticNet": {
+   "C": 1.0,
+   "l1_ratio": 0.1
+  },
+  "ElasticNet_Var": {
+   "C": 0.01,
+   "l1_ratio": 0.1
+  }
+ },
+ "metrics": {
+  "GEP": {
+   "auroc": 0.8295,
+   "os_logrank_p": 0.055174786500273604,
+   "os_cox_HR_per_SD": 0.802,
+   "os_cox_p": 0.21290284802442347,
+   "os_split": "median score"
+  },
+  "TIDE": {
+   "auroc": 0.7523,
+   "os_logrank_p": 1.2116006694979382e-06,
+   "os_cox_HR_per_SD": 0.384,
+   "os_cox_p": 3.687617926458523e-07,
+   "os_split": "median score"
+  },
+  "IMPRES": {
+   "auroc": 0.6261,
+   "os_logrank_p": 0.5568413224561486,
+   "os_cox_HR_per_SD": 1.14,
+   "os_cox_p": 0.488194841297796,
+   "os_split": "median score"
+  },
+  "ElasticNet": {
+   "auroc": 0.6303,
+   "os_logrank_p": 0.2599265628949689,
+   "os_cox_HR_per_SD": 0.705,
+   "os_cox_p": 0.054035701559473084,
+   "os_split": "median score",
+   "brier": 0.3046,
+   "dca_net_benefit": {
+    "0.1": 0.4521,
+    "0.2": 0.3493,
+    "0.3": 0.2935,
+    "0.5": 0.1507
+   },
+   "dca_treat_all": 0.5479
+  },
+  "ElasticNet_Var": {
+   "auroc": 0.6053,
+   "os_logrank_p": 0.5920678826940986,
+   "os_cox_HR_per_SD": 0.815,
+   "os_cox_p": 0.2609004871783611,
+   "os_split": "median score",
+   "brier": 0.2422,
+   "dca_net_benefit": {
+    "0.1": 0.4977,
+    "0.2": 0.4349,
+    "0.3": 0.3542,
+    "0.5": 0.1233
+   },
+   "dca_treat_all": 0.5479
+  },
+  "PD-L1 (CD274)": {
+   "auroc": 0.7955,
+   "os_logrank_p": 3.419435733434203e-05,
+   "os_cox_HR_per_SD": 0.53,
+   "os_cox_p": 0.0005146211376817104,
+   "os_split": "median score"
+  }
+ },
+ "IDI": {
+  "IMPRES": {
+   "IDI": 0.0456
+  },
+  "ElasticNet": {
+   "IDI": 0.1431
+  },
+  "ElasticNet_Var": {
+   "IDI": 0.0172
+  },
+  "ElasticNet_vs_IMPRES_NRI-proxy": 0.0975,
+  "ElasticNet_Var_vs_IMPRES_NRI-proxy": -0.0284
+ },
+ "notes": "Brier/DCA computed only for ElasticNet variants (calibrated probabilities); fixed-scorer scores are uncalibrated so only survival metrics are reported. OS stratification uses a median score split."
+}

@@ -29,7 +29,23 @@ from scipy.stats import spearmanr
 import json, sys, argparse
 from pathlib import Path
 
-__version__ = "1.2.1"
+__version__ = "2.0.0"
+
+# v2.0.0 (2026-09-27): additive v2 statistics, backward compatible with
+# v1.x (the composite, components, labels and all v1 keys are unchanged).
+#   (a) permutation_c3: label-permutation null of the v1 C3 skew ratio R,
+#       replacing the saturated point reading (C3 clips to 1.0 on real
+#       bulk RNA-seq) with an empirical enrichment p-value.
+#   (b) declared_gene_specificity: mean percentile rank of the declared
+#       genes within the genome-wide MI distribution, with a permutation
+#       null. Circular-by-construction endpoints place the declared genes
+#       at the extreme top (the label is derived from them); genuine
+#       biology embeds them in a broader program.
+#   (c) hypothesis_free mode: p90 of the genome-wide MI distribution
+#       against its label-permutation null, with no declared genes needed
+#       (undeclared-surrogate detector).
+#   (d) conservative_HIGH_080 advisory flag (the 0.80 operational
+#       threshold previously promised for v2.0).
 
 # Risk thresholds
 # v33 note: the shipped composite weights are C1 30% / C2 30% / C3 40% and
@@ -76,7 +92,9 @@ CDS_CAVEATS = [
 def circularity_detection_score(X, y, endpoint_genes, gene_list,
                                  n_features=500, random_state=42,
                                  null_values=None, null_replicates=0,
-                                 null_margin=0.1):
+                                 null_margin=0.1, permutation=0,
+                                 hypothesis_free=False,
+                                 n_hypothesis_free_features=2000):
     """
     Compute Circularity Detection Score (CDS).
 
@@ -277,11 +295,97 @@ def circularity_detection_score(X, y, endpoint_genes, gene_list,
             f"Null-referenced reading: CDS {float(cds):.3f} is '{reading}' "
             f"(cohort-matched null: mean {null_mean:.3f}, max {null_max:.3f}, "
             f"{nv.size} replicates). " + result["guidance"])
+
+    # ---- v2.0.0 additive statistics (see version note at module top)
+    if permutation > 0 or hypothesis_free:
+        from scipy.stats import rankdata
+        n_hf = int(min(n_hypothesis_free_features, X.shape[1]))
+        hf_var = set(int(i) for i in np.argsort(X.var(axis=0))[-n_hf:])
+        for idx in ep_idx:
+            hf_var.add(int(idx))
+        hf_idx = np.array(sorted(hf_var))
+        pos_in_hf = {g: k for k, g in enumerate(hf_idx)}
+        ep_hf_cols = [pos_in_hf[int(i)] for i in ep_idx if int(i) in pos_in_hf]
+        mi_obs = mutual_info_classif(X[:, hf_idx], y,
+                                     random_state=random_state)
+        ranks_obs = rankdata(mi_obs) / len(mi_obs) * 100.0
+        spec_obs = (float(np.mean([ranks_obs[c] for c in ep_hf_cols]))
+                    if ep_hf_cols else None)
+        hf_obs = float(np.percentile(mi_obs, 90))
+        n_top = min(n_features, X.shape[1])
+        top_idx = np.argsort(X.var(axis=0))[-n_top:]
+        mi_top_o = mutual_info_classif(X[:, top_idx], y,
+                                       random_state=random_state)
+        rng_r = np.random.RandomState(random_state)
+        rand_idx = rng_r.choice(X.shape[1], size=n_top, replace=False)
+        mi_rand_o = mutual_info_classif(X[:, rand_idx], y,
+                                        random_state=random_state)
+        r_obs = float(np.percentile(mi_top_o, 90) /
+                      max(np.median(mi_rand_o), 0.0001))
+        rng_p = np.random.RandomState(random_state + 77)
+        null_spec, null_hf, null_r = [], [], []
+        for _ in range(int(permutation)):
+            y_p = rng_p.permutation(np.asarray(y))
+            mi_p = mutual_info_classif(X[:, hf_idx], y_p,
+                                       random_state=random_state)
+            ranks_p = rankdata(mi_p) / len(mi_p) * 100.0
+            if ep_hf_cols:
+                null_spec.append(float(np.mean([ranks_p[c] for c in
+                                                ep_hf_cols])))
+            null_hf.append(float(np.percentile(mi_p, 90)))
+            mi_t_p = mutual_info_classif(X[:, top_idx], y_p,
+                                         random_state=random_state)
+            mi_r_p = mutual_info_classif(X[:, rand_idx], y_p,
+                                         random_state=random_state)
+            null_r.append(float(np.percentile(mi_t_p, 90) /
+                          max(np.median(mi_r_p), 0.0001)))
+
+        def _emp_p(obs_v, null_list):
+            nl = np.asarray(null_list, dtype=float)
+            if nl.size == 0:
+                return None
+            return float((np.sum(nl >= obs_v - 1e-12) + 1) / (nl.size + 1))
+
+        v2 = {
+            "permutation_c3": {
+                "R_observed": round(r_obs, 3),
+                "R_null_mean": round(float(np.mean(null_r)), 3) if null_r else None,
+                "R_null_q95": round(float(np.quantile(null_r, 0.95)), 3) if null_r else None,
+                "empirical_p": round(_emp_p(r_obs, null_r), 4) if null_r else None,
+                "note": ("permutation null of the v1 C3 skew ratio R; "
+                          "replaces the saturated point reading with an "
+                          "empirical enrichment p-value"),
+            },
+            "declared_gene_specificity": {
+                "mean_percentile": round(spec_obs, 1) if spec_obs == spec_obs else None,
+                "empirical_p": (round(_emp_p(spec_obs, null_spec), 4)
+                                if (null_spec and spec_obs == spec_obs) else None),
+                "interpretation": ("circular-by-construction endpoints "
+                                   "place the declared genes at the "
+                                   "extreme top of the genome-wide MI "
+                                   "distribution (the label is derived "
+                                   "from them); genuine biology embeds "
+                                   "them in a broader program"),
+            },
+            "hypothesis_free": {
+                "statistic": "p90 of genome-wide MI (top-%d variance " % n_hf +
+                              "features, declared genes always included)",
+                "observed": round(hf_obs, 4),
+                "empirical_p": round(_emp_p(hf_obs, null_hf), 4) if null_hf else None,
+                "interpretation": ("tests whether the label associates "
+                                   "with the feature space beyond chance "
+                                   "WITHOUT declared genes "
+                                   "(undeclared-surrogate detector)"),
+            },
+            "conservative_HIGH_080": bool(float(cds) > 0.80),
+        }
+        result["v2"] = v2
     return result
 
 
 def batch_cds(expression_file, labels, endpoint_genes, gene_id_col=0, sep=None,
-              null_values=None, null_replicates=0):
+              null_values=None, null_replicates=0, permutation=0,
+              hypothesis_free=False):
     """
     Convenience function: load data from files and compute CDS.
 
@@ -304,7 +408,9 @@ def batch_cds(expression_file, labels, endpoint_genes, gene_id_col=0, sep=None,
     gene_list = df.index.tolist()
     return circularity_detection_score(X, y, endpoint_genes, gene_list,
                                        null_values=null_values,
-                                       null_replicates=null_replicates)
+                                       null_replicates=null_replicates,
+                                       permutation=permutation,
+                                       hypothesis_free=hypothesis_free)
 
 
 def generate_html_report(result, output_path=None):
@@ -409,6 +515,12 @@ Examples:
                              "and enable the null-referenced reading (recommended: 100-200)")
     parser.add_argument("--null-file", help="Optional JSON/CSV file with pre-computed null values "
                                             "(takes precedence over --null-replicates)")
+    parser.add_argument("--permutation", type=int, default=0,
+                        help="v2: label-permutation count for the empirical "
+                             "enrichment/specificity statistics (recommended: 200)")
+    parser.add_argument("--hypothesis-free", action="store_true",
+                        help="v2: enable the hypothesis-free genome-wide MI "
+                             "permutation test (no declared genes needed)")
     parser.add_argument("--html", help="Output HTML report path")
     parser.add_argument("--json", help="Output JSON results path")
     parser.add_argument("--demo", action="store_true", help="Run demo with synthetic data")
@@ -471,7 +583,9 @@ Examples:
     print(f"Loading: {args.expr}")
     result = batch_cds(args.expr, args.labels, endpoint_genes,
                        null_values=null_values,
-                       null_replicates=args.null_replicates)
+                       null_replicates=args.null_replicates,
+                       permutation=args.permutation,
+                       hypothesis_free=args.hypothesis_free)
 
     print(f"\nCDS = {result['CDS']:.3f} [{result['risk_level']} RISK]")
     for k, v in result['components'].items():

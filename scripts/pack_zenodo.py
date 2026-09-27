@@ -36,6 +36,7 @@ INTERNAL_PATHS = (
     'docs/declaration_of_interests_guide.md',
     # Submission correspondence — editor-confidential / personal data, never public:
     'docs/cover_letter_cellsystems.md',
+    'docs/cover_letter_nmi.md',
     'docs/di_form_filled.pdf',
     'results/adversarial_audit_report.txt',
     'results/deep_audit_report.txt',
