@@ -68,7 +68,12 @@ EXCL_PATH = {'GSE274975', 'SYNTH_TEST', 'SYNTH/', 'test.tsv.gz', 'test_fpkm.tsv.
 # Internal process material — never published. Mirrored in scripts/pack_zenodo.py
 # (INTERNAL_PATHS) and in the local (unpublished) copy of
 # sync_github_deterministic.py.
-EXCL_INTERNAL = ('docs/reviews/', 'docs/HANDOVER_2026-09-04.md',
+EXCL_INTERNAL = ('data/cohorts/GSE176307', 'data/cohorts/tigeR_clone',
+                 'scripts/fetch_gse176307_resumable.py',
+                 'scripts/build_gse176307_cohort.py',
+                 'scripts/e1_gse176307_executed.py',
+                 'results/benchmark/v33/e1_gse176307.json',
+                 'docs/reviews/', 'docs/HANDOVER_2026-09-04.md',
                  'docs/zenodo_upload_guide.md', 'docs/github_release_guide.md',
                  'docs/data_repository_alternatives.md',
                  'docs/declaration_of_interests_guide.md',
