@@ -9,10 +9,11 @@ R = Path(__file__).resolve().parents[1]
 REPO = R  # alias
 OUT = REPO / 'SPATBench_zenodo.zip'
 EXCLUDE_DIRS = {'.git', 'venv', '__pycache__', 'github-upload', '.pytest_cache',
-                'node_modules', '_build', 'archive', '_process', 'TCGA-COAD_v2'}
+                'node_modules', '_build', 'archive', '_process', 'TCGA-COAD_v2',
+                'data'}  # data/: 全部为公开数据（GEO/cBioPortal/GDC）再副本，出处见 DATA_INVENTORY.md 与 Data availability
 EXCLUDE_FILES = {'SPATBench_v33_v34_zenodo.zip', 'SPATBench_zenodo.zip'}
 EXCLUDE_SUFFIX = {'.log', '.pyc'}
-EXCLUDE_NAME_PARTS = ('egg-info',)
+EXCLUDE_NAME_PARTS = ('egg-info', 'backup', 'checkpoint')
 
 # Internal process material — must NEVER be part of the public deliverable:
 # peer-review simulations, development handover notes, local upload how-tos,
