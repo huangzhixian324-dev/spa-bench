@@ -1,8 +1,8 @@
 """Assemble the NMI Analysis submission PDFs from the NMI manuscript markdown.
 
 Parallel to scripts/build_submission.py (Cell Systems) but:
-  - sources: docs/manuscript_nmi_v1.md + docs/supplementary_nmi_v1.md
-  - outputs: docs/SPATBench_NMI_analysis_v1.pdf / _supplementary_v1.pdf
+  - sources: docs/manuscript_nmi.md + docs/supplementary_nmi.md
+  - outputs: docs/SPATBench_NMI_submission.pdf / _supplementary_v1.pdf
   - no graphical abstract insertion (not required by NMI)
 Outputs the same reviewer-readable typeset PDFs with figures above legends.
 """
@@ -12,11 +12,11 @@ from pathlib import Path
 import markdown
 
 REPO = Path(__file__).resolve().parents[1]
-MD = REPO / 'docs' / 'manuscript_nmi_v1.md'
+MD = REPO / 'docs' / 'manuscript_nmi.md'
 FIGD = REPO / 'results' / 'figures' / 'v33'
 HTML_OUT = REPO / 'docs' / '_build' / 'submission_nmi.html'
 HTML_OUT.parent.mkdir(parents=True, exist_ok=True)
-PDF_OUT = REPO / 'docs' / 'SPATBench_NMI_analysis_v1.pdf'
+PDF_OUT = REPO / 'docs' / 'SPATBench_NMI_submission.pdf'
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 
 t = MD.read_text(encoding='utf-8')
@@ -74,9 +74,9 @@ print('edge rc=', r.returncode)
 print('PDF written:', PDF_OUT, PDF_OUT.stat().st_size // 1024, 'KB')
 
 # supplementary (NMI version, includes S31)
-SUP_MD = REPO / 'docs' / 'supplementary_nmi_v1.md'
+SUP_MD = REPO / 'docs' / 'supplementary_nmi.md'
 SUP_HTML = REPO / 'docs' / '_build' / 'supplementary_nmi.html'
-SUP_PDF = REPO / 'docs' / 'SPATBench_NMI_supplementary_v1.pdf'
+SUP_PDF = REPO / 'docs' / 'SPATBench_NMI_supplementary.pdf'
 
 sup_lines = SUP_MD.read_text(encoding='utf-8').split('\n')
 

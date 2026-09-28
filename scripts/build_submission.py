@@ -4,8 +4,8 @@
 - Renders Markdown (tables extension) to styled single-column HTML
 - Edge headless converts HTML -> PDF
 Outputs:
-  docs/SPATBench_CellSystems_submission_v35.pdf      (main text)
-  docs/SPATBench_CellSystems_supplementary_v35.pdf   (supplementary material)
+  docs/SPATBench_submission.pdf      (main text)
+  docs/SPATBench_supplementary.pdf   (supplementary material)
 """
 import re
 import subprocess
@@ -13,14 +13,14 @@ from pathlib import Path
 import markdown
 
 REPO = Path(__file__).resolve().parents[1]
-MD = REPO / 'docs' / 'manuscript_v34.md'
+MD = REPO / 'docs' / 'manuscript.md'
 FIGD = REPO / 'results' / 'figures' / 'v33'
 HTML_OUT = REPO / 'docs' / '_build' / 'submission.html'
 HTML_OUT.parent.mkdir(parents=True, exist_ok=True)
-PDF_OUT = REPO / 'docs' / 'SPATBench_CellSystems_submission_v35.pdf'
+PDF_OUT = REPO / 'docs' / 'SPATBench_submission.pdf'
 EDGE = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 
-t = (REPO / 'docs' / 'manuscript_v34.md').read_text(encoding='utf-8')
+t = (REPO / 'docs' / 'manuscript.md').read_text(encoding='utf-8')
 
 # 1. graphical abstract after the H1 title line
 ga = FIGD / 'graphical_abstract.png'
@@ -98,11 +98,11 @@ print('edge rc=', r.returncode)
 print('PDF written:', PDF_OUT, PDF_OUT.stat().st_size // 1024, 'KB')
 
 # 5. supplementary material -> reviewer-readable PDF
-#    (docs/supplementary_material_v33.md is the generator's source; reviewers
+#    (docs/supplementary.md is the generator's source; reviewers
 #     must receive a typeset document, not raw Markdown)
-SUP_MD = REPO / 'docs' / 'supplementary_material_v33.md'
+SUP_MD = REPO / 'docs' / 'supplementary.md'
 SUP_HTML = REPO / 'docs' / '_build' / 'supplementary.html'
-SUP_PDF = REPO / 'docs' / 'SPATBench_CellSystems_supplementary_v35.pdf'
+SUP_PDF = REPO / 'docs' / 'SPATBench_supplementary.pdf'
 
 sup_lines = SUP_MD.read_text(encoding='utf-8').split('\n')
 

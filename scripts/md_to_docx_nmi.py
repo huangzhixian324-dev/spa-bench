@@ -10,7 +10,7 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 REPO = Path(__file__).resolve().parents[1]
-md = (REPO / 'docs/manuscript_nmi_v1.md').read_text(encoding='utf-8')
+md = (REPO / 'docs/manuscript_nmi.md').read_text(encoding='utf-8')
 
 doc = Document()
 st = doc.styles['Normal']
@@ -98,6 +98,6 @@ while i < len(lines):
     i += 1
 flush_para()
 
-out = REPO / 'docs/SPATBench_NMI_manuscript_v1.docx'
+out = REPO / 'docs/SPATBench_NMI_manuscript.docx'
 doc.save(out)
 print('written:', out, out.stat().st_size // 1024, 'KB')
