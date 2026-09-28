@@ -7,10 +7,10 @@ from pathlib import Path
 
 R = Path(__file__).resolve().parents[1]
 REPO = R  # alias
-OUT = REPO / 'SPATBench_v33_v34_zenodo.zip'
+OUT = REPO / 'SPATBench_zenodo.zip'
 EXCLUDE_DIRS = {'.git', 'venv', '__pycache__', 'github-upload', '.pytest_cache',
                 'node_modules', '_build', 'archive', '_process', 'TCGA-COAD_v2'}
-EXCLUDE_FILES = {'SPATBench_v33_v34_zenodo.zip'}
+EXCLUDE_FILES = {'SPATBench_v33_v34_zenodo.zip', 'SPATBench_zenodo.zip'}
 EXCLUDE_SUFFIX = {'.log', '.pyc'}
 EXCLUDE_NAME_PARTS = ('egg-info',)
 
@@ -37,6 +37,7 @@ INTERNAL_PATHS = (
     # Submission correspondence — editor-confidential / personal data, never public:
     'docs/cover_letter.md',
     'docs/cover_letter_nmi.md',
+    'docs/SPATBench_NMI_cover_letter.pdf',
     'docs/di_form_filled.pdf',
     'results/adversarial_audit_report.txt',
     'results/deep_audit_report.txt',
